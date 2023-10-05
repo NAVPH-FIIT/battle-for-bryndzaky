@@ -40,7 +40,7 @@ public class InteractScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && interactableObject != null)
+        if (Input.GetKeyDown(KeyCode.E) && !PauseManager.IsPaused && interactableObject != null)
         {
             interactableObject.ExecuteAction();
         }
