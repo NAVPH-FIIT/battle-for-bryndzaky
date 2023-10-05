@@ -8,7 +8,7 @@ using UnityEngine;
 public class Dialogue : ScriptableObject
 {
     public DialogueEntry[] dialogueEntries;
-    public string name;
+    public new string name;
     public Sprite characterImage;
 }
 
