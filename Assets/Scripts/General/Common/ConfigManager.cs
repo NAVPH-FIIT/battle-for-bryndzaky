@@ -5,11 +5,22 @@ using UnityEngine.Audio;
 
 public class ConfigManager : MonoBehaviour
 {
+    [HideInInspector]
     public enum Volume {
         VolumeMaster
     }
+
+    [HideInInspector]
     public static ConfigManager Instance { get; private set; }
-    public AudioMixer MixerMaster;
+    [HideInInspector]
+    public static Dictionary<string, object> config = new Dictionary<string, object>
+        {
+            { "combat.knockback.strength",  3f },
+            { "combat.knockback.delay",     0.15f },
+        };
+
+    [SerializeField]
+    private AudioMixer MixerMaster;
 
     // Start is called before the first frame update
     void Start()

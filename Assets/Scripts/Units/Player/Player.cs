@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using Bryndzaky.General.Common;
+using Bryndzaky.Weapons;
 using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Bryndzaky.Units.Player {
     public class Player : Unit
     {
+        [HideInInspector]
         public static Player Instance { get; private set; }
+        [HideInInspector]
         public IInteractable possibleInteraction = null;
+        private IWeapon weapon;
+
+        void Start() {
+            Instance = this;
+        }
 
         void Update()
         {
@@ -16,7 +24,16 @@ namespace Bryndzaky.Units.Player {
                 return;
             
             this.AssignDirection();
-            this.Interact();
+            this.PerformActions();
+        }
+
+        private void PerformActions()
+        {
+            if (Input.GetKeyDown(KeyCode.E) && this.possibleInteraction != null)
+                this.possibleInteraction.ExecuteAction();
+
+            if (Input.GetKeyDown(KeyCode.Mouse0) && this.weapon != null)
+                this.weapon.Attack();
         }
 
         private void AssignDirection()
@@ -30,10 +47,10 @@ namespace Bryndzaky.Units.Player {
             animator.SetFloat("Speed", moveDirection.sqrMagnitude);
         }
 
-        private void Interact()
+        override
+        public void Die()
         {
-            if (this.possibleInteraction != null && Input.GetKeyDown(KeyCode.E))
-                this.possibleInteraction.ExecuteAction();
+            Destroy(gameObject);
         }
     }
 }
