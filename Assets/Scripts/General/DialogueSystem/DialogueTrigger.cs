@@ -1,15 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
-using MyGame.Interfaces;
+using Bryndzaky.Units.Player;
+using Bryndzaky.General.Common;
 using UnityEngine;
 
 
 public class DialogueTrigger : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    public Dialogue dialogue;
+  public Dialogue dialogue;
+  public SpriteRenderer interactionHint;
 
-    public void ExecuteAction(){
-      FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+
+  public void ExecuteAction(){
+    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+  }
+  
+  public void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.CompareTag("Player"))
+    {
+      Debug.Log("Player has collided with the Interactable object!");
+      this.interactionHint.enabled = true;
+      Debug.Log("Object is: " + this.ToString());
+      other.GetComponent<Player>().possibleInteraction = this;
     }
+  }
+
+  public void OnTriggerExit2D(Collider2D other)
+  {
+    if (other.CompareTag("Player"))
+    {
+      Debug.Log("Player has left the Interactable object!");
+      this.interactionHint.enabled = false;
+      other.GetComponent<Player>().possibleInteraction = null;
+    }
+  }
 }

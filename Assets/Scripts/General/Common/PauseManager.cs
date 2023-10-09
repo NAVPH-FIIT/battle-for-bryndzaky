@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Bryndzaky.Units.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -36,6 +37,7 @@ public class PauseManager : MonoBehaviour
 
     public void MainMenu() {
         // SceneManager.LoadScene(0);
+        // Destroy(Player.Instance);
         SceneManager.LoadScene("MainMenu");
     }
 }
