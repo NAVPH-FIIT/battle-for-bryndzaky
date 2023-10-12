@@ -9,14 +9,16 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
 {
   public Dialogue dialogue;
   public SpriteRenderer interactionHint;
-
+  public Animator animator;
 
   public void ExecuteAction(){
+    animator.SetTrigger("KeyDown");
     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
   }
   
   public void OnTriggerEnter2D(Collider2D other)
   {
+    Debug.Log("Cokot");
     if (other.CompareTag("Player"))
     {
       Debug.Log("Player has collided with the Interactable object!");
