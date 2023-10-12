@@ -314,7 +314,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1209587631
-  m_SortingLayer: 4
+  m_SortingLayer: 7
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: f4eae9163da6fff42ba61b17a01c10e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -721,8 +721,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 7.109311, y: 0}
-  m_Size: {x: 4.6833663, y: 12}
+  m_Offset: {x: 7.7435174, y: 0.63420606}
+  m_Size: {x: 5.9517784, y: 13.268413}
   m_Direction: 0
 --- !u!114 &1635326466
 MonoBehaviour:
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   AttackTime: 0.25
-  cooldown: 3
+  cooldown: 1
 --- !u!1 &2104729717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7598352006809542573, guid: 2631da825542fa34d8151d3674964c30, type: 3}
@@ -749,6 +749,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8813440230731599157, guid: 711f30a9f5b0d3f41ab4176a83a6a39b, type: 3}
   m_PrefabInstance: {fileID: 3174362277766904646}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3111917572100732684
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 282902079172154842, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
+      propertyPath: m_Name
+      value: EnemyZbojnik
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806827699528179517, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806827699528179517, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806827699528179517, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806827699528179517, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806827699528179517, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806827699528179517, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806827699528179517, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806827699528179517, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806827699528179517, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806827699528179517, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
 --- !u!1001 &3174362277766904646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -821,6 +878,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2912986727017799729, guid: a3773a27b9803184eb296cb069013f72, type: 3}
+      propertyPath: weaponObject
+      value: 
+      objectReference: {fileID: 1635326461}
     - target: {fileID: 3876248404526802920, guid: a3773a27b9803184eb296cb069013f72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.49
@@ -1106,6 +1167,7 @@ SceneRoots:
   - {fileID: 3291734039337801421}
   - {fileID: 9096563297180606125}
   - {fileID: 3174362277766904646}
+  - {fileID: 3111917572100732684}
   - {fileID: 1430401284}
   - {fileID: 1385192378}
   - {fileID: 121027442}

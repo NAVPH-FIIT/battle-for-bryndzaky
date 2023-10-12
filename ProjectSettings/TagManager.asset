@@ -8,6 +8,7 @@ TagManager:
   - Enemy_Drab
   - Wall
   - Enemy_Hog
+  - Enemy_Zbojnik
   layers:
   - Default
   - TransparentFX
