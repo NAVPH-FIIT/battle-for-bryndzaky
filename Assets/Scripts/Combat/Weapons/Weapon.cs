@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Bryndzaky.Weapons
+namespace Bryndzaky.Combat.Weapons
 {
     public abstract class Weapon : MonoBehaviour, IWeapon
     {
@@ -12,10 +12,10 @@ namespace Bryndzaky.Weapons
         protected int damage = 10;
         //protected bool attacking = false;
         protected bool canAttack = true;
+        [SerializeField]
         protected float AttackTime = 0.25f;
         [SerializeField]
         protected float cooldown = 1;
-        [SerializeField]
         protected Animator weaponAnimation;
 
         public string GetHolder()
@@ -23,12 +23,30 @@ namespace Bryndzaky.Weapons
             return transform.parent.gameObject.tag;
         }
 
-        public void Aim()
+        public virtual float GetCombatRange()
         {
-            SpriteRenderer characterSprite = gameObject.GetComponentInParent<SpriteRenderer>();
-            SpriteRenderer weaponSprite = gameObject.GetComponent<SpriteRenderer>();
+            return 0f;
+        }
 
-            Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        public virtual float GetCooldown()
+        {
+            return this.cooldown;
+        }
+
+        protected virtual void Start()
+        {
+            this.weaponAnimation = GetComponentInChildren<Animator>();
+        }
+
+        public void Aim(Vector2 dir)
+        {
+            if (gameObject.GetComponentInChildren<SpriteRenderer>() == null)
+                return;
+
+            SpriteRenderer characterSprite = gameObject.GetComponentInParent<SpriteRenderer>();
+            SpriteRenderer weaponSprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+
+            // Vector2 dir = ;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = rotation;
@@ -43,26 +61,34 @@ namespace Bryndzaky.Weapons
 
         public void IssueAttack()
         {
-            StartCoroutine(Attack());
-            canAttack = false;
-            StartCoroutine(Cooldown(cooldown, (bool result) => canAttack = result));
+            if (canAttack)
+            {
+                StartCoroutine(Attack());
+                canAttack = false;
+                StartCoroutine(IWeapon.Cooldown(GetCooldown(), (bool result) => canAttack = result));
+            }
         }
 
         public abstract IEnumerator Attack();
 
-        public IEnumerator Cooldown(float time, System.Action<bool> callback)
-        {
-            yield return new WaitForSeconds(time);
-            callback(true);
-        }
+        // public IEnumerator Cooldown(float time, System.Action<bool> callback)
+        // {
+        //     yield return new WaitForSeconds(time);
+        //     callback(true);
+        // }
     }
 
-    internal interface IWeapon
-    {
-        public void Aim();
-        public void IssueAttack();
-        public string GetHolder();
-        public IEnumerator Attack();
-        public IEnumerator Cooldown(float time, System.Action<bool> callback);
-    }
+    // internal interface IWeapon
+    // {
+    //     public void Aim();
+    //     public void IssueAttack();
+    //     public string GetHolder();
+    //     public float GetCooldown();
+    //     public IEnumerator Attack();
+    //     public static IEnumerator Cooldown(float time, System.Action<bool> callback)
+    //     {
+    //         yield return new WaitForSeconds(time);
+    //         callback(true);
+    //     }
+    // }
 }

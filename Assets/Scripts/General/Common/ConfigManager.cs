@@ -15,8 +15,8 @@ public class ConfigManager : MonoBehaviour
     [HideInInspector]
     public static Dictionary<string, object> config = new Dictionary<string, object>
         {
-            { "combat.knockback.strength",  3f },
-            { "combat.knockback.delay",     0.15f },
+            { "combat.knockback.strength",  10f },
+            { "combat.knockback.delay",     0.05f },
         };
 
     [SerializeField]

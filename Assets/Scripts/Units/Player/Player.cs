@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Bryndzaky.General.Common;
-using Bryndzaky.Weapons;
 using Unity.VisualScripting;
 using UnityEngine;
+using Bryndzaky.Combat.Weapons;
 
 namespace Bryndzaky.Units.Player {
     public class Player : Unit
@@ -12,18 +12,29 @@ namespace Bryndzaky.Units.Player {
         public static Player Instance { get; private set; }
         [HideInInspector]
         public IInteractable possibleInteraction = null;
-        private IWeapon weapon;
+        private bool isDashing = false;
+        private bool canDash = true;
+        [SerializeField] 
+        private float dashSpeed = 10;
+        [SerializeField] 
+        private float dashDuration = 0.25f;
+        [SerializeField] 
+        public float dashCoolDown = 1f;
 
-        void Start() {
+        protected override void Start() {
+            base.Start();
             Instance = this;
+            // this.weapon = WeaponManager.Instance.GetSword();
         }
 
-        void Update()
+        protected override void Update()
         {
             if (PauseManager.IsPaused)
                 return;
+
+            base.Update();
             
-            this.AssignDirection();
+            this.weapon?.Aim(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             this.PerformActions();
         }
 
@@ -33,22 +44,51 @@ namespace Bryndzaky.Units.Player {
                 this.possibleInteraction.ExecuteAction();
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && this.weapon != null)
-                this.weapon.Attack();
+                this.weapon.IssueAttack();
+
+            if (Input.GetKeyDown(KeyCode.Space) && canDash)
+            {
+                canDash = false;
+                StartCoroutine(Dash());
+                StartCoroutine(IWeapon.Cooldown(dashCoolDown, (bool result) => canDash = result));
+            }
         }
 
-        private void AssignDirection()
+        protected override void Animate()
         {
-            float moveX = Input.GetAxisRaw("Horizontal");
-            float moveY = Input.GetAxisRaw("Vertical");
-            moveDirection = new Vector2(moveX, moveY).normalized;
-
             animator.SetFloat("Horizontal", moveDirection.x);
             animator.SetFloat("Vertical", moveDirection.y);
             animator.SetFloat("Speed", moveDirection.sqrMagnitude);
         }
 
-        override
-        public void Die()
+        protected override void AssignDirection()
+        {
+            if (isDashing)
+                return;
+
+            float moveX = Input.GetAxisRaw("Horizontal");
+            float moveY = Input.GetAxisRaw("Vertical");
+            moveDirection = new Vector2(moveX, moveY).normalized;
+        }
+
+        private IEnumerator Dash()
+        {
+            float defaultSpeed = moveSpeed;
+            moveSpeed = dashSpeed;
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            isDashing = true;
+            yield return new WaitForSeconds(dashDuration);
+            isDashing = false;
+            gameObject.GetComponent<Collider2D>().enabled = true;
+            moveSpeed = defaultSpeed;
+        }
+
+        public void GrantReward(int xp, int gold)
+        {
+
+        }
+
+        protected override void Die()
         {
             Destroy(gameObject);
         }
