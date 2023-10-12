@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8987156039749937210}
   - component: {fileID: 8338729823542792150}
   - component: {fileID: 2912986727017799729}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.49, y: -1.07, z: -0.14517196}
-  m_LocalScale: {x: 0.049, y: 0.045, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.13775511, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4078379071175027810}
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1209587631
-  m_SortingLayer: 4
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a98f1ebbdfdf4514eb7bde1db4800799, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -274,5 +274,8 @@ MonoBehaviour:
   moveSpeed: 4
   health: 100
   rb: {fileID: 4908281529741182599}
-  moveDirection: {x: 0, y: 0}
+  weaponObject: {fileID: 0}
   animator: {fileID: 8338729823542792150}
+  dashSpeed: 10
+  dashDuration: 0.25
+  dashCoolDown: 1
