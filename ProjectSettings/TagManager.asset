@@ -42,27 +42,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Decor
-    uniqueID: 2848968365
+  - name: Floor
+    uniqueID: 3777964663
     locked: 0
-  - name: walls
-    uniqueID: 299627113
-    locked: 1
-  - name: Buildings
-    uniqueID: 4214701781
+  - name: Walls
+    uniqueID: 1994535193
+    locked: 0
+  - name: decoration_collision_bg
+    uniqueID: 1360931351
+    locked: 0
+  - name: Decoration
+    uniqueID: 1083700337
+    locked: 0
+  - name: Decoration_collision
+    uniqueID: 2177783573
+    locked: 0
+  - name: decoriation_top
+    uniqueID: 3515765499
     locked: 0
   - name: Player
     uniqueID: 3085379665
-    locked: 0
-  - name: Water
-    uniqueID: 1845607775
-    locked: 0
-  - name: Root
-    uniqueID: 2176256739
-    locked: 0
-  - name: Trunk
-    uniqueID: 2461466187
-    locked: 0
-  - name: Leaves
-    uniqueID: 1768213147
     locked: 0
