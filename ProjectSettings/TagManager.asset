@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactable
+  - Enemy_Drab
+  - Wall
+  - Enemy_Hog
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - UI
   - Minimap
   - Player
-  - 
-  - 
+  - Combat
+  - WallLayer
   - 
   - 
   - 

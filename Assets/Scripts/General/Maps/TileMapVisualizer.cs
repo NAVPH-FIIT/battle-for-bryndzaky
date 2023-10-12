@@ -10,29 +10,17 @@ public class TileMapVisualizer : MonoBehaviour
     private Tilemap floorTilemap, wallTilemap;
 
     [SerializeField]
-    private TileBase floorTile1, floorTile2, floorTile3, floorTile4, wallTop;
+    private TileBase floorTile, wallTop;
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPoss)
     {
-        
-        PaintTiles(floorPoss, floorTilemap);
+        PaintTiles(floorPoss, floorTilemap, floorTile);
     }
 
-    private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap)
+    private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile)
     {
-        TileBase tile = null;
-  
         foreach (var position in positions) 
         {
-            int num = UnityEngine.Random.Range(0, 4);
-            if (num == 0)
-                tile = floorTile1;
-            if (num == 1)
-                tile = floorTile2;
-            if (num == 2)
-                tile = floorTile3;
-            if (num == 3)
-                tile = floorTile4;
             PaintSingleTile(tilemap, tile, position);
         }
     }
@@ -45,7 +33,7 @@ public class TileMapVisualizer : MonoBehaviour
 
     public void Clear()
     {
-        floorTilemap.ClearAllTiles();
+        floorTilemap.ClearAllTiles(); 
         wallTilemap.ClearAllTiles();
     }
 
