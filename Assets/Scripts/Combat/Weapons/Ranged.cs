@@ -16,7 +16,7 @@ namespace Bryndzaky.Combat.Weapons
         private bool burst;
         [SerializeField]
         private int burstSize = 5;
-        private int bulletCount = 0;
+        private int bulletCount = 1;
         public GameObject projectile;
 
         protected override void Start()
@@ -32,12 +32,11 @@ namespace Bryndzaky.Combat.Weapons
         override
         public float GetCooldown()
         {
-            if (burst && bulletCount++ <= burstSize)
-            {
-                bulletCount = 0;
+            if (burst && (bulletCount++ < burstSize))
+            { 
                 return burstCooldown;
             }
-            
+            bulletCount = 1;
             return cooldown;
         }
 
@@ -46,7 +45,11 @@ namespace Bryndzaky.Combat.Weapons
         {
             yield return new WaitForSeconds(0);
 
-            Instantiate(projectile, transform.position, transform.rotation).GetComponent<Projectile>().source = this.GetHolder();
+            GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
+            Projectile bullet_script = bullet.GetComponent<Projectile>();
+            bullet_script.damage = damage;
+            bullet.GetComponent<Projectile>().source = this.GetHolder();
+
             weaponAnimation?.SetTrigger("Fired");
         }
     }

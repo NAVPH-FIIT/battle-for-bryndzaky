@@ -13,25 +13,26 @@ namespace Bryndzaky.Units.Enemies
     {
         private bool playerAware = false;
         private Vector2 playerDirection;
+        public bool dead = false;
 
         protected override void Start()
         {
             base.Start();
             // this.weapon = WeaponManager.Instance.GetMusket();
-
+            animator.SetBool("Speed", false);
             this.playerSeeker = gameObject.GetComponent<Seeker>();
             this.InvokeRepeating("UpdatePath", 0f, .5f);
         }
 
         protected override void Update()
         {
-            Debug.Log(playerAware);
+            //Debug.Log(playerAware);
             if (!playerAware || PauseManager.IsPaused)
             {
                 moveDirection = Vector2.zero;
                 return;
             }
-            Debug.Log("XXX");
+            //Debug.Log("XXX");
             base.Update();
 
             this.playerDirection = Player.Player.Instance.gameObject.transform.position - transform.position;//().normalized;
@@ -42,23 +43,26 @@ namespace Bryndzaky.Units.Enemies
 
         protected override void Animate()
         {
-            if (rb.velocity != Vector2.zero)
+            if (rb.velocity != Vector2.zero || playerAware)
             {
                 animator.SetFloat("Horizontal", playerDirection.x * (retreat ? -1 : 1));
                 animator.SetFloat("Vertical", playerDirection.y * (retreat ? -1 : 1));
-                animator.SetFloat("Speed", new Vector2(playerDirection.x, playerDirection.y).sqrMagnitude);
+                //animator.SetFloat("Speed", new Vector2(playerDirection.x, playerDirection.y).sqrMagnitude);
+                animator.SetBool("Speed", true);
             }
             else
             {
                 animator.SetFloat("Horizontal", 0);
                 animator.SetFloat("Vertical", 0);
-                animator.SetFloat("Speed", 0);
+                //animator.SetFloat("Speed", 0);
+                animator.SetBool("Speed", false);
             }
         }
 
         protected override void Die()
         {
             Player.Player.Instance.GrantReward(0,0);
+            Destroy(gameObject);
         }
 
         public void OnTriggerEnter2D(Collider2D collider)
@@ -104,7 +108,7 @@ namespace Bryndzaky.Units.Enemies
         {
             if (playerPath == null)
             {
-                moveDirection = Vector2.zero;
+                //moveDirection = Vector2.zero;
                 return;
             }
 
@@ -129,7 +133,7 @@ namespace Bryndzaky.Units.Enemies
 
             moveDirection = ((Vector2)playerPath.vectorPath[currentWaypoint] - rb.position).normalized * (retreat ? -1 : 1);
            
-            if (Vector2.Distance(rb.position, playerPath.vectorPath[currentWaypoint]) < 3)
+            if (Vector2.Distance(rb.position, playerPath.vectorPath[currentWaypoint]) < 1)
             {
                 currentWaypoint++;
             }

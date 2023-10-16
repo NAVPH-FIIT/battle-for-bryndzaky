@@ -43,7 +43,7 @@ namespace Bryndzaky.Units.Player {
             if (Input.GetKeyDown(KeyCode.E) && this.possibleInteraction != null)
                 this.possibleInteraction.ExecuteAction();
 
-            if (Input.GetKeyDown(KeyCode.Mouse0) && this.weapon != null)
+            if (Input.GetKey(KeyCode.Mouse0) && this.weapon != null)
                 this.weapon.IssueAttack();
 
             if (Input.GetKeyDown(KeyCode.Space) && canDash)

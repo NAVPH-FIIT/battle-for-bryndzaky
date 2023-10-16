@@ -36,7 +36,7 @@ namespace Bryndzaky.Combat.Weapons
         protected virtual void Start()
         {
             this.weaponAnimation = GetComponentInChildren<Animator>();
-        }
+        }   
 
         public void Aim(Vector2 dir)
         {

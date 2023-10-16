@@ -9,6 +9,7 @@ namespace Bryndzaky.Combat.Collisions
     {
         private float timer = 0;
         private int stopProjectile = 2;
+        [HideInInspector]
         public int damage = 10;
         [SerializeField]
         private float speed = 10f;

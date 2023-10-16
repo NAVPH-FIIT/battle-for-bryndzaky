@@ -33,6 +33,14 @@ namespace Bryndzaky.Units {
             //this.weapon = WeaponManager.Instance.GetWeapon();
         }
 
+        public void GrantWeapon(GameObject newWeapon)
+        {
+            if (this.weaponObject != null)
+                Destroy(this.weaponObject);
+
+            this.weaponObject = newWeapon;
+        }
+
         public void Hit(int damage, Vector3 sourceDirection) 
         {
             animator.SetTrigger("Hit");
@@ -59,7 +67,7 @@ namespace Bryndzaky.Units {
 
         protected abstract void AssignDirection();
 
-        private void Move()
+        protected virtual void Move()
         {
             // if (gameObject.CompareTag("Enemy_Drab"))
             //     Debug.Log("kokot");

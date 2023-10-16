@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 6634948077800594196}
   - component: {fileID: 4967652242643124101}
   - component: {fileID: 7354961198117624400}
-  - component: {fileID: 1085179952310027609}
-  - component: {fileID: 3469430072258342794}
-  m_Layer: 7
+  - component: {fileID: 2748267682372386186}
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1085179952310027609
+--- !u!114 &2748267682372386186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,28 +158,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3739521831439600932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d2dec9a8efe1b478404b0372122a57, type: 3}
+  m_Script: {fileID: 11500000, guid: 40f5f31c29bd7d94abfd7c8b1cd3980e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  speed: 10
   hitEffect: {fileID: 6407639509322706032, guid: 79b1e266ef3d1144790b343863e20d71, type: 3}
---- !u!95 &3469430072258342794
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3739521831439600932}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 61f9a1c87fe38db4b913bbfa209d4171, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  source: 
