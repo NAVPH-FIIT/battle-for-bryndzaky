@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     private int maxNumberOfEnemies = 3;
     private List<GameObject> clones; 
 
-    private Collider2D collider;
+    private new Collider2D collider;
 
     private float xSpawn;
     private float ySpawn;

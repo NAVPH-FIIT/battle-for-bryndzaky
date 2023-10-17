@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Enemy_Hog
   - Enemy_Zbojnik
+  - Laszlo
   layers:
   - Default
   - TransparentFX

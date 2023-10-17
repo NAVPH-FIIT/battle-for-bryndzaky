@@ -6,6 +6,7 @@ using UnityEngine;
 using Bryndzaky.Combat.Weapons;
 using Bryndzaky.Units.Player;
 using Pathfinding;
+using Bryndzaky.Combat.Spells;
 
 namespace Bryndzaky.Units.Laszlo
 {
@@ -15,6 +16,8 @@ namespace Bryndzaky.Units.Laszlo
         public float minimumDistance = 1;
         public bool dead = false;
         // Start is called before the first frame update
+        private List<ISpell> spells;
+
         protected override void Start()
         {
             base.Start();
@@ -36,6 +39,16 @@ namespace Bryndzaky.Units.Laszlo
             this.weapon?.Aim(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             this.IssueSpell();
         }
+
+        private void CastSpells()
+        {
+            for (int i = 0; i < spells.Count; i++)
+            {
+                if (Input.GetKey(KeyCode.Keypad1 + i) && spells[i].Available)
+                    spells[i].Cast();
+            }
+        }
+
         private void IssueSpell()
         {
             if (Input.GetKey(KeyCode.Mouse1) && this.weapon != null)
