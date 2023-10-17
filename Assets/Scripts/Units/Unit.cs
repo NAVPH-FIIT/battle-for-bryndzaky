@@ -51,11 +51,7 @@ namespace Bryndzaky.Units {
                 this.Die();
         }
 
-        protected virtual void Update()
-        {
-            this.AssignDirection();
-            this.Animate();
-        }
+        protected abstract void Update();
 
         private void FixedUpdate()
         {

@@ -32,7 +32,8 @@ namespace Bryndzaky.Units.Player {
             if (PauseManager.IsPaused)
                 return;
 
-            base.Update();
+            this.AssignDirection();
+            this.Animate();
             
             this.weapon?.Aim(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             this.PerformActions();

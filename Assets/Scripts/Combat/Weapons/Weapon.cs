@@ -40,9 +40,6 @@ namespace Bryndzaky.Combat.Weapons
 
         public void Aim(Vector2 dir)
         {
-            if (gameObject.GetComponentInChildren<SpriteRenderer>() == null)
-                return;
-
             SpriteRenderer characterSprite = gameObject.GetComponentInParent<SpriteRenderer>();
             SpriteRenderer weaponSprite = gameObject.GetComponentInChildren<SpriteRenderer>();
 
@@ -55,8 +52,8 @@ namespace Bryndzaky.Combat.Weapons
             scale.y = dir.x < 0 ? -1 : 1;
 
             transform.localScale = scale;
-
-            weaponSprite.sortingOrder = dir.y > 0 ? characterSprite.sortingOrder - 1 : characterSprite.sortingOrder + 1;
+            if (weaponSprite != null)
+                weaponSprite.sortingOrder = dir.y > 0 ? characterSprite.sortingOrder - 1 : characterSprite.sortingOrder + 1;
         }
 
         public void IssueAttack()

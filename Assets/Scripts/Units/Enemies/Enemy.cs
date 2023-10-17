@@ -26,14 +26,21 @@ namespace Bryndzaky.Units.Enemies
 
         protected override void Update()
         {
-            //Debug.Log(playerAware);
-            if (!playerAware || PauseManager.IsPaused)
+            if (PauseManager.IsPaused)
             {
                 moveDirection = Vector2.zero;
                 return;
             }
-            //Debug.Log("XXX");
-            base.Update();
+
+            this.Animate();
+            
+            if (!playerAware) 
+            {
+                moveDirection = Vector2.zero;
+                return;
+            }
+            
+            this.AssignDirection();
 
             this.playerDirection = Player.Player.Instance.gameObject.transform.position - transform.position;//().normalized;
 
@@ -43,6 +50,8 @@ namespace Bryndzaky.Units.Enemies
 
         protected override void Animate()
         {
+            Debug.Log("Velocity: " + (rb.velocity != Vector2.zero).ToString());
+            Debug.Log("Aware: " + (playerAware).ToString());
             if (rb.velocity != Vector2.zero || playerAware)
             {
                 animator.SetFloat("Horizontal", playerDirection.x * (retreat ? -1 : 1));

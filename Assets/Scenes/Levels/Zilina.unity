@@ -221,6 +221,91 @@ MonoBehaviour:
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
   showGraphs: 1
+--- !u!1 &248697680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248697681}
+  - component: {fileID: 248697682}
+  m_Layer: 0
+  m_Name: Effects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &248697681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248697680}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8, y: 1.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2122381876}
+  m_Father: {fileID: 975137719}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &248697682
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248697680}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1209587631
+  m_SortingLayer: 7
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 9546448fbd7aca049bbd0beb7489716c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 11.84, y: 11.84}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!4 &437104797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3876248404526802920, guid: a3773a27b9803184eb296cb069013f72, type: 3}
@@ -318,7 +403,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 975137719}
-  m_Layer: 7
+  - component: {fileID: 975137720}
+  m_Layer: 0
   m_Name: Staff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,13 +420,28 @@ Transform:
   m_GameObject: {fileID: 975137718}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.8, z: -0.291368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2122381876}
+  - {fileID: 248697681}
   m_Father: {fileID: 1695890437}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &975137720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975137718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac8ea1ac948fa3469692c9dcb7a0711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  AttackTime: 0.25
+  cooldown: 1
 --- !u!1001 &1177235209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -398,11 +499,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01c8a17018dd07f4e988bddcfeb366de, type: 3}
---- !u!1 &1374653318 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5804458246641741858, guid: 3d68448de0a6f4a408352a8d96a06470, type: 3}
-  m_PrefabInstance: {fileID: 2056950522}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1374653319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9167714608476999809, guid: 3d68448de0a6f4a408352a8d96a06470, type: 3}
@@ -589,10 +685,9 @@ MonoBehaviour:
   moveSpeed: 4
   health: 0
   rb: {fileID: 1695890435}
-  weaponObject: {fileID: 1374653318}
+  weaponObject: {fileID: 975137718}
   animator: {fileID: 1695890433}
   minimumDistance: 2
-  dead: 0
 --- !u!95 &1695890433
 Animator:
   serializedVersion: 5
@@ -828,9 +923,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9007d10e5db084f8ed02be7b8be4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 0
+  strength: 0
   cooldown: 0
-  effect: {fileID: 2122381875}
+  effect: {fileID: 0}
+  projectile: {fileID: 8562679147281434281, guid: 9fd61c14cc853034faea4ab4332b94a2, type: 3}
 --- !u!114 &1908027114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,6 +975,10 @@ PrefabInstance:
     - target: {fileID: 5804458246641741858, guid: 3d68448de0a6f4a408352a8d96a06470, type: 3}
       propertyPath: m_Name
       value: Minigun
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804458246641741858, guid: 3d68448de0a6f4a408352a8d96a06470, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9167714608476999809, guid: 3d68448de0a6f4a408352a8d96a06470, type: 3}
       propertyPath: m_LocalPosition.x
@@ -944,7 +1044,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2122381876}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: EffectFireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,12 +1059,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122381875}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 975137719}
+  m_Father: {fileID: 248697681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1416673946632563761
 PrefabInstance:

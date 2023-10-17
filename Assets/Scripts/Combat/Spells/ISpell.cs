@@ -8,9 +8,12 @@ namespace Bryndzaky.Combat.Spells
 {
     public interface ISpell
     {
-        public bool Available { get; }
+        public bool Available { get; set; }
+        public KeyCode Hotkey { get; }
+        public GameObject Effect { get; }
+        public Transform Origin { get; set;}
         public void Cast();
-        protected static IEnumerator Cooldown(float time, System.Action<bool> callback)
+        public static IEnumerator Cooldown(float time, System.Action<bool> callback)
             {
                 yield return new WaitForSeconds(time);
                 callback(true);

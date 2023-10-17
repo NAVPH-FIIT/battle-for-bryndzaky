@@ -8,22 +8,21 @@ namespace Bryndzaky.Combat.Spells
 {
     public abstract class Spell : MonoBehaviour, ISpell
     {
-        [SerializeField] protected int power;
+        [SerializeField] protected int strength;
         [SerializeField] protected float cooldown;
         [SerializeField] protected GameObject effect;
 
-        [HideInInspector] public bool Available { get; protected set; } = true;
+        public bool Available { get; set; } = true;
+        public KeyCode Hotkey { get; set; }
+        public Transform Origin { get; set; }
+        public GameObject Effect => effect;
 
-        public virtual void Cast()
-        {
-            this.PlayEffect();
-            StartCoroutine(ISpell.Cooldown(this.cooldown, (bool result) => this.Available = result));
-        }
+        public abstract void Cast();
 
-        protected void PlayEffect()
-        {
-            // TODO: enable sprite renderer
-            // TODO: set trigger to animation
-        }
+        // protected void PlayEffect()
+        // {
+        //     // TODO: enable sprite renderer
+        //     // TODO: set trigger to animation
+        // }
     }
 }

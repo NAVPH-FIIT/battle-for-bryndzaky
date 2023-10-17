@@ -28,7 +28,11 @@ namespace Bryndzaky.Combat
 
         public ISpell[] GetSpells()
         {
-            return gameObject.GetComponents<ISpell>();
+            Spell[] spells = gameObject.GetComponents<Spell>();
+            for (int i = 0; i < spells.Length; i++)
+                spells[i].Hotkey = KeyCode.Mouse3 + i;
+
+            return spells;
         }
     }
 }

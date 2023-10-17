@@ -37,22 +37,26 @@ namespace Bryndzaky.Combat.Collisions
             if (other.tag.Split('_')[0] == target)
             {
                 other.GetComponent<Units.Unit>().Hit(damage, gameObject.transform.position);
-                GameObject effect = Instantiate(hitEffect, transform.position, transform.rotation);
-                Destroy(effect, 0.2f);
-                Destroy(gameObject);
+                this.PlayHitEffect();
             }
             
             if (other.CompareTag("Wall"))
-            {
-                GameObject effect = Instantiate(hitEffect, transform.position, transform.rotation);
-                Destroy(effect, 0.2f);
-                Destroy(gameObject);
-            }
+                this.PlayHitEffect();
         }
 
         public void Awake()
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = speed * transform.right;
+        }
+
+        private void PlayHitEffect()
+        {
+            if (this.hitEffect == null)
+                return;
+
+            GameObject effect = Instantiate(hitEffect, transform.position, transform.rotation);
+            Destroy(effect, 0.2f);
+            Destroy(gameObject);
         }
     }
 }

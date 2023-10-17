@@ -7,26 +7,29 @@ using Bryndzaky.Combat.Weapons;
 using Bryndzaky.Units.Player;
 using Pathfinding;
 using Bryndzaky.Combat.Spells;
+using Bryndzaky.Combat;
+using System.Linq;
 
 namespace Bryndzaky.Units.Laszlo
 {
     public partial class Laszlo : Unit
     {
+        public Laszlo Instance { get; private set; }
         private Vector2 playerDirection;
         public float minimumDistance = 1;
-        public bool dead = false;
-        // Start is called before the first frame update
         private List<ISpell> spells;
 
         protected override void Start()
         {
             base.Start();
+
+            Instance = this;
+            spells = CombatManager.Instance.GetSpells().ToList();
             animator.SetBool("Speed", false);
             this.playerSeeker = gameObject.GetComponent<Seeker>();
             this.InvokeRepeating("UpdatePath", 0f, .5f);
         }
 
-        // Update is called once per frame
         protected override void Update()
         {
             if (PauseManager.IsPaused)
@@ -34,25 +37,19 @@ namespace Bryndzaky.Units.Laszlo
                 moveDirection = Vector2.zero;
                 return;
             }
-            base.Update();
+            this.AssignDirection();
+            this.Animate();
+            
             this.playerDirection = Player.Player.Instance.gameObject.transform.position - transform.position;
             this.weapon?.Aim(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-            this.IssueSpell();
+            this.CastSpells();
         }
 
         private void CastSpells()
         {
-            for (int i = 0; i < spells.Count; i++)
-            {
-                if (Input.GetKey(KeyCode.Keypad1 + i) && spells[i].Available)
-                    spells[i].Cast();
-            }
-        }
-
-        private void IssueSpell()
-        {
-            if (Input.GetKey(KeyCode.Mouse1) && this.weapon != null)
-                this.weapon.IssueAttack();
+            foreach (ISpell spell in spells)
+                if (Input.GetKey(spell.Hotkey) && spell.Available)
+                    ((Staff) this.weapon).CastSpell(spell);
         }
 
         protected override void Move() 
