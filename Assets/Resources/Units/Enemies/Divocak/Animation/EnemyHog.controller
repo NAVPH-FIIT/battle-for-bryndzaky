@@ -64,10 +64,10 @@ AnimatorStateMachine:
     m_Position: {x: 110, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2254842484292853225}
-    m_Position: {x: 320, y: 280, z: 0}
+    m_Position: {x: 370, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5809035049059314809}
-    m_Position: {x: 60, y: 290, z: 0}
+    m_Position: {x: 120, y: 290, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -233,6 +233,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Speed
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Freeze
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

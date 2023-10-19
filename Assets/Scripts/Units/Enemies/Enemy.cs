@@ -14,6 +14,7 @@ namespace Bryndzaky.Units.Enemies
         private bool playerAware = false;
         private Vector2 playerDirection;
         public bool dead = false;
+        
 
         protected override void Start()
         {
@@ -26,7 +27,7 @@ namespace Bryndzaky.Units.Enemies
 
         protected override void Update()
         {
-            if (PauseManager.IsPaused)
+            if (PauseManager.IsPaused || freezed)
             {
                 moveDirection = Vector2.zero;
                 return;

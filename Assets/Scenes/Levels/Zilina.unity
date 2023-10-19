@@ -686,6 +686,7 @@ MonoBehaviour:
   health: 0
   rb: {fileID: 1695890435}
   weaponObject: {fileID: 975137718}
+  freezed: 0
   animator: {fileID: 1695890433}
   minimumDistance: 2
 --- !u!95 &1695890433
@@ -904,6 +905,7 @@ GameObject:
   - component: {fileID: 1908027115}
   - component: {fileID: 1908027114}
   - component: {fileID: 1908027113}
+  - component: {fileID: 1908027116}
   m_Layer: 0
   m_Name: CombatManager
   m_TagString: Untagged
@@ -959,6 +961,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1908027116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908027112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c0d0c99758466428f3929c4b44a89e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 3
+  cooldown: 0
+  effect: {fileID: 0}
+  projectile: {fileID: 6918541562292118792, guid: e7ed82e1175adc3419c79c55e775d53b, type: 3}
 --- !u!4 &1925127463 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8806827699528179517, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}

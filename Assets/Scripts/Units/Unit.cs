@@ -16,6 +16,8 @@ namespace Bryndzaky.Units {
         protected Rigidbody2D rb;
         [SerializeField]
         protected GameObject weaponObject;
+        [HideInInspector]
+        public bool freezed = false;
         protected IWeapon weapon {
             get {
                 return this.weaponObject != null ? this.weaponObject.GetComponent<IWeapon>() : null;
@@ -49,6 +51,26 @@ namespace Bryndzaky.Units {
             
             if (this.health <= 0)
                 this.Die();
+        }
+
+        public void Freeze(int freezeTime)
+        {
+            freezed = true;
+            canMove = false;
+            StopAllCoroutines();
+            rb.bodyType = RigidbodyType2D.Static;
+            animator.SetBool("Freeze", true);
+            StartCoroutine(FreezeCooldown(freezeTime));
+
+        }
+
+        private IEnumerator FreezeCooldown(int freezeTime)
+        {
+            yield return new WaitForSeconds(freezeTime);
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            animator.SetBool("Freeze", false);
+            canMove = true;
+            freezed = false;
         }
 
         protected abstract void Update();
