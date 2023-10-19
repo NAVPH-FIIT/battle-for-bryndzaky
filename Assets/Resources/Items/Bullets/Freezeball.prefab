@@ -185,5 +185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   speed: 10
-  hitEffect: {fileID: 6809451164628115329, guid: 700445bccd9885b46bfc031dbeacc779, type: 3}
+  freezingTime: 3
+  hitEffect: {fileID: 1043486733251483586, guid: 9de6fabf8c173bf4090b34f4e8171530, type: 3}
   source: 

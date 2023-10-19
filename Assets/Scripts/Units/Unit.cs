@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Bryndzaky.Combat.Weapons;
@@ -11,7 +12,10 @@ namespace Bryndzaky.Units {
         [SerializeField]
         protected float moveSpeed = 3;
         [SerializeField]
-        protected int health = 100;
+        protected int maxhealth = 100;
+
+        [SerializeField]
+        protected int health;
         [SerializeField]
         protected Rigidbody2D rb;
         [SerializeField]
@@ -32,6 +36,7 @@ namespace Bryndzaky.Units {
         
         protected virtual void Start()
         {
+            this.health = this.maxhealth;
             //this.weapon = WeaponManager.Instance.GetWeapon();
         }
 
@@ -108,7 +113,17 @@ namespace Bryndzaky.Units {
             canMove = true;
             OnDone?.Invoke();
         }
+        public int GetHealth()
+        {
+            return this.health;
+        }
+        public void Heal(int healing)
+        {   
+            if(this.health != this.maxhealth)
+                animator.SetTrigger("Heal");
 
+            this.health = Math.Min(this.health + healing, this.maxhealth);
+        }
         protected abstract void Die();   
     }
 }
