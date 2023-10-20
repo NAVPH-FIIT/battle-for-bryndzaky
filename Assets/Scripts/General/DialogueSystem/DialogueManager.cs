@@ -27,7 +27,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-      if (isDialogueInProgress == true && Input.GetKeyDown(KeyCode.Space) && !PauseManager.IsPaused)
+      if (isDialogueInProgress == true && Input.GetKeyDown(KeyCode.Return) && !PauseManager.IsPaused)
       {
           DisplayNextSentence();
       }
