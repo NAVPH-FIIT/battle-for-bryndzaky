@@ -9,6 +9,7 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
 {
   public Dialogue dialogue;
   public SpriteRenderer interactionHint;
+  public SpriteRenderer legend;
   public Animator animator;
 
   public void ExecuteAction(){
@@ -23,6 +24,7 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
     {
       Debug.Log("Player has collided with the Interactable object!");
       this.interactionHint.enabled = true;
+      this.legend.enabled = true;
       Debug.Log("Object is: " + this.ToString());
       other.GetComponent<Player>().possibleInteraction = this;
     }
@@ -34,6 +36,7 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
     {
       Debug.Log("Player has left the Interactable object!");
       this.interactionHint.enabled = false;
+      this.legend.enabled = false;
       other.GetComponent<Player>().possibleInteraction = null;
     }
   }
