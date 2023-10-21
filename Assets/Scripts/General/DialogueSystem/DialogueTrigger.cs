@@ -19,7 +19,6 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
   
   public void OnTriggerEnter2D(Collider2D other)
   {
-    Debug.Log("Cokot");
     if (other.CompareTag("Player"))
     {
       Debug.Log("Player has collided with the Interactable object!");

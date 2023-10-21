@@ -50,6 +50,9 @@ TagManager:
   - name: Floor
     uniqueID: 3777964663
     locked: 0
+  - name: Decoration_floor
+    uniqueID: 3423334475
+    locked: 0
   - name: Walls
     uniqueID: 1994535193
     locked: 0
