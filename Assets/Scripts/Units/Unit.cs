@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Bryndzaky.Combat.Weapons;
+using Bryndzaky.Units.Enemies;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,7 +22,8 @@ namespace Bryndzaky.Units {
         [SerializeField]
         protected GameObject weaponObject;
         [HideInInspector]
-        public bool freezed = false;
+        protected bool freezed = false;
+        protected Healthbar healthbar;
         protected IWeapon weapon {
             get {
                 return this.weaponObject != null ? this.weaponObject.GetComponent<IWeapon>() : null;
@@ -53,7 +55,8 @@ namespace Bryndzaky.Units {
             animator.SetTrigger("Hit");
             this.KnockBack(sourceDirection);
             this.health -= damage;
-            
+            this.healthbar?.UpdateHealthBar();
+
             if (this.health <= 0)
                 this.Die();
         }
@@ -116,6 +119,11 @@ namespace Bryndzaky.Units {
         public int GetHealth()
         {
             return this.health;
+        }
+
+        public int GetMaxHealth()
+        {
+            return this.maxhealth;
         }
         public void Heal(int healing)
         {   
