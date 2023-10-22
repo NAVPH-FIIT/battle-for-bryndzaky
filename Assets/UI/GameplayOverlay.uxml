@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Base.uss?fileID=7433441132597879392&amp;guid=a2c831ae517633b41b9cec1dd38a62f4&amp;type=3#Base" />
+    <ui:VisualElement name="PlayerPortrait" style="flex-grow: 1; background-image: resource(&apos;Units/Player/portrait&apos;); position: absolute; width: 100px; height: 100px; background-color: rgb(221, 179, 22);" />
+    <ui:ProgressBar value="45" title="Health" name="HealthBar" style="position: absolute; left: 120px; background-color: rgb(255, 110, 0); width: 200px; color: rgb(0, 0, 0);" />
+    <ui:VisualElement name="LazsloPortrait" style="flex-grow: 1; background-image: resource(&apos;Units/Laszlo/Sprites/portrait&apos;); position: absolute; width: 50px; height: 50px; top: 120px; left: 25px; background-color: rgb(255, 0, 246);" />
+    <ui:VisualElement name="Slots" style="flex-grow: 1; left: 0; bottom: 0; height: 110px; position: absolute; width: 303px;">
+        <ui:DropdownField index="-1" focusable="false" name="WeaponDropdown" />
+    </ui:VisualElement>
+    <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="WeaponButton" focusable="false" style="background-image: resource(&apos;Items/Weapons/Swords/Sword_01/sword&apos;); width: 100px; height: 100px; background-color: rgba(188, 188, 188, 0.66); display: none;" />
+</ui:UXML>

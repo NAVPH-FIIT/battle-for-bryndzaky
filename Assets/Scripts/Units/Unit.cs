@@ -12,16 +12,13 @@ namespace Bryndzaky.Units {
         [SerializeField]
         protected float moveSpeed = 3;
         [SerializeField]
-        protected int maxhealth = 100;
-
-        [SerializeField]
+        protected int maxHealth = 100;
         protected int health;
         [SerializeField]
         protected Rigidbody2D rb;
         [SerializeField]
         protected GameObject weaponObject;
-        [HideInInspector]
-        public bool freezed = false;
+        protected bool frozen = false;
         protected IWeapon weapon {
             get {
                 return this.weaponObject != null ? this.weaponObject.GetComponent<IWeapon>() : null;
@@ -36,7 +33,7 @@ namespace Bryndzaky.Units {
         
         protected virtual void Start()
         {
-            this.health = this.maxhealth;
+            this.health = this.maxHealth;
             //this.weapon = WeaponManager.Instance.GetWeapon();
         }
 
@@ -44,6 +41,10 @@ namespace Bryndzaky.Units {
         {
             if (this.weaponObject != null)
                 Destroy(this.weaponObject);
+
+            var newWeapon = Instantiate(weaponPrefab, transform.position, transform.rotation);//transform.position, transform.rotation);
+            newWeapon.transform.localScale = transform.localScale;
+            newWeapon.transform.SetParent(transform);
 
             this.weaponObject = newWeapon;
         }
@@ -60,7 +61,7 @@ namespace Bryndzaky.Units {
 
         public void Freeze(int freezeTime)
         {
-            freezed = true;
+            frozen = true;
             canMove = false;
             StopAllCoroutines();
             rb.bodyType = RigidbodyType2D.Static;
@@ -75,7 +76,7 @@ namespace Bryndzaky.Units {
             rb.bodyType = RigidbodyType2D.Dynamic;
             animator.SetBool("Freeze", false);
             canMove = true;
-            freezed = false;
+            frozen = false;
         }
 
         protected abstract void Update();
@@ -119,10 +120,10 @@ namespace Bryndzaky.Units {
         }
         public void Heal(int healing)
         {   
-            if(this.health != this.maxhealth)
+            if(this.health != this.maxHealth)
                 animator.SetTrigger("Heal");
 
-            this.health = Math.Min(this.health + healing, this.maxhealth);
+            this.health = Math.Min(this.health + healing, this.maxHealth);
         }
         protected abstract void Die();   
     }

@@ -14,7 +14,7 @@ namespace Bryndzaky.Units.Laszlo
 {
     public partial class Laszlo : Unit
     {
-        public Laszlo Instance { get; private set; }
+        public static Laszlo Instance { get; private set; }
         private Vector2 playerDirection;
         public float minimumDistance = 1;
         private List<ISpell> spells;

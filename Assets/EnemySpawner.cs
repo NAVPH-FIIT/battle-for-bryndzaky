@@ -58,11 +58,12 @@ public class EnemySpawner : MonoBehaviour
         xSpawn = UnityEngine.Random.Range(collider.bounds.min.x, collider.bounds.max.x);
         ySpawn = UnityEngine.Random.Range(collider.bounds.min.y, collider.bounds.max.y);
         enemy = Instantiate(enemyObject, new Vector3(xSpawn, ySpawn, 0), transform.rotation);
-        weapon = Instantiate(weaponObject, new Vector3(xSpawn, ySpawn, 0), transform.rotation);
-        weapon.transform.localScale = enemy.transform.localScale;
-        weapon.transform.SetParent(enemy.transform);
-        Enemy enemyScript = enemy.GetComponent<Enemy>();
-        enemyScript.GrantWeapon(weapon);
+        // weapon = Instantiate(weaponObject, new Vector3(xSpawn, ySpawn, 0), transform.rotation);
+        // weapon.transform.localScale = enemy.transform.localScale;
+        // weapon.transform.SetParent(enemy.transform);
+        // Enemy enemyScript = enemy.GetComponent<Enemy>();
+        // enemyScript.GrantWeapon(weapon);
+        enemy.GetComponent<Enemy>().GrantWeapon(weapon);
         numberOfEnemies++;
         clones.Add(enemy);
     }
