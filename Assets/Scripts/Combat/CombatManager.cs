@@ -47,7 +47,7 @@ namespace Bryndzaky.Combat
         {
             Spell[] spells = gameObject.GetComponents<Spell>();
             for (int i = 0; i < spells.Length; i++)
-                spells[i].Hotkey = KeyCode.Mouse3 + i;
+                spells[i].Hotkey = KeyCode.Keypad1 + i;
 
             return spells;
         }

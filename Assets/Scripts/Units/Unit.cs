@@ -12,12 +12,13 @@ namespace Bryndzaky.Units {
         [SerializeField]
         protected float moveSpeed = 3;
         [SerializeField]
-        protected int maxHealth;
+        protected int maxHealth = 100;
         protected int health;
         [SerializeField]
         protected Rigidbody2D rb;
         [SerializeField]
         protected GameObject weaponObject;
+        protected bool frozen = false;
         protected IWeapon weapon {
             get {
                 return this.weaponObject != null ? this.weaponObject.GetComponent<IWeapon>() : null;
@@ -36,7 +37,7 @@ namespace Bryndzaky.Units {
             //this.weapon = WeaponManager.Instance.GetWeapon();
         }
 
-        public void GrantWeapon(GameObject weaponPrefab)
+        public void GrantWeapon(GameObject newWeapon)
         {
             if (this.weaponObject != null)
                 Destroy(this.weaponObject);
@@ -56,6 +57,26 @@ namespace Bryndzaky.Units {
             
             if (this.health <= 0)
                 this.Die();
+        }
+
+        public void Freeze(int freezeTime)
+        {
+            frozen = true;
+            canMove = false;
+            StopAllCoroutines();
+            rb.bodyType = RigidbodyType2D.Static;
+            animator.SetBool("Freeze", true);
+            StartCoroutine(FreezeCooldown(freezeTime));
+
+        }
+
+        private IEnumerator FreezeCooldown(int freezeTime)
+        {
+            yield return new WaitForSeconds(freezeTime);
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            animator.SetBool("Freeze", false);
+            canMove = true;
+            frozen = false;
         }
 
         protected abstract void Update();
@@ -93,18 +114,17 @@ namespace Bryndzaky.Units {
             canMove = true;
             OnDone?.Invoke();
         }
-
         public int GetHealth()
         {
             return this.health;
         }
-
         public void Heal(int healing)
-        {
-            animator.SetTrigger("Heal");
+        {   
+            if(this.health != this.maxHealth)
+                animator.SetTrigger("Heal");
+
             this.health = Math.Min(this.health + healing, this.maxHealth);
         }
-
         protected abstract void Die();   
     }
 }

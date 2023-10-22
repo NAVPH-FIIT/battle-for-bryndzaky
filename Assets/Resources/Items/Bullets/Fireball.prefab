@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   speed: 10
-  hitEffect: {fileID: 6407639509322706032, guid: 79b1e266ef3d1144790b343863e20d71, type: 3}
+  hitEffect: {fileID: 6809451164628115329, guid: 700445bccd9885b46bfc031dbeacc779, type: 3}
   source: 
 --- !u!58 &8752956740081189454
 CircleCollider2D:

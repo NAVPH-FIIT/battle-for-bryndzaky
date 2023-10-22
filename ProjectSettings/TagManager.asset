@@ -50,21 +50,27 @@ TagManager:
   - name: Floor
     uniqueID: 3777964663
     locked: 0
+  - name: Decoration_floor
+    uniqueID: 3423334475
+    locked: 0
   - name: Walls
     uniqueID: 1994535193
     locked: 0
-  - name: decoration_collision_bg
-    uniqueID: 1360931351
-    locked: 0
   - name: Decoration
     uniqueID: 1083700337
-    locked: 0
-  - name: Decoration_collision
-    uniqueID: 2177783573
     locked: 0
   - name: decoriation_top
     uniqueID: 3515765499
     locked: 0
   - name: Player
     uniqueID: 3085379665
+    locked: 0
+  - name: decoration_collision_bg
+    uniqueID: 1360931351
+    locked: 0
+  - name: Decoration_collision
+    uniqueID: 2177783573
+    locked: 0
+  - name: decoration_nocollision
+    uniqueID: 2670289723
     locked: 0
