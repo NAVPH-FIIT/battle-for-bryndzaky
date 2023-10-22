@@ -28,7 +28,7 @@ namespace Bryndzaky.Combat.Weapons
 
         public void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Attack, " + this.GetHolder());
+            // Debug.Log("Attack, " + this.GetHolder());
             string target = this.GetHolder() == "Player" ? "Enemy" : "Player";
             if (other.tag.Split('_')[0] == target && !alreadyAttacked)
             {

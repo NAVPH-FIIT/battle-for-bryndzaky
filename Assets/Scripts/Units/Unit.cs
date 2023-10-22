@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Bryndzaky.Combat.Weapons;
@@ -11,7 +12,8 @@ namespace Bryndzaky.Units {
         [SerializeField]
         protected float moveSpeed = 3;
         [SerializeField]
-        protected int health = 100;
+        protected int maxHealth;
+        protected int health;
         [SerializeField]
         protected Rigidbody2D rb;
         [SerializeField]
@@ -30,13 +32,18 @@ namespace Bryndzaky.Units {
         
         protected virtual void Start()
         {
+            this.health = this.maxHealth;
             //this.weapon = WeaponManager.Instance.GetWeapon();
         }
 
-        public void GrantWeapon(GameObject newWeapon)
+        public void GrantWeapon(GameObject weaponPrefab)
         {
             if (this.weaponObject != null)
                 Destroy(this.weaponObject);
+
+            var newWeapon = Instantiate(weaponPrefab, transform.position, transform.rotation);//transform.position, transform.rotation);
+            newWeapon.transform.localScale = transform.localScale;
+            newWeapon.transform.SetParent(transform);
 
             this.weaponObject = newWeapon;
         }
@@ -85,6 +92,17 @@ namespace Bryndzaky.Units {
             rb.velocity = Vector2.zero;
             canMove = true;
             OnDone?.Invoke();
+        }
+
+        public int GetHealth()
+        {
+            return this.health;
+        }
+
+        public void Heal(int healing)
+        {
+            animator.SetTrigger("Heal");
+            this.health = Math.Min(this.health + healing, this.maxHealth);
         }
 
         protected abstract void Die();   

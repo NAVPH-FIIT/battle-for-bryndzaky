@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5103156539223345300
 Transform:
   m_ObjectHideFlags: 0
@@ -222,10 +222,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  health: 100
+  maxHealth: 100
   rb: {fileID: 4183927583349047713}
   weaponObject: {fileID: 3576469736131852191}
   animator: {fileID: 1197648610824298259}
+  dead: 0
 --- !u!114 &1309641318421841414
 MonoBehaviour:
   m_ObjectHideFlags: 0
