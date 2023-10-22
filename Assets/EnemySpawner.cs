@@ -63,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
         // weapon.transform.SetParent(enemy.transform);
         // Enemy enemyScript = enemy.GetComponent<Enemy>();
         // enemyScript.GrantWeapon(weapon);
-        enemy.GetComponent<Enemy>().GrantWeapon(weapon);
+        enemy.GetComponent<Enemy>().GrantWeapon(weaponObject);
         numberOfEnemies++;
         clones.Add(enemy);
     }

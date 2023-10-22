@@ -1,3 +1,4 @@
+using Bryndzaky.Combat;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,9 +6,34 @@ using UnityEngine;
 
 namespace Bryndzaky.Combat.Collisions
 {
-    public class Projectile : ProjectileAbstract
+    public class Projectile : MonoBehaviour, ICombatCollision
     {
-        public override void OnTriggerEnter2D(Collider2D other)
+        private float timer = 0;
+        private int stopProjectile = 2;
+        [HideInInspector]
+        public int damage = 10;
+        [SerializeField]
+        private float speed = 10f;
+        [HideInInspector]
+        public int freezingTime = 10;
+        public GameObject hitEffect;
+        [HideInInspector]
+        public string source;
+
+        protected virtual void Update()
+        {
+            if (timer < stopProjectile)
+            {
+                timer = timer + Time.deltaTime;
+            }
+            else
+            {
+                Destroy(gameObject);
+                timer = 0;
+            }
+        }
+
+        public virtual void OnTriggerEnter2D(Collider2D other)
         {
             string target = source == "Player" ? "Enemy" : "Player";
             if (other.tag.Split('_')[0] == target)
@@ -18,6 +44,21 @@ namespace Bryndzaky.Combat.Collisions
             
             if (other.CompareTag("Wall"))
                 this.PlayHitEffect();
+        }
+
+        protected virtual void Awake()
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = speed * transform.right;
+        }
+
+        protected virtual void PlayHitEffect()
+        {
+            if (this.hitEffect == null)
+                return;
+
+            GameObject effect = Instantiate(hitEffect, transform.position, transform.rotation);
+            Destroy(effect, 0.2f);
+            Destroy(gameObject);
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Bryndzaky.Combat.Collisions
 {
-    public class ProjectileFreeze : ProjectileAbstract
+    public class ProjectileFreeze : Projectile
     {
         public override void OnTriggerEnter2D(Collider2D other)
         {

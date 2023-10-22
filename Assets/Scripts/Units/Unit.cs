@@ -37,7 +37,7 @@ namespace Bryndzaky.Units {
             //this.weapon = WeaponManager.Instance.GetWeapon();
         }
 
-        public void GrantWeapon(GameObject newWeapon)
+        public void GrantWeapon(GameObject weaponPrefab)
         {
             if (this.weaponObject != null)
                 Destroy(this.weaponObject);

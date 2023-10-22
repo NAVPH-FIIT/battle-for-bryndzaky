@@ -27,7 +27,7 @@ namespace Bryndzaky.Units.Enemies
 
         protected override void Update()
         {
-            if (PauseManager.IsPaused || freezed)
+            if (PauseManager.IsPaused || frozen)
             {
                 moveDirection = Vector2.zero;
                 return;
