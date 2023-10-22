@@ -13,7 +13,7 @@ namespace Bryndzaky.Combat.Spells
         [SerializeField] protected GameObject effect;
 
         public bool Available { get; set; } = true;
-        public KeyCode Hotkey { get; set; }
+        public string Hotkey { get; set; }
         public Transform Origin { get; set; }
         public GameObject Effect => effect;
 

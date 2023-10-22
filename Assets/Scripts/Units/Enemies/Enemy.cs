@@ -51,8 +51,8 @@ namespace Bryndzaky.Units.Enemies
 
         protected override void Animate()
         {
-            Debug.Log("Velocity: " + (rb.velocity != Vector2.zero).ToString());
-            Debug.Log("Aware: " + (playerAware).ToString());
+            //Debug.Log("Velocity: " + (rb.velocity != Vector2.zero).ToString());
+            //Debug.Log("Aware: " + (playerAware).ToString());
             if (rb.velocity != Vector2.zero || playerAware)
             {
                 animator.SetFloat("Horizontal", playerDirection.x * (retreat ? -1 : 1));

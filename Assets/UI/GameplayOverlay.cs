@@ -85,12 +85,13 @@ namespace Bryndzaky.General.Common
 
         public void Hover(string parameters)
         {
-            // Debug.LogError("hover");
+            Debug.LogError("hover");
             int index = int.Parse(parameters.Split("|")[0]);
             bool hover = bool.Parse(parameters.Split("|")[1]);
 
             this.weaponText.text = hover ? this.weaponButtons[index].WeaponName : "";
             this.weaponButtons[index].Animator.SetBool("Hover", hover);
         }
+
     }
 }
