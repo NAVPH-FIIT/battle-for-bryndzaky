@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyObject: {fileID: 9055597210666770237, guid: 711f30a9f5b0d3f41ab4176a83a6a39b, type: 3}
-  weaponObject: {fileID: 5804458246641741858, guid: 3d68448de0a6f4a408352a8d96a06470, type: 3}
+  weaponObject: {fileID: 7558092891764487464, guid: 34abd9cc80f5bdd4ebaf42d7d460ce73, type: 3}
   maxNumberOfEnemies: 3
 --- !u!1001 &854776428
 PrefabInstance:
@@ -818,6 +818,7 @@ MonoBehaviour:
   maxHealth: 100
   rb: {fileID: 1695890435}
   weaponObject: {fileID: 975137718}
+  blood: {fileID: 5597180867383757801, guid: 7158634ee730ba34d86887c8d09f65b5, type: 3}
   animator: {fileID: 1695890433}
   minimumDistance: 2
 --- !u!95 &1695890433
@@ -1353,10 +1354,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2337553645359239931, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
-      propertyPath: weaponObject
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2801698078524831331, guid: fb0c7ecf2a0370943a2465a783ef2706, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1487,6 +1484,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2912986727017799729, guid: a3773a27b9803184eb296cb069013f72, type: 3}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 5597180867383757801, guid: 7158634ee730ba34d86887c8d09f65b5, type: 3}
     - target: {fileID: 2912986727017799729, guid: a3773a27b9803184eb296cb069013f72, type: 3}
       propertyPath: moveSpeed
       value: 4
@@ -1856,10 +1857,6 @@ PrefabInstance:
     - target: {fileID: 6687278829840310603, guid: 76953a4efe8b6e4499ee331ab9c343fb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6718914239168059421, guid: 76953a4efe8b6e4499ee331ab9c343fb, type: 3}
-      propertyPath: weaponObject
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

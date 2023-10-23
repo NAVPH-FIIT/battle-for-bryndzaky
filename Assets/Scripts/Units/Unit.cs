@@ -24,6 +24,8 @@ namespace Bryndzaky.Units
         protected bool frozen = false;
         protected Slider healthbarSlider;
         protected Image healthbarImage;
+        [SerializeField]
+        protected GameObject blood;
         protected IWeapon weapon
         {
             get
@@ -64,8 +66,10 @@ namespace Bryndzaky.Units
         public void Hit(int damage, Vector3 sourceDirection)
         {
             animator.SetTrigger("Hit");
-            this.KnockBack(sourceDirection);
+            if(!frozen)
+                this.KnockBack(sourceDirection);
             this.Health -= damage;
+            Instantiate(blood, transform.position, transform.rotation);
             if (this.healthbarSlider != null)
             {
                 this.healthbarSlider.value = (float) Health / maxHealth;

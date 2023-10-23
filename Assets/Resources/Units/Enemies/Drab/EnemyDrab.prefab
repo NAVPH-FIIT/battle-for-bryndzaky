@@ -602,6 +602,7 @@ MonoBehaviour:
   maxHealth: 100
   rb: {fileID: 6544103762980741305}
   weaponObject: {fileID: 0}
+  blood: {fileID: 5597180867383757801, guid: 7158634ee730ba34d86887c8d09f65b5, type: 3}
   animator: {fileID: 5907076963551712221}
   dead: 0
 --- !u!114 &8162729592077821098

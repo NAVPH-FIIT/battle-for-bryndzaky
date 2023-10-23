@@ -72,7 +72,10 @@ namespace Bryndzaky.Units.Enemies
         protected override void Die()
         {
             Player.Player.Instance.GrantReward(0,0);
-            Destroy(gameObject);
+            this.transform.GetComponentInChildren<Canvas>()?.gameObject.SetActive(false);
+            rb.velocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Static;
+            this.animator.SetTrigger("Dead");
         }
 
         public void OnTriggerEnter2D(Collider2D collider)

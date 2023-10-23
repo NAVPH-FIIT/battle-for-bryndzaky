@@ -71,7 +71,7 @@ namespace Bryndzaky.General.Common
 
         public void Select(string parameters)
         {
-            Debug.LogError("selected");
+            //Debug.LogError("selected");
             int index = int.Parse(parameters.Split("|")[0]);
             bool selected = bool.Parse(parameters.Split("|")[1]);
 
@@ -85,7 +85,7 @@ namespace Bryndzaky.General.Common
 
         public void Hover(string parameters)
         {
-            Debug.LogError("hover");
+            //Debug.LogError("hover");
             int index = int.Parse(parameters.Split("|")[0]);
             bool hover = bool.Parse(parameters.Split("|")[1]);
 
