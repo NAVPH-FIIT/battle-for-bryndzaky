@@ -23,7 +23,7 @@ namespace Bryndzaky.General.Common
             this.healthBar = transform.Find("HealthBar").GetComponent<Slider>();
 
             var activeWeapons = CombatManager.Instance.activeWeapons;
-            for (int i = 0; i < weaponButtons.Count; i++)
+            for (int i = 0; i < activeWeapons.Count; i++)
                 weaponButtons[i].Initialize(activeWeapons[i].name, activeWeapons[i].prefab);
 
             // EventSystem.current.SetSelectedGameObject(button.gameObject);
@@ -65,13 +65,15 @@ namespace Bryndzaky.General.Common
 
                 this.buttonObject.GetComponent<Button>().interactable = true;
                 // Debug.LogError(this.buttonObject.GetComponentInChildren<Image>().name);
-                this.buttonObject.transform.Find("Image").GetComponent<Image>().sprite = this.WeaponImage;
+                var image = this.buttonObject.transform.Find("Image").GetComponent<Image>();
+                image.enabled = true;
+                image.sprite = this.WeaponImage;
             }
         }
 
         public void Select(string parameters)
         {
-            Debug.LogError("selected");
+            //Debug.LogError("selected");
             int index = int.Parse(parameters.Split("|")[0]);
             bool selected = bool.Parse(parameters.Split("|")[1]);
 
@@ -85,12 +87,13 @@ namespace Bryndzaky.General.Common
 
         public void Hover(string parameters)
         {
-            // Debug.LogError("hover");
+            //Debug.LogError("hover");
             int index = int.Parse(parameters.Split("|")[0]);
             bool hover = bool.Parse(parameters.Split("|")[1]);
 
             this.weaponText.text = hover ? this.weaponButtons[index].WeaponName : "";
-            this.weaponButtons[index].Animator.SetBool("Hover", hover);
+            this.weaponButtons[index].Animator?.SetBool("Hover", hover);
         }
+
     }
 }

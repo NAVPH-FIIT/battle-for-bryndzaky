@@ -2,38 +2,53 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Bryndzaky.Combat.Weapons;
+using Bryndzaky.Units.Enemies;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
-namespace Bryndzaky.Units {
+namespace Bryndzaky.Units
+{
     public abstract class Unit : MonoBehaviour
     {
         [SerializeField]
         protected float moveSpeed = 3;
         [SerializeField]
         protected int maxHealth = 100;
-        protected int health;
+        public int Health { get; protected set; }
         [SerializeField]
         protected Rigidbody2D rb;
         [SerializeField]
         protected GameObject weaponObject;
         protected bool frozen = false;
-        protected IWeapon weapon {
-            get {
+        protected Slider healthbarSlider;
+        protected Image healthbarImage;
+        [SerializeField]
+        protected GameObject blood;
+        
+        protected IWeapon weapon
+        {
+            get
+            {
                 return this.weaponObject != null ? this.weaponObject.GetComponent<IWeapon>() : null;
             }
         }
         protected Vector2 moveDirection;
-        [SerializeField]
-        protected Animator animator;
+        [SerializeField] protected Animator animator;
         private UnityEvent OnBegin, OnDone;
         private bool canMove = true;
         protected bool retreat = false;
-        
+
         protected virtual void Start()
         {
-            this.health = this.maxHealth;
+            this.Health = this.maxHealth;
+            this.healthbarSlider = GetComponentInChildren<Slider>();
+            this.healthbarImage = transform
+                .Find("Canvas")?
+                .Find("Healthbar")?
+                .Find("Fill Area")?
+                .Find("Fill")?.GetComponent<Image>();
             //this.weapon = WeaponManager.Instance.GetWeapon();
         }
 
@@ -49,13 +64,26 @@ namespace Bryndzaky.Units {
             this.weaponObject = newWeapon;
         }
 
-        public void Hit(int damage, Vector3 sourceDirection) 
+        public void Hit(int damage, Vector3 sourceDirection)
         {
             animator.SetTrigger("Hit");
-            this.KnockBack(sourceDirection);
-            this.health -= damage;
-            
-            if (this.health <= 0)
+            if(!frozen)
+                this.KnockBack(sourceDirection);
+            this.Health -= damage;
+            Instantiate(blood, transform.position, transform.rotation);
+            if (this.healthbarSlider != null)
+            {
+                this.healthbarSlider.value = (float) Health / maxHealth;
+                if (this.healthbarSlider.value >= 0.75)
+                    this.healthbarImage.color = new Color(32 / 255f, 255 / 255f, 0 / 255f, 255 / 255f);
+                else if (this.healthbarSlider.value <= 0.25)
+                    this.healthbarImage.color = new Color(255 / 255f, 0 / 255f, 5 / 255f, 255 / 255f);
+                else
+                    this.healthbarImage.color = new Color(255 / 255f, 146 / 255f, 0 / 255f, 255 / 255f);
+            }
+
+
+            if (this.Health <= 0)
                 this.Die();
         }
 
@@ -116,15 +144,20 @@ namespace Bryndzaky.Units {
         }
         public int GetHealth()
         {
-            return this.health;
+            return this.Health;
+        }
+
+        public int GetmaxHealth()
+        {
+            return this.maxHealth;
         }
         public void Heal(int healing)
-        {   
-            if(this.health != this.maxHealth)
+        {
+            if (this.Health != this.maxHealth)
                 animator.SetTrigger("Heal");
 
-            this.health = Math.Min(this.health + healing, this.maxHealth);
+            this.Health = Math.Min(this.Health + healing, this.maxHealth);
         }
-        protected abstract void Die();   
+        protected abstract void Die();
     }
 }

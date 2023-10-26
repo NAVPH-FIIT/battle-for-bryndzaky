@@ -51,8 +51,8 @@ namespace Bryndzaky.Units.Enemies
 
         protected override void Animate()
         {
-            Debug.Log("Velocity: " + (rb.velocity != Vector2.zero).ToString());
-            Debug.Log("Aware: " + (playerAware).ToString());
+            //Debug.Log("Velocity: " + (rb.velocity != Vector2.zero).ToString());
+            //Debug.Log("Aware: " + (playerAware).ToString());
             if (rb.velocity != Vector2.zero || playerAware)
             {
                 animator.SetFloat("Horizontal", playerDirection.x * (retreat ? -1 : 1));
@@ -72,7 +72,10 @@ namespace Bryndzaky.Units.Enemies
         protected override void Die()
         {
             Player.Player.Instance.GrantReward(0,0);
-            Destroy(gameObject);
+            this.transform.GetComponentInChildren<Canvas>()?.gameObject.SetActive(false);
+            rb.velocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Static;
+            this.animator.SetTrigger("Dead");
         }
 
         public void OnTriggerEnter2D(Collider2D collider)

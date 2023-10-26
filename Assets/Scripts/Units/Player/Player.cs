@@ -12,7 +12,6 @@ namespace Bryndzaky.Units.Player {
         public static Player Instance { get; private set; }
         [HideInInspector]
         public IInteractable possibleInteraction = null;
-        private bool isDashing = false;
         private bool canDash = true;
         [SerializeField] 
         private float dashSpeed = 10;
@@ -20,7 +19,7 @@ namespace Bryndzaky.Units.Player {
         private float dashDuration = 0.25f;
         [SerializeField] 
         public float dashCoolDown = 1f;
-
+        protected bool isDashing = false;
         protected override void Start() {
             base.Start();
             Instance = this;
