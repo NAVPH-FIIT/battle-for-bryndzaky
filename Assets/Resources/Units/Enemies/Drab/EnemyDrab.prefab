@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 4854041636147851314}
   - component: {fileID: 8597092755658280192}
   - component: {fileID: 8162729592077821098}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyDrab
   m_TagString: Enemy_Drab
   m_Icon: {fileID: 0}

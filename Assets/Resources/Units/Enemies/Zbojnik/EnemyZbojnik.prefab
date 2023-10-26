@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9076264323288989674}
   - component: {fileID: 2337553645359239931}
   - component: {fileID: 350806971060531658}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyZbojnik
   m_TagString: Enemy_Zbojnik
   m_Icon: {fileID: 0}

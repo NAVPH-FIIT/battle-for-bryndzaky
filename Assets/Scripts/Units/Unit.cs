@@ -26,6 +26,7 @@ namespace Bryndzaky.Units
         protected Image healthbarImage;
         [SerializeField]
         protected GameObject blood;
+        
         protected IWeapon weapon
         {
             get
