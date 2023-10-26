@@ -9,6 +9,11 @@ namespace Bryndzaky.Combat.Collisions
     {
         public override void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.tag.StartsWith("Boss"))
+            {
+                this.PlayHitEffect();
+                return;
+            }
             string target = source == "Player" ? "Enemy" : "Player";
             if (other.tag.Split('_')[0] == target)
             {
