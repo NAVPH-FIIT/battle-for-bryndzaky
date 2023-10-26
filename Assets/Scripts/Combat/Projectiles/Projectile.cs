@@ -35,6 +35,13 @@ namespace Bryndzaky.Combat.Collisions
 
         public virtual void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.tag.StartsWith("Boss_") && source == "Player")
+            {
+                BossHealth health = other.GetComponent<BossHealth>();
+                health.Damage(damage);
+                this.PlayHitEffect();
+                return;
+            }
             string target = source == "Player" ? "Enemy" : "Player";
             if (other.tag.Split('_')[0] == target)
             {
