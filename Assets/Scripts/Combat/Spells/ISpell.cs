@@ -9,7 +9,7 @@ namespace Bryndzaky.Combat.Spells
     public interface ISpell
     {
         public bool Available { get; set; }
-        public KeyCode Hotkey { get; }
+        public string Hotkey { get; }
         public GameObject Effect { get; }
         public Transform Origin { get; set;}
         public void Cast();
