@@ -10,6 +10,9 @@ TagManager:
   - Enemy_Hog
   - Enemy_Zbojnik
   - Laszlo
+  - Boss_1_Ground
+  - Boss_1
+  - Boss
   layers:
   - Default
   - TransparentFX
