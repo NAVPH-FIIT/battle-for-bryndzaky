@@ -12,6 +12,11 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
   public SpriteRenderer legend;
   public Animator animator;
 
+
+  public void Awake(){
+      this.interactionHint.enabled = false;
+      this.legend.enabled = false;
+  }
   public void ExecuteAction(){
     animator.SetTrigger("KeyDown");
     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);

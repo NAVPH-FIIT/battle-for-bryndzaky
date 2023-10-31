@@ -55,21 +55,18 @@ public class DialogueManager : MonoBehaviour
         {
             nameText.text = heroName; 
             heroImage.color = new Color(1f, 1f, 1f, 1f);  // Set the hero image color to fully opaque
-            characterImage.color = new Color(1f, 1f, 1f, 0f); // Hide the other character's image
+            characterImage.color = (characterImage.sprite != null) ? new Color(1f, 1f, 1f, 0f) : characterImage.color;
+
         }
         else
         {
-            nameText.text = "???";
-            characterImage.color = new Color(0f, 0f, 0f, 1f); // Set the character image to fully opaque
+            characterImage.color = (characterImage.sprite != null) ? new Color(0f, 0f, 0f, 1f) : characterImage.color;
             heroImage.color = new Color(1f, 1f, 1f, 0f); // Hide the hero's image
+            // nameText.text = "???";
+            // dialogueText.text = "...";
+            charName = dialogue.name;
+            DisplayNextSentence();
         }
-
-
-        dialogueText.text = "...";
-        charName = dialogue.name;
-
-
-
     }
 
     public void DisplayNextSentence()
@@ -88,19 +85,22 @@ public class DialogueManager : MonoBehaviour
         if(heroTalks == true){
           heroImage.color = new Color(1f, 1f, 1f, 1f);
           nameText.text = heroName;
-          characterImage.color = new Color(1f, 1f, 1f, 0f);
+          characterImage.color = (characterImage.sprite != null) ? new Color(1f, 1f, 1f, 0f) : characterImage.color;
+
         }
         else {
           nameText.text = charName;
           heroImage.color = new Color(1f, 1f, 1f, 0f);
-          characterImage.color = new Color(1f, 1f, 1f, 1f);
+          characterImage.color = (characterImage.sprite != null) ? new Color(1f, 1f, 1f, 1f) : characterImage.color;
+
         }
 
         if (firstSentence == true)
         {
             if (heroTalks == false)
             {
-                characterImage.color = new Color(1f, 1f, 1f, 1f); // Set alpha to 1 (fully opaque)
+                characterImage.color = (characterImage.sprite != null) ? new Color(1f, 1f, 1f, 1f) : characterImage.color;
+
             }
 
             nameText.text = heroTalks == true ? heroName : charName;
