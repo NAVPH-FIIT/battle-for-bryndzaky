@@ -58,16 +58,20 @@ public class Boss2Logic : StateMachineBehaviour
                 if (randomChoice == 0 && animator.GetInteger("RushCounter") == 3)
                     animator.SetInteger("RushCounter", 0);
             }
+            else if (Vector2.Distance(rb.position, player.position) < 1f)
+            {
+                animator.SetTrigger("Spin");
+            }
             nextChoice = Time.time + 0.15f;
         }
 
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        animator.ResetTrigger("Spin");
+    }
 
     void UpdatePath()
     {
