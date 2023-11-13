@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
-  m_Name: Jurosikovo
+  m_Name: HUB_Start
   m_EditorClassIdentifier: 
   dialogueEntries:
   - IsHeroTalking: 0
-    Sentence: Vitajte V Jurosikove!!!
-  - IsHeroTalking: 0
-    Sentence: V Jurosikove najdete kvalitne pivo, krasne dievky a vela jedla.
+    Sentence: "Tento most bol dotovan\xFD z Rak\xFAsko-Uhorsk\xFDch fondov za pomoci
+      projektu \"Obnov Monarchiu 1729\""
   - IsHeroTalking: 1
-    Sentence: Wau. Tuto byval slavny piker jozo
-  name: Uradna tabula obce
+    Sentence: "Isto si zemep\xE1ni, ktor\xED riadia t\xFAto krajinu odkrojili dobry
+      kus gro\u0161ov"
+  name: "Tabu\u013Ea"
   characterImage: {fileID: 0}
