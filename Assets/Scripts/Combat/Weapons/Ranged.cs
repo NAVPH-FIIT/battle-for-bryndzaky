@@ -40,8 +40,8 @@ namespace Bryndzaky.Combat.Weapons
             return cooldown;
         }
 
-        override
-        public IEnumerator Attack()
+        
+        public override IEnumerator Attack()
         {
             yield return new WaitForSeconds(0);
 
@@ -52,5 +52,18 @@ namespace Bryndzaky.Combat.Weapons
 
             weaponAnimation?.SetTrigger("Fired");
         }
+
+        public override void Initialize(WeaponUpgrade upgrade)
+        {
+            var rangedUpgrade = (RangedUpgrade) upgrade;
+            
+            this.damage = rangedUpgrade.damage;
+            this.cooldown = rangedUpgrade.cooldown;
+            this.range = rangedUpgrade.range;
+            this.burst = rangedUpgrade.burst;
+            this.burstCooldown = rangedUpgrade.burstCooldown;
+            this.burstSize = rangedUpgrade.burstSize;
+        }
+
     }
 }

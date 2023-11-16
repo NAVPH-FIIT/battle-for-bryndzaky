@@ -52,7 +52,7 @@ namespace Bryndzaky.Units
             //this.weapon = WeaponManager.Instance.GetWeapon();
         }
 
-        public void GrantWeapon(GameObject weaponPrefab)
+        public void GrantWeapon(GameObject weaponPrefab, WeaponUpgrade weaponUpgrade)
         {
             if (this.weaponObject != null)
                 Destroy(this.weaponObject);
@@ -61,6 +61,7 @@ namespace Bryndzaky.Units
             newWeapon.transform.localScale = transform.localScale;
             newWeapon.transform.SetParent(transform);
 
+            newWeapon.GetComponent<IWeapon>().Initialize(weaponUpgrade);
             this.weaponObject = newWeapon;
         }
 
