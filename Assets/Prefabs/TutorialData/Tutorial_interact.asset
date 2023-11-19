@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b5b9d07ff6af24dbb1940c381b5d05, type: 3}
   m_Name: Tutorial_interact
   m_EditorClassIdentifier: 
-  tutorialMessage: "Interaguj s objektami stla\u010Den\xEDm kl\xE1vesy <b>E</b>."
+  tutorialMessage: "Interaguj s objektami a osobami stla\u010Den\xEDm kl\xE1vesy
+    <b>E</b>."

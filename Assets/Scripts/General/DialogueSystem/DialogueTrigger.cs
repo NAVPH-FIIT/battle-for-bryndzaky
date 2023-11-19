@@ -11,20 +11,49 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
   public SpriteRenderer interactionHint;
   public SpriteRenderer legend;
   public Animator animator;
+  public bool oneTimeDialogue;
+  private bool hasDialogueBeenTriggered;
+
+  private IDialogueAction interactableAction;
+
 
 
   public void Awake(){
       this.interactionHint.enabled = false;
       this.legend.enabled = false;
+      hasDialogueBeenTriggered = false; 
+      interactableAction = GetComponent<IDialogueAction>();
   }
-  public void ExecuteAction(){
-    animator.SetTrigger("KeyDown");
-    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+  public void ExecuteAction()
+  {
+      if (oneTimeDialogue && hasDialogueBeenTriggered)
+      {
+          // If it's a one-time dialogue and has already been triggered, do nothing
+          return;
+      }
+
+      animator.SetTrigger("KeyDown");
+      FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+      Debug.Log("Dialogue triggered");
+
+      if (interactableAction != null)
+      {
+          Debug.Log("Interacting with");
+          interactableAction.ExecuteAction();
+      }
+      else {
+        Debug.Log("aweqeqw with");
+      }
+
+      if (oneTimeDialogue)
+      {
+          hasDialogueBeenTriggered = true; // Set the flag
+      }
   }
   
   public void OnTriggerEnter2D(Collider2D other)
   {
-    if (other.CompareTag("Player"))
+    if (other.CompareTag("Player") && (!oneTimeDialogue || !hasDialogueBeenTriggered))
     {
       Debug.Log("Player has collided with the Interactable object!");
       this.interactionHint.enabled = true;

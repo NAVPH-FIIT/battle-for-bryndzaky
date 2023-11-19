@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: LVL1_diag1
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 0
+    Sentence: "Zzzzz... Zzz... \u017Ein\u010Dica... Zzzz... \u017Ein\u010Dica"
+  - IsHeroTalking: 1
+    Sentence: "Sp\xED\u0161, alebo len sn\xEDva\u0161 o jedle?"
+  - IsHeroTalking: 0
+    Sentence: " ...Zzz... \u017Ein\u010Dica... Mmmm... M\u0148am... Zzz.. \u017Ein\u010Dica"
+  - IsHeroTalking: 1
+    Sentence: "No vari niekto je n\xE1m tu hladn\xFD, e\u0161te mi ch\xFA\u0165ky
+      rob. Tak to nie si s\xE1m, priate\u013E m\xF4j"
+  - IsHeroTalking: 1
+    Sentence: "Kde tu n\xE1jdem z\xE1soby jedla? M\xE1m pocit, \u017Ee by som zjedol
+      aj vola."
+  - IsHeroTalking: 0
+    Sentence: "Zzzzz... \u017Ein\u010Dica... Pozor... \u017Ein\u010Dica... nekradn\xFA\u0165
+      jedlo..."
+  - IsHeroTalking: 0
+    Sentence: "Drah\xE1 mi.."
+  - IsHeroTalking: 0
+    Sentence: "Drah\xE1 mi nachystala desiatu... dones mi ju a ja \u0165a odmen\xEDm"
+  - IsHeroTalking: 1
+    Sentence: "A kde ju n\xE1jdem? M\xE1m si to vycica\u0165 z prsta? "
+  - IsHeroTalking: 0
+    Sentence: "V sklade za tebou, z kadia\u013E si pri\u0161iel. Mala by by\u0165
+      na lavi\u010Dke. Moja chrom\xE1 noha ma dnes neposl\xFAcha. Ja si zatia\u013E
+      zdriemnem..."
+  - IsHeroTalking: 0
+    Sentence: Zzzzz.....
+  - IsHeroTalking: 1
+    Sentence: "Tuh\xFD ako pe\u0148. Idem teda preto, ned\xE1m mu to. S\xE1m som
+      stra\u0161ne hladn\xFD."
+  name: "Polospiaci str\xE1\u017Enik"
+  characterImage: {fileID: 21300000, guid: 8fe7583cafe5c4f458c2d9e7035c5bad, type: 3}
