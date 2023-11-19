@@ -134,6 +134,7 @@ namespace Bryndzaky.Units
             Vector2 direction = (transform.position - sourceDirection).normalized;
             rb.AddForce(direction * (float)ConfigManager.config["combat.knockback.strength"], ForceMode2D.Impulse);
             StartCoroutine(KnockbackReset());
+            ResetCooldown();
         }
         private IEnumerator KnockbackReset()
         {
@@ -142,6 +143,12 @@ namespace Bryndzaky.Units
             canMove = true;
             OnDone?.Invoke();
         }
+
+        protected virtual void ResetCooldown()
+        {
+            return;
+        }
+
         public int GetHealth()
         {
             return this.Health;
