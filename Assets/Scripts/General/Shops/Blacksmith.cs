@@ -23,7 +23,8 @@ namespace Bryndzaky.Hub
 
         public void Start()
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            PlayerPrefs.SetInt("gold", PlayerPrefs.GetInt("gold", 100));
             PlayerPrefs.SetInt("gold", 1000); // TODO: Remove
 
             this.activeWeapons = PlayerPrefs.GetString("ActiveWeapons", "").Split('|').ToList();
