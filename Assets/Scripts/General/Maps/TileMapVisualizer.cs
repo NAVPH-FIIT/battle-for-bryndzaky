@@ -24,15 +24,21 @@ public class TileMapVisualizer : MonoBehaviour
   
         foreach (var position in positions) 
         {
-            int num = UnityEngine.Random.Range(0, 4);
-            if (num == 0)
+            int num = UnityEngine.Random.Range(0, 10);
+            if (num < 2)
+            {
+                num = UnityEngine.Random.Range(0, 3);
+                if (num == 0)
+                    tile = floorTile2;
+                if (num == 1)
+                    tile = floorTile3;
+                if (num == 2)
+                    tile = floorTile4;
+            }
+            else 
+            {
                 tile = floorTile1;
-            if (num == 1)
-                tile = floorTile2;
-            if (num == 2)
-                tile = floorTile3;
-            if (num == 3)
-                tile = floorTile4;
+            }
             PaintSingleTile(tilemap, tile, position);
         }
     }
@@ -51,7 +57,8 @@ public class TileMapVisualizer : MonoBehaviour
 
     internal void PaintSingleBasicWall(Vector2Int wall)
     {
-        PaintSingleTile(wallTilemap, wallTop, wall);
+        PaintSingleTile(floorTilemap, floorTile2, wall);
+        //PaintSingleTile(wallTilemap, wallTop, wall);
     }
 }
  
