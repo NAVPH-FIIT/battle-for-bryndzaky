@@ -14,7 +14,6 @@ namespace Bryndzaky.Units.Enemies
         private bool playerAware = false;
         private Vector2 playerDirection;
         public bool dead = false;
-        
 
         protected override void Start()
         {
@@ -73,6 +72,10 @@ namespace Bryndzaky.Units.Enemies
         {
             Player.Player.Instance.GrantReward(0,0);
             this.transform.GetComponentInChildren<Canvas>()?.gameObject.SetActive(false);
+            
+            foreach (IDeathrattle deathrattle in GetComponents<IDeathrattle>())
+                deathrattle.GrantReward();
+
             rb.velocity = Vector2.zero;
             rb.bodyType = RigidbodyType2D.Static;
             this.animator.SetTrigger("Dead");

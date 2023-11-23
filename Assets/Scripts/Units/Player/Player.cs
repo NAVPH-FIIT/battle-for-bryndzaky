@@ -71,6 +71,13 @@ namespace Bryndzaky.Units.Player {
             moveDirection = new Vector2(moveX, moveY).normalized;
         }
 
+        protected override void ResetCooldown()
+        {
+            Debug.Log("ResetFunc");
+            canDash = true;
+            gameObject.GetComponent<Collider2D>().enabled = true;
+        }
+
         private IEnumerator Dash()
         {
             float defaultSpeed = moveSpeed;

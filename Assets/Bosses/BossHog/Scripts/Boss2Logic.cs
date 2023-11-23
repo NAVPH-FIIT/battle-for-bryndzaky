@@ -2,6 +2,7 @@ using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -18,6 +19,7 @@ public class Boss2Logic : StateMachineBehaviour
     private float nextWaypointDistance = 3;
     private float nextUpdate = 0f;
     private float nextChoice = 0f;
+    private int randomChoice = 0;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -25,6 +27,7 @@ public class Boss2Logic : StateMachineBehaviour
         seeker = animator.GetComponent<Seeker>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Dynamic;
         UpdatePath();
     }
 
@@ -51,12 +54,18 @@ public class Boss2Logic : StateMachineBehaviour
         }
         if (Time.time > nextChoice)
         {
+            
+            randomChoice = Random.Range(0, 10);
             if (Vector2.Distance(rb.position, player.position) > 3f)
             {
-                int randomChoice = Random.Range(0, 10);
+                
                 Debug.Log(randomChoice);
                 if (randomChoice == 0 && animator.GetInteger("RushCounter") == 3)
                     animator.SetInteger("RushCounter", 0);
+            }
+            else if ((Vector2.Distance(rb.position, player.position) < 1.3f) && (randomChoice < 6))
+            {
+                animator.SetTrigger("Spin");
             }
             nextChoice = Time.time + 0.15f;
         }
@@ -64,10 +73,11 @@ public class Boss2Logic : StateMachineBehaviour
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        animator.ResetTrigger("Spin");
+        rb.bodyType = RigidbodyType2D.Static;
+    }
 
     void UpdatePath()
     {
