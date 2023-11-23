@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.00017452026, w: 1}
   m_LocalPosition: {x: 1.86579, y: 0.69274, z: -0.2673011}
-  m_LocalScale: {x: 0.013664781, y: 0.014248893, z: 1}
+  m_LocalScale: {x: 0.037790272, y: 0.030483551, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1209587631
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e702c56ceffd62747aa63e6f86a60c0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -119,8 +119,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0795976, y: 0.20348662}
-  m_Size: {x: 11.207459, y: 6.3980274}
+  m_Offset: {x: -0.12352734, y: -0.44610167}
+  m_Size: {x: 13.119605, y: 5.0988507}
   m_Direction: 1
 --- !u!50 &1762637918361250845
 Rigidbody2D:
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  speed: 10
+  speed: 30
+  freezingTime: 10
   hitEffect: {fileID: 6407639509322706032, guid: 79b1e266ef3d1144790b343863e20d71, type: 3}
   source: 

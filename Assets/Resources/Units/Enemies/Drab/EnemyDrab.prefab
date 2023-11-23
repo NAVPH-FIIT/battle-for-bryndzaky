@@ -59,7 +59,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1209587631
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &4187567798757271568
@@ -410,7 +410,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.49, y: -2.53, z: -0.35919172}
-  m_LocalScale: {x: 0.04, y: 0.04, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.1377551, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5073077317646908911}
@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aec32209c23ee34f86f5859e0e4d97d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 7
   maxHealth: 100
   rb: {fileID: 6544103762980741305}
   weaponObject: {fileID: 0}
