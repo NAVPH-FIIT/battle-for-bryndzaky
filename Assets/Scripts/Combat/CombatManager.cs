@@ -13,15 +13,22 @@ namespace Bryndzaky.Combat
     {
         public static CombatManager Instance { get; private set; }
 
-        [Serializable]
-        public class WeaponEntry
+        public class ActiveWeapon
         {
             public string name;
-            public GameObject prefab;
+            public GameObject weaponPrefab;
+            public WeaponUpgrade upgrade;
+
+            public ActiveWeapon(string name, GameObject prefab, WeaponUpgrade upgrade)
+            {
+                this.name = name;
+                this.weaponPrefab = prefab;
+                this.upgrade = upgrade;
+            }
         }
         
-        [SerializeField] private List<WeaponEntry> allWeapons;
-        public List<WeaponEntry> activeWeapons { get; private set; }
+        [SerializeField] private Armory armory;
+        public List<ActiveWeapon> activeWeapons { get; private set; }
 
         //[SerializeField]
         //sprivate List<GameObject> spells;
@@ -32,10 +39,23 @@ namespace Bryndzaky.Combat
             if (PlayerPrefs.GetString("ActiveWeapons") != "")
             {
                 var chosenWeapons = PlayerPrefs.GetString("ActiveWeapons").Split("|");
-                this.activeWeapons = allWeapons.Where(entry => chosenWeapons.Contains(entry.name)).Take(4).ToList();
+                this.activeWeapons = this.armory.allWeapons
+                    .Where(entry => chosenWeapons.Contains(entry.name))
+                    .Select(entry => new ActiveWeapon(
+                        entry.name,
+                        entry.prefab,
+                        entry.upgrades[PlayerPrefs.GetInt(entry.name, 0)]
+                    ))
+                    .Take(4).ToList();
             }
             else
-                this.activeWeapons = allWeapons.Take(4).ToList();
+                this.activeWeapons = this.armory.allWeapons
+                    .Select(entry => new ActiveWeapon(
+                        entry.name,
+                        entry.prefab,
+                        entry.upgrades[0]
+                    ))
+                    .Take(4).ToList();
         }
 
         // public GameObject[] GetWeapons()

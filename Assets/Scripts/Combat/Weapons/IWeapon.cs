@@ -8,6 +8,7 @@ namespace Bryndzaky.Combat.Weapons
 {
     public interface IWeapon
     {
+        public void Initialize(WeaponUpgrade upgrade);
         public void Aim(Vector2 dir);
         public void IssueAttack();
         public string GetHolder();

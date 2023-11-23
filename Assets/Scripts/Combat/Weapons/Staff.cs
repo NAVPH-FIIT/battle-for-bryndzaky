@@ -15,6 +15,11 @@ namespace Bryndzaky.Combat.Weapons
             throw new System.NotImplementedException();
         }
 
+        public override void Initialize(WeaponUpgrade upgrade)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void CastSpell(ISpell spell)
         {
             this.PlayEffect(spell.Effect);

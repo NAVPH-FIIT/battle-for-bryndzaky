@@ -8,6 +8,7 @@ namespace Bryndzaky.Combat.Weapons
 {
     public class Melee : Weapon, ICombatCollision
     {
+        [SerializeField] private float attackTime = 0.25f;
         private bool alreadyAttacked = false;
         
         override
@@ -17,14 +18,22 @@ namespace Bryndzaky.Combat.Weapons
             gameObject.GetComponentInChildren<Collider2D>().enabled = false;
         }
 
-        override
-        public IEnumerator Attack()
+        public override IEnumerator Attack()
         {
             weaponAnimation?.SetTrigger("Attack");
             gameObject.GetComponentInChildren<Collider2D>().enabled = true;
-            yield return new WaitForSeconds(AttackTime);
+            yield return new WaitForSeconds(attackTime);
             gameObject.GetComponentInChildren<Collider2D>().enabled = false;
             alreadyAttacked = false;
+        }
+
+        public override void Initialize(WeaponUpgrade upgrade)
+        {
+            var meleeUpgrade = (MeleeUpgrade) upgrade;
+            
+            this.damage = meleeUpgrade.damage;
+            this.cooldown = meleeUpgrade.cooldown;
+            this.attackTime = meleeUpgrade.AttackTime;
         }
 
         public void OnTriggerEnter2D(Collider2D other)

@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using System;
 using TMPro;
 using Bryndzaky.Combat;
+using Bryndzaky.Combat.Weapons;
 
 namespace Bryndzaky.General.Common
 {
@@ -24,7 +25,7 @@ namespace Bryndzaky.General.Common
 
             var activeWeapons = CombatManager.Instance.activeWeapons;
             for (int i = 0; i < activeWeapons.Count; i++)
-                weaponButtons[i].Initialize(activeWeapons[i].name, activeWeapons[i].prefab);
+                weaponButtons[i].Initialize(activeWeapons[i].name, activeWeapons[i].weaponPrefab, activeWeapons[i].upgrade);
 
             // EventSystem.current.SetSelectedGameObject(button.gameObject);
             // var x = weaponButtons[0].buttonObject.GetComponent<EventTrigger>();
@@ -52,14 +53,16 @@ namespace Bryndzaky.General.Common
             public GameObject buttonObject;
             public GameObject WeaponPrefab { get; private set; }
             public string WeaponName { get; private set; }
+            public WeaponUpgrade WeaponUpgrade { get; private set; }
             public Sprite WeaponImage { get; private set; }
             public Animator Animator { get; private set; }
             [HideInInspector] public bool selected;// { get; set; }
 
-            public void Initialize(string weaponName, GameObject prefab)
+            public void Initialize(string weaponName, GameObject prefab, WeaponUpgrade weaponUpgrade)
             {
-                this.WeaponName = weaponName.Replace('_', ' ');
+                this.WeaponName = weaponName;
                 this.WeaponPrefab = prefab;
+                this.WeaponUpgrade = weaponUpgrade;
                 this.WeaponImage = prefab.GetComponentInChildren<SpriteRenderer>().sprite;
                 this.Animator = this.buttonObject.GetComponent<Animator>();
 
@@ -80,7 +83,7 @@ namespace Bryndzaky.General.Common
             this.weaponButtons[index].selected = selected;
             if (selected)
             {
-                Player.Instance.GrantWeapon(this.weaponButtons[index].WeaponPrefab);
+                Player.Instance.GrantWeapon(this.weaponButtons[index].WeaponPrefab, this.weaponButtons[index].WeaponUpgrade);
                 this.activeWeaponImage.sprite = this.weaponButtons[index].WeaponImage;
             }
         }

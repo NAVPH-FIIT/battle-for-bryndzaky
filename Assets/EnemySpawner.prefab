@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6046fb55497a8488133cefb17f7474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyObject: {fileID: 0}
-  weaponObject: {fileID: 0}
-  maxNumberOfEnemies: 3
+  entities:
+  - {fileID: 0}
+  enemies: []
 --- !u!58 &5884905859387669308
 CircleCollider2D:
   m_ObjectHideFlags: 0
