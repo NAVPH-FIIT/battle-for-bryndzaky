@@ -61,6 +61,7 @@ namespace Bryndzaky.Hub
         {
             PlayerPrefs.SetInt(name, PlayerPrefs.GetInt(name, 0) + 1);
             PlayerPrefs.SetInt("gold", PlayerPrefs.GetInt("gold") - price);
+            PlayerPrefs.Save();
         }
     }
 }

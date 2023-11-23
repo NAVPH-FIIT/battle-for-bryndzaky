@@ -110,6 +110,7 @@ namespace Bryndzaky.Hub
         {
             PlayerPrefs.SetInt(weapon.name, PlayerPrefs.GetInt(weapon.name, 0) + 1);
             PlayerPrefs.SetInt("gold", PlayerPrefs.GetInt("gold") - price);
+            PlayerPrefs.Save();
             this.SetupUpgrade(weapon, upgrade);
         }
 
@@ -117,6 +118,7 @@ namespace Bryndzaky.Hub
         {
             PlayerPrefs.SetInt(weapon.name, 0);
             PlayerPrefs.SetInt("gold", PlayerPrefs.GetInt("gold") - price);
+            PlayerPrefs.Save();
             this.SetupUpgrade(weapon, upgrade);
         }
 
@@ -139,6 +141,7 @@ namespace Bryndzaky.Hub
                 {
                     this.activeWeapons.Add(weaponName);
                     PlayerPrefs.SetString("ActiveWeapons", string.Join("|", this.activeWeapons));
+                    PlayerPrefs.Save();
                 }
 
                 return;
@@ -147,6 +150,7 @@ namespace Bryndzaky.Hub
             upgrade.GetComponent<Image>().color = new Color(1, 170f/255f, 0);
             this.activeWeapons.Remove(weaponName);
             PlayerPrefs.SetString("ActiveWeapons", string.Join("|", this.activeWeapons));
+            PlayerPrefs.Save();
         }
     }
 }
