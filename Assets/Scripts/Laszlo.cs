@@ -18,6 +18,8 @@ namespace Bryndzaky.Units.Laszlo
         private Vector2 playerDirection;
         public float minimumDistance = 1;
         private List<ISpell> spells;
+        [SerializeField]
+        private int tresholdDistance = 200;
 
         protected override void Start()
         {
@@ -41,6 +43,8 @@ namespace Bryndzaky.Units.Laszlo
             this.Animate();
             
             this.playerDirection = Player.Player.Instance.gameObject.transform.position - transform.position;
+            if (playerDirection.sqrMagnitude > tresholdDistance)
+                Teleport();
             this.weapon?.Aim(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             this.CastSpells();
         }
@@ -99,7 +103,11 @@ namespace Bryndzaky.Units.Laszlo
                 currentWaypoint = 0;
             }
         }
-
+        protected void Teleport()
+        {
+            this.transform.position = Player.Player.Instance.transform.position;
+            animator.SetTrigger("Teleport");
+        }
         protected override void AssignDirection()
         {
             if (playerPath == null)

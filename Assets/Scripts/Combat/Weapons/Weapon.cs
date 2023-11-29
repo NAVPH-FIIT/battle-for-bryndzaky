@@ -12,8 +12,8 @@ namespace Bryndzaky.Combat.Weapons
         protected int damage = 10;
         //protected bool attacking = false;
         protected bool canAttack = true;
-        [SerializeField]
-        protected float AttackTime = 0.25f;
+        // [SerializeField]
+        // protected float AttackTime = 0.25f;
         [SerializeField]
         protected float cooldown = 1;
         protected Animator weaponAnimation;
@@ -67,6 +67,8 @@ namespace Bryndzaky.Combat.Weapons
         }
 
         public abstract IEnumerator Attack();
+
+        public abstract void Initialize(WeaponUpgrade upgrade);
 
         // public IEnumerator Cooldown(float time, System.Action<bool> callback)
         // {

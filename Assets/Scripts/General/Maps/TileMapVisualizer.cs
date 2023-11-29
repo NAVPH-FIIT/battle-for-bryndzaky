@@ -6,40 +6,55 @@ using UnityEngine.Tilemaps;
 
 public class TileMapVisualizer : MonoBehaviour
 {
-    [SerializeField]
-    private Tilemap floorTilemap, wallTilemap;
+  [SerializeField]
+  private Tilemap floorTilemap, wallTilemap;
 
-    [SerializeField]
-    private TileBase floorTile, wallTop;
+  [SerializeField]
+  private TileBase floorTile, wallTop;
 
-    public void PaintFloorTiles(IEnumerable<Vector2Int> floorPoss)
+  public void PaintFloorTiles(IEnumerable<Vector2Int> floorPoss)
+  {
+    PaintTiles(floorPoss, floorTilemap, floorTile);
+  }
+
+  private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile)
+  {
+    foreach (var position in positions)
     {
-        PaintTiles(floorPoss, floorTilemap, floorTile);
+      int num = UnityEngine.Random.Range(0, 10);
+      if (num < 2)
+      {
+        num = UnityEngine.Random.Range(0, 3);
+        if (num == 0)
+          tile = floorTile2;
+        if (num == 1)
+          tile = floorTile3;
+        if (num == 2)
+          tile = floorTile4;
+      }
+      else
+      {
+        tile = floorTile1;
+      }
+      PaintSingleTile(tilemap, tile, position);
     }
+  }
 
-    private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile)
-    {
-        foreach (var position in positions) 
-        {
-            PaintSingleTile(tilemap, tile, position);
-        }
-    }
+  private void PaintSingleTile(Tilemap tilemap, TileBase tile, Vector2Int position)
+  {
+    var tilePos = tilemap.WorldToCell((Vector3Int)position);
+    tilemap.SetTile(tilePos, tile);
+  }
 
-    private void PaintSingleTile(Tilemap tilemap, TileBase tile, Vector2Int position)
-    {
-        var tilePos = tilemap.WorldToCell((Vector3Int)position);
-        tilemap.SetTile(tilePos, tile);
-    }
+  public void Clear()
+  {
+    floorTilemap.ClearAllTiles();
+    wallTilemap.ClearAllTiles();
+  }
 
-    public void Clear()
-    {
-        floorTilemap.ClearAllTiles(); 
-        wallTilemap.ClearAllTiles();
-    }
-
-    internal void PaintSingleBasicWall(Vector2Int wall)
-    {
-        PaintSingleTile(wallTilemap, wallTop, wall);
-    }
+  internal void PaintSingleBasicWall(Vector2Int wall)
+  {
+    PaintSingleTile(floorTilemap, floorTile2, wall);
+    //PaintSingleTile(wallTilemap, wallTop, wall);
+  }
 }
- 

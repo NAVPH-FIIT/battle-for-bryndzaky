@@ -52,7 +52,7 @@ namespace Bryndzaky.Units
             //this.weapon = WeaponManager.Instance.GetWeapon();
         }
 
-        public void GrantWeapon(GameObject weaponPrefab)
+        public void GrantWeapon(GameObject weaponPrefab, WeaponUpgrade weaponUpgrade)
         {
             if (this.weaponObject != null)
                 Destroy(this.weaponObject);
@@ -61,6 +61,7 @@ namespace Bryndzaky.Units
             newWeapon.transform.localScale = transform.localScale;
             newWeapon.transform.SetParent(transform);
 
+            newWeapon.GetComponent<IWeapon>().Initialize(weaponUpgrade);
             this.weaponObject = newWeapon;
         }
 
@@ -134,6 +135,7 @@ namespace Bryndzaky.Units
             Vector2 direction = (transform.position - sourceDirection).normalized;
             rb.AddForce(direction * (float)ConfigManager.config["combat.knockback.strength"], ForceMode2D.Impulse);
             StartCoroutine(KnockbackReset());
+            ResetCooldown();
         }
         private IEnumerator KnockbackReset()
         {
@@ -142,6 +144,12 @@ namespace Bryndzaky.Units
             canMove = true;
             OnDone?.Invoke();
         }
+
+        protected virtual void ResetCooldown()
+        {
+            return;
+        }
+
         public int GetHealth()
         {
             return this.Health;

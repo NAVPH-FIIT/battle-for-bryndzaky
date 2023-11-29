@@ -6,6 +6,8 @@ public class HogBossAttacks : MonoBehaviour
 {
     [SerializeField]
     private CircleCollider2D rushAoe;
+    [SerializeField]
+    private PolygonCollider2D spinAoe;
 
     public void Rush_enable()
     {
@@ -17,5 +19,15 @@ public class HogBossAttacks : MonoBehaviour
     {
         Debug.Log("dis");
         rushAoe.enabled = false;
+    }
+
+    public void Spin_enable()
+    {
+        spinAoe.enabled = true;
+    }
+
+    public void Spin_disable()
+    {
+        spinAoe.enabled = false;
     }
 }

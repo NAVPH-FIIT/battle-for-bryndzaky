@@ -17,6 +17,7 @@ public class HogRushAttack : StateMachineBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Dynamic;
         dustGround = animator.GetComponentInChildren<Transform>().Find("Dust1").GetComponent<SpriteRenderer>();
         rushAoe = animator.GetComponentInChildren<Transform>().Find("AoEarea").GetComponent<CircleCollider2D>();
         dustGround.enabled = true;
@@ -53,6 +54,7 @@ public class HogRushAttack : StateMachineBehaviour
         rushAoe.enabled = false;
         int count = animator.GetInteger("RushCounter");
         animator.SetInteger("RushCounter", count+ 1);
+        rb.bodyType = RigidbodyType2D.Static;
     }
 
 }

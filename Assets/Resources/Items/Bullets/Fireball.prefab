@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.00017452026, w: 1}
   m_LocalPosition: {x: 3.2667, y: -1.4897, z: -0.2673011}
-  m_LocalScale: {x: 0.018224731, y: 0.017242128, z: 1}
+  m_LocalScale: {x: 0.065859154, y: 0.06423913, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1209587631
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cbf5ba4a10b127e48b9ece59ca0c22a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  speed: 10
+  speed: 30
+  freezingTime: 10
   hitEffect: {fileID: 6809451164628115329, guid: 700445bccd9885b46bfc031dbeacc779, type: 3}
   source: 
 --- !u!58 &8752956740081189454

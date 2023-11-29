@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interations: 50
   walkLen: 2000
-  startRandomlyEachIter: 0
+  startRandomlyEachIter: 1
