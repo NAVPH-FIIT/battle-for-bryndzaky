@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: HUB_Start
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 0
+    Sentence: "Tento most bol dotovan\xFD z Rak\xFAsko-Uhorsk\xFDch fondov za pomoci
+      projektu \"Obnov Monarchiu 1729\""
+  - IsHeroTalking: 1
+    Sentence: "Isto si zemep\xE1ni, ktor\xED riadia t\xFAto krajinu odkrojili dobry
+      kus gro\u0161ov"
+  name: "Tabu\u013Ea"
+  characterImage: {fileID: 0}

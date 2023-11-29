@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: lvl1-herald-4
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 1
+    Sentence: "Mal si pravdu. Spia ako zabit\xED."
+  - IsHeroTalking: 0
+    Sentence: "Hovoril som ti. No \u010Do, m\xE1\u0161 to jedlo? "
+  - IsHeroTalking: 1
+    Sentence: "Ano, tu m\xE1\u0161. Ak\xFA odmenu za to dostanem? "
+  - IsHeroTalking: 0
+    Sentence: "Nech sa p\xE1\u010Di, kapustn\xE9 flia\u010Dky roben\xE9 z l\xE1sky
+      od mojej drahej. "
+  - IsHeroTalking: 1
+    Sentence: "Ty dareb\xE1k, tie mi d\xE1va\u0161 lebo ich ty nechce\u0161. A ja
+      taktie\u017E nie! "
+  - IsHeroTalking: 0
+    Sentence: "No dobre teda, ak n\xE1jde\u0161 ved\xFAceho zbojn\xEDka. Tak n\xE1jde\u0161
+      poklad, nov\xFD tajn\xFD recept. "
+  - IsHeroTalking: 0
+    Sentence: "Hovor\xED sa, \u017Ee kto oko\u0161tuje to jedlo. Tak prejde od Dev\xEDna
+      po Dunaj za jeden den."
+  - IsHeroTalking: 1
+    Sentence: "\u010Eakujem teda... d\xFAfam, \u017Ee tento aspo\u0148 bude priate\u013Esk\xFD,"
+  - IsHeroTalking: 0
+    Sentence: Pochybujem... ZZzzzz..... Zzzzzz... ZZZZZ.....
+  name: "Polospiaci str\xE1\u017Enik"
+  characterImage: {fileID: 21300000, guid: e45bd3445467a85458dbd7489d96a56e, type: 3}

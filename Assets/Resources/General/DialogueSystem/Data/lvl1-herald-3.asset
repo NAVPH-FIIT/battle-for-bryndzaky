@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: lvl1-herald-3
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 1
+    Sentence: Donesiol som ti to jedlo od tvojej drahej.
+  - IsHeroTalking: 0
+    Sentence: Ale..
+  - IsHeroTalking: 0
+    Sentence: "TY STAR\xC1 KUKA\u010CKA! Ve\u010F to s\xFA kapustn\xE9 flia\u010Dky,
+      a nie p\xE1rance. "
+  - IsHeroTalking: 0
+    Sentence: "\u010Co m\xE1m teraz robi\u0165, ve\u010F z toho sa ani vlk nenas\xFDti.
+      J\xF3j drah\xE1, ty jedna z\xE1budajka, ve\u010F mi to rob\xED zle."
+  - IsHeroTalking: 0
+    Sentence: "Nevad\xED, existuje e\u0161te druh\xE9 rie\u0161enie."
+  - IsHeroTalking: 1
+    Sentence: "Ty moje pirohy, to nie je jedlo pre chlapa. A ak\xE9 druh\xE9 rie\u0161enie? "
+  - IsHeroTalking: 0
+    Sentence: "Na, tu m\xE1\u0161! K\u013E\xFA\u010D od miestnosti zbojn\xEDkov.
+      Dnes na obed bola pe\u010Den\xE1 ka\u010Dica. Dones mi to a dostane\u0161 s\u013E\xFAben\xFA
+      odmenu haha."
+  - IsHeroTalking: 0
+    Sentence: "Len sa preplaz opatrne ved\u013Ea zbojn\xEDkov."
+  - IsHeroTalking: 1
+    Sentence: "A \u010Do ak ma chytia?"
+  - IsHeroTalking: 0
+    Sentence: "Spia ako keby boli zabit\xED, ak ich nezobud\xED\u0161 tak sa ti ni\u010D
+      nestane."
+  - IsHeroTalking: 1
+    Sentence: "Kde n\xE1jdem t\xFA miestnos\u0165?"
+  - IsHeroTalking: 0
+    Sentence: "Pokra\u010Duj dole chodbou, a\u017E naraz\xED\u0161 na podzemn\xFA
+      fatru. Ak p\xF4jde\u0161 e\u0161te ni\u017E\u0161ie, uvid\xED\u0161 tam ve\u013Ek\xE9
+      dreven\xE9 dvere."
+  name: "Polospiaci str\xE1\u017Enik"
+  characterImage: {fileID: 21300000, guid: e45bd3445467a85458dbd7489d96a56e, type: 3}
