@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: lvl1-laszlo-1
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 0
+    Sentence: "K\xF6sz\xF6n\xF6m, k\xF6sz\xF6n\xF6m za z\xE1chranu. Ako sa ti ja
+      m\xF4\u017Eem odv\u010Fa\u010Di\u0165? M\xE1m tu p\xE1r m\xE1gi\xED a star\xFDch
+      k\xFAziel, mo\u017Eno nie\u010Do, \u010Do by ti mohlo pom\xF4c\u0165 na tvojich
+      dobrodru\u017Estv\xE1ch. "
+  - IsHeroTalking: 1
+    Sentence: "Za m\xE1lo, od toho som tu ja. Teda, nepam\xE4t\xE1m si ni\u010D,
+      neviem ani pre\u010Do som tu ja."
+  - IsHeroTalking: 0
+    Sentence: "Tuja? Tuja ty nembude\u0161, ve\u010F to je strom a nie \u017Eiv\xE1
+      osoba. Ka\u017Edop\xE1dne \u010Fakujem e\u0161te raz."
+  - IsHeroTalking: 1
+    Sentence: "A \u010Do tu rob\xED\u0161? Ako si sa tu ocitol? "
+  - IsHeroTalking: 0
+    Sentence: "No vie\u0161, ja som h\u013Eadal tajn\xFD recept, u\u017E-u\u017E
+      som ho mal, ale nepodarilo sa. Schmatol som, \u010Do som mohol, a v tom pri\u0161iel
+      on a zajal ma! "
+  - IsHeroTalking: 1
+    Sentence: "Recept? Mysl\xED\u0161 B.H? Ten h\u013Ead\xE1m aj ja, a to som ve\u013Emi
+      hladn\xFD."
+  - IsHeroTalking: 0
+    Sentence: "Igen, bryndzov\xE9 halu\u0161ka. \xC9rdekes.. \u010Co ty na to keby
+      my to na\u0161li spolu? "
+  - IsHeroTalking: 1
+    Sentence: "Dobre, len si pohnime. Zv\xE4dav\xFD som \u010Do za super tajn\xFD
+      recept to bude. M\xE1m pocit, \u017Ee som videl rebr\xEDk na za\u010Diatku."
+  name: "L\xE1szlo"
+  characterImage: {fileID: 0}

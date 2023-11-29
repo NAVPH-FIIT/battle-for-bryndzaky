@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: lvl1-start-dialogue
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 1
+    Sentence: "Jooj to je bolehlav. Kde to som ? Ako som sa sem dostal? Ak\xFA frd\u017Ealicu
+      som zase popil?"
+  - IsHeroTalking: 1
+    Sentence: "Vari to bola slivka od star\xE9ho Andreja. Zvedav\xFD som ako dopadli
+      ostatn\xED."
+  - IsHeroTalking: 1
+    Sentence: "Ale za to by som aj nie\u010Do pojedol. Nejak\xE9 dobr\xE9 m\xE4sko."
+  - IsHeroTalking: 1
+    Sentence: "No ni\u010D. P\xF4jdem sa porozhliada\u0165, mo\u017Eno na nie\u010Do
+      alebo niekoho natraf\xEDm. "
+  - IsHeroTalking: 1
+    Sentence: Joooj keby som len vedel ako som sa sem dostal a ako dlho tu som.
+  name: Spomienky z minulosti
+  characterImage: {fileID: 21300000, guid: 68b9a4a22842ac44f9ea4ad41c1d5005, type: 3}

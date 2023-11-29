@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: lvl1-herald-1
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 0
+    Sentence: "Zzzzz... Zzz... \u017Ein\u010Dica... Zzzz... \u017Ein\u010Dica"
+  - IsHeroTalking: 1
+    Sentence: "Sp\xED\u0161, alebo len sn\xEDva\u0161 o jedle?"
+  - IsHeroTalking: 0
+    Sentence: " ...Zzz... \u017Ein\u010Dica... Mmmm... M\u0148am... Zzz.. \u017Ein\u010Dica"
+  - IsHeroTalking: 1
+    Sentence: "No vari niekto je n\xE1m tu hladn\xFD, e\u0161te mi ch\xFA\u0165ky
+      rob. Zobu\u010F sa!"
+  - IsHeroTalking: 0
+    Sentence: "Drah\xE1 mi.."
+  - IsHeroTalking: 0
+    Sentence: "Drah\xE1 mi nachystala desiatu... dones mi ju a ja \u0165a odmen\xEDm"
+  - IsHeroTalking: 1
+    Sentence: "A kde ju n\xE1jdem? M\xE1m si to vycica\u0165 z prsta? "
+  - IsHeroTalking: 0
+    Sentence: "V sklade za tebou, z kadia\u013E si pri\u0161iel. Mala by by\u0165
+      na lavi\u010Dke. Moja chrom\xE1 noha ma dnes neposl\xFAcha. Ja si zatia\u013E
+      zdriemnem..."
+  - IsHeroTalking: 0
+    Sentence: Zzzzz.....
+  - IsHeroTalking: 1
+    Sentence: "Idem teda pre to. Je to zbojn\xEDk, \u010Do mi tak m\xF4\u017Ee da\u0165?"
+  name: "Polospiaci str\xE1\u017Enik"
+  characterImage: {fileID: 21300000, guid: e45bd3445467a85458dbd7489d96a56e, type: 3}
