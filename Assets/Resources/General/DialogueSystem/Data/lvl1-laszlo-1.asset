@@ -15,9 +15,10 @@ MonoBehaviour:
   dialogueEntries:
   - IsHeroTalking: 0
     Sentence: "K\xF6sz\xF6n\xF6m, k\xF6sz\xF6n\xF6m za z\xE1chranu. Ako sa ti ja
-      m\xF4\u017Eem odv\u010Fa\u010Di\u0165? M\xE1m tu p\xE1r m\xE1gi\xED a star\xFDch
-      k\xFAziel, mo\u017Eno nie\u010Do, \u010Do by ti mohlo pom\xF4c\u0165 na tvojich
-      dobrodru\u017Estv\xE1ch. "
+      m\xF4\u017Eem odv\u010Fa\u010Di\u0165? "
+  - IsHeroTalking: 0
+    Sentence: "M\xE1m tu p\xE1r m\xE1gi\xED a star\xFDch k\xFAziel, mo\u017Eno nie\u010Do,
+      \u010Do by ti mohlo pom\xF4c\u0165 na tvojich dobrodru\u017Estv\xE1ch. "
   - IsHeroTalking: 1
     Sentence: "Za m\xE1lo, od toho som tu ja. Teda, nepam\xE4t\xE1m si ni\u010D,
       neviem ani pre\u010Do som tu ja."
@@ -40,4 +41,4 @@ MonoBehaviour:
     Sentence: "Dobre, len si pohnime. Zv\xE4dav\xFD som \u010Do za super tajn\xFD
       recept to bude. M\xE1m pocit, \u017Ee som videl rebr\xEDk na za\u010Diatku."
   name: "L\xE1szlo"
-  characterImage: {fileID: 0}
+  characterImage: {fileID: 21300000, guid: b457c12666ba4054687a7dce42e981e5, type: 3}
