@@ -77,7 +77,6 @@ public class DialogueManager : MonoBehaviour
 
   public void DisplayNextSentence()
   {
-    Debug.Log(firstSentence);
     if (dialogueEntries.Count == 0)
     {
       EndDialogue();
