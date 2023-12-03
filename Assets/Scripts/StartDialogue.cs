@@ -9,7 +9,7 @@ public class StartDialogue : MonoBehaviour
   private bool hasDialogueBeenTriggered = false;
   void Start()
   {
-    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+    // FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
   }
 
   public void OnTriggerEnter2D(Collider2D other)

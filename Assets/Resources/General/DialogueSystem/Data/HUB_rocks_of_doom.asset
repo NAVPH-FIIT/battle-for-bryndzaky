@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: HUB_rocks_of_doom
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 0
+    Sentence: "Hrozostra\u0161n\xE9 kamene skazy."
+  - IsHeroTalking: 1
+    Sentence: "Povr\xE1va sa,  \u017Ee ke\u010F ich sem \u010Darodejn\xEDci \u010Darovali,
+      tak to bol kame\u0148 na kameni a nevedli ste, ktor\xFD je vpredu. "
+  - IsHeroTalking: 1
+    Sentence: "Niekedy ste vedeli ist cez kamene, niekedy boli rozk\xFAskovan\xE9
+      na kocky. Proste za\u010Darovan\xE9"
+  name: Kamene Skazy
+  characterImage: {fileID: 21300000, guid: 68b9a4a22842ac44f9ea4ad41c1d5005, type: 3}

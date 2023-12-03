@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: HUB_Grave
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 0
+    Sentence: "Tu le\u017E\xED p\xE1n Andrej, lok\xE1lny hrdina a ob\u013E\xFAben\xFD
+      paliar v\u0161etk\xE9ho \u010Do r\xE1stlo. 1620-1654 "
+  - IsHeroTalking: 1
+    Sentence: "F\xFAha. Tak to som vy\u0161iel e\u0161te dobre zo v\u010Deraj\u0161ej
+      noci."
+  - IsHeroTalking: 1
+    Sentence: "Ak v\xF4bec to bolo v\u010Dera."
+  name: "Pomn\xEDk"
+  characterImage: {fileID: 21300000, guid: 68b9a4a22842ac44f9ea4ad41c1d5005, type: 3}
