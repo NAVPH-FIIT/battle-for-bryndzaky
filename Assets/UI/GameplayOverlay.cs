@@ -35,7 +35,7 @@ namespace Bryndzaky.General.Common
         void Update()
         {
             healthBar.value = Player.Instance.GetHealth();
-            this.weaponWheel.SetActive(Input.GetKey(KeyCode.LeftControl));
+            this.weaponWheel.SetActive(Input.GetButton("WeaponWheel"));
         }
     }
 

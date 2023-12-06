@@ -11,7 +11,7 @@ public class KeyPressDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !PauseManager.IsPaused)
+        if (Input.GetButtonDown("Interact") && !PauseManager.IsPaused)
         {
           animator.SetTrigger("KeyDown");
         }
