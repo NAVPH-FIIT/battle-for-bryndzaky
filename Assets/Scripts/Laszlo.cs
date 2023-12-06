@@ -52,7 +52,7 @@ namespace Bryndzaky.Units.Laszlo
         private void CastSpells()
         {
             foreach (ISpell spell in spells)
-                if (Input.GetKey(spell.Hotkey) && spell.Available)
+                if (Input.GetButton("Spell"+spell.Hotkey) && spell.Available)
                     ((Staff) this.weapon).CastSpell(spell);
         }
 

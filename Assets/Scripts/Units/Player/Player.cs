@@ -40,13 +40,13 @@ namespace Bryndzaky.Units.Player {
 
         private void PerformActions()
         {
-            if (Input.GetKeyDown(KeyCode.E) && this.possibleInteraction != null)
+            if (Input.GetButtonDown("Interact") && this.possibleInteraction != null)
                 this.possibleInteraction.ExecuteAction();
 
-            if (Input.GetKey(KeyCode.Mouse0) && this.weapon != null)
+            if (Input.GetButton("Fire1") && this.weapon != null)
                 this.weapon.IssueAttack();
 
-            if (Input.GetKeyDown(KeyCode.Space) && canDash)
+            if (Input.GetButtonDown("Dash") && canDash)
             {
                 canDash = false;
                 StartCoroutine(Dash());
