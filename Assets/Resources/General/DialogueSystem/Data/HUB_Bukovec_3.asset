@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: HUB_Bukovec_3
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 0
+    Sentence: "Super, nikomu sa nepodarilo zabit t\xFAto prasnicu."
+  - IsHeroTalking: 1
+    Sentence: "To viem, bol to \u0165a\u017Ek\xFD boj."
+  - IsHeroTalking: 0
+    Sentence: "Be\u017Ete k na\u0161ej Jarke, ona v\xE1m z toho sprav\xED slaninu
+      ak\xFA ste e\u0161te nevideli. A potom sa vr\xE1tte, porozpr\xE1vam v\xE1m
+      viac pr\xEDbehov."
+  - IsHeroTalking: 1
+    Sentence: "Porozm\xFD\u0161lame nad t\xFDm."
+  name: Ivan Bukovec
+  characterImage: {fileID: 21300000, guid: 68b9a4a22842ac44f9ea4ad41c1d5005, type: 3}

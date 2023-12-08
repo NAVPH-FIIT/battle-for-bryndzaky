@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: HUB_Bukovec_2
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 0
+    Sentence: "Bolo 21. 6. 1702. Tla\u010D\xEDl som f\xFArik do lesa. Za\u010Dalo
+      sa stmieva\u0165....."
+  - IsHeroTalking: 1
+    Sentence: "STA\u010CILO. FAKT U\u017D STA\u010CILO."
+  - IsHeroTalking: 0
+    Sentence: "<po 120 min\xFAtach> ... hovor\xEDm, \u017Ee v\u0161ak on skolabuje..."
+  - IsHeroTalking: 1
+    Sentence: Super. Ako sa dostaneme k magickej prasnici?
+  - IsHeroTalking: 0
+    Sentence: "J\xE1j ve\u010F to je tadialto, zoberiem v\xE1s"
+  - IsHeroTalking: 1
+    Sentence: "A \u010Do slivovica? Vraj, sa n\xE1m neotvor\xED cesta ak ju nevypijeme."
+  - IsHeroTalking: 0
+    Sentence: "Slivovica? T\xFA zvykn\xFA pi\u0165 len preto lebo sa im nelubia moje
+      pr\xEDbehy. Ale ak chcete tak tu m\xE1te, dajte si."
+  - IsHeroTalking: 1
+    Sentence: "Tak to ma podr\u017E. Asi ju vypijem cel\xFA aby som na to zabudol.
+      Kadia\u013E teda?"
+  - IsHeroTalking: 0
+    Sentence: 'Chodte za dom, a prejdite mostom. '
+  name: Ivan Bukovec
+  characterImage: {fileID: 21300000, guid: 68b9a4a22842ac44f9ea4ad41c1d5005, type: 3}
