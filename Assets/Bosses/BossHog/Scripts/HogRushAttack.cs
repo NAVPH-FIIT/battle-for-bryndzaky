@@ -11,6 +11,8 @@ public class HogRushAttack : StateMachineBehaviour
     private Vector2 playerPos;
     private CircleCollider2D rushAoe;
     private float timeEnd;
+    [SerializeField]
+    private float speed = 1f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -32,7 +34,7 @@ public class HogRushAttack : StateMachineBehaviour
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
         Vector2 direction = (playerPos - rb.position).normalized;
-        rb.velocity = direction * 8f;
+        rb.velocity = speed * direction * 3f;
         if (Vector2.Distance(playerPos, rb.position) < 0.5 || Time.time > timeEnd)
         {
             if (animator.GetInteger("RushCounter") == 2)

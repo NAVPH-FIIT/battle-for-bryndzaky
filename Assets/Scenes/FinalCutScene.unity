@@ -215,18 +215,26 @@ PrefabInstance:
       propertyPath: m_text
       value: "L\xE1szlo"
       objectReference: {fileID: 0}
+    - target: {fileID: 3786082631401298821, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4158839411002602955, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_text
       value: "\u010Co u\u017E, nikto sa nedozvie, \u017Ee za to m\xF4\u017Eu Ma\u010Fari."
       objectReference: {fileID: 0}
     - target: {fileID: 4631790996229360715, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 253
       objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: edb7422cb8b7d634da9d31287fe707fe, type: 3}
+      objectReference: {fileID: 21300000, guid: b457c12666ba4054687a7dce42e981e5, type: 3}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -352,18 +360,26 @@ PrefabInstance:
       propertyPath: m_text
       value: "L\xE1szlo"
       objectReference: {fileID: 0}
+    - target: {fileID: 3786082631401298821, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4158839411002602955, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_text
       value: "To tie moje Ma\u010Farske ruky ne\u0161ikovn\xE9. Tak \u010Do teraz?"
       objectReference: {fileID: 0}
     - target: {fileID: 4631790996229360715, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 253
       objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: edb7422cb8b7d634da9d31287fe707fe, type: 3}
+      objectReference: {fileID: 21300000, guid: b457c12666ba4054687a7dce42e981e5, type: 3}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -383,6 +399,10 @@ PrefabInstance:
     - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Name
       value: Laszlo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8476940920071904771, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
@@ -881,6 +901,7 @@ GameObject:
   - component: {fileID: 521537525}
   - component: {fileID: 521537527}
   - component: {fileID: 521537526}
+  - component: {fileID: 521537528}
   m_Layer: 0
   m_Name: Pub
   m_TagString: Untagged
@@ -2458,6 +2479,102 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!82 &521537528
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521537524}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6671eb94c40adf546987d7adfeebe630, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &568592877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2623,6 +2740,14 @@ PrefabInstance:
       value: "Bryndzov\xE9 halu\u0161ky, ale iba so slaninou. Ke\u010F \u017Ee L\xE1zslo
         rozsypal hrach. "
       objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 288
+      objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2642,6 +2767,10 @@ PrefabInstance:
     - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Name
       value: Player (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8476940920071904771, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
@@ -3044,6 +3173,14 @@ PrefabInstance:
       propertyPath: m_text
       value: "Ale L\xE1zslo, ako si mohol ten hrach rozsypa\u0165."
       objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 288
+      objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3063,6 +3200,10 @@ PrefabInstance:
     - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8476940920071904771, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
@@ -3278,6 +3419,134 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1094171505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094171507}
+  - component: {fileID: 1094171506}
+  m_Layer: 0
+  m_Name: Soundtrack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1094171506
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094171505}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4fae56a09ae30fd47a954c8042a89538, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.021
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 10.275192
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1094171507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094171505}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 160.1, y: -85.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1102877538 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
@@ -3862,18 +4131,30 @@ PrefabInstance:
       propertyPath: m_text
       value: Barmanka
       objectReference: {fileID: 0}
+    - target: {fileID: 3786082631401298821, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4158839411002602955, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_text
       value: "Tu m\xE1te dvoje bryndzov\xE9 halu\u0161ky bez hrachu"
       objectReference: {fileID: 0}
     - target: {fileID: 4631790996229360715, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 547.1724
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 273.79858
       objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: edb7422cb8b7d634da9d31287fe707fe, type: 3}
+      objectReference: {fileID: 21300000, guid: 677fef5aa190a0f40a39a97f151f84ca, type: 3}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -3893,6 +4174,10 @@ PrefabInstance:
     - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Name
       value: Barm (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8476940920071904771, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
@@ -3998,6 +4283,14 @@ PrefabInstance:
     - target: {fileID: 4158839411002602955, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_text
       value: "Pod\u013Ea m\u0148a tam ten hrach v\xF4bec nech\xFDba. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 288
       objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Sprite
@@ -4124,18 +4417,30 @@ PrefabInstance:
       propertyPath: m_text
       value: Barmanka
       objectReference: {fileID: 0}
+    - target: {fileID: 3786082631401298821, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4158839411002602955, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_text
       value: "Po\u010D\xFAvam? \u010Co si d\xE1te?"
       objectReference: {fileID: 0}
     - target: {fileID: 4631790996229360715, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 547.1724
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 273.79858
       objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: edb7422cb8b7d634da9d31287fe707fe, type: 3}
+      objectReference: {fileID: 21300000, guid: 677fef5aa190a0f40a39a97f151f84ca, type: 3}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -4155,6 +4460,10 @@ PrefabInstance:
     - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Name
       value: Barm
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8476940920071904771, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
@@ -4584,6 +4893,14 @@ PrefabInstance:
     - target: {fileID: 4158839411002602955, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_text
       value: "Tak predsa len to probl\xE9m bol L\xE1szlo. To bol J\xE1no\u0161\xEDk"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 288
       objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Sprite
@@ -5976,6 +6293,10 @@ PrefabInstance:
       propertyPath: m_text
       value: "L\xE1szlo"
       objectReference: {fileID: 0}
+    - target: {fileID: 3786082631401298821, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4158839411002602955, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_text
       value: "M\xE1\u0161 pravdu. Nakoniec asi nebude probl\xE9m, \u017Ee som ho
@@ -5983,12 +6304,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631790996229360715, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 253
       objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: edb7422cb8b7d634da9d31287fe707fe, type: 3}
+      objectReference: {fileID: 21300000, guid: b457c12666ba4054687a7dce42e981e5, type: 3}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -6128,6 +6453,14 @@ PrefabInstance:
       propertyPath: m_text
       value: "Tak \u010Do u\u017E, d\xE1me si ich bez hrachu. Barmanka?"
       objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 288
+      objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -6147,6 +6480,10 @@ PrefabInstance:
     - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8476940920071904771, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
@@ -6249,20 +6586,40 @@ PrefabInstance:
       propertyPath: m_text
       value: "L\xE1szlo"
       objectReference: {fileID: 0}
+    - target: {fileID: 3786082631401298821, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4158839411002602955, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_text
       value: "To sa m\xF4\u017Ee sta\u0165 ka\u017Ed\xE9mu. Najeme sa a upracem to."
       objectReference: {fileID: 0}
     - target: {fileID: 4631790996229360715, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293729957778916959, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 253
       objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: edb7422cb8b7d634da9d31287fe707fe, type: 3}
+      objectReference: {fileID: 21300000, guid: b457c12666ba4054687a7dce42e981e5, type: 3}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6056197223930329321, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
@@ -6280,6 +6637,10 @@ PrefabInstance:
     - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_Name
       value: Laszlo (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216444067373072219, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8476940920071904771, guid: 6b5ed23fd7cbe0641ac3567de70275cf, type: 3}
       propertyPath: m_IsActive
@@ -6407,3 +6768,4 @@ SceneRoots:
   - {fileID: 568592880}
   - {fileID: 997780785}
   - {fileID: 1888926191}
+  - {fileID: 1094171507}

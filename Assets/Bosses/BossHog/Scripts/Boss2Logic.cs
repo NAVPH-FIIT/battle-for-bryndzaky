@@ -19,6 +19,8 @@ public class Boss2Logic : StateMachineBehaviour
     private float nextWaypointDistance = 3;
     private float nextUpdate = 0f;
     private float nextChoice = 0f;
+    [SerializeField]
+    private float speed = 1f;
     private int randomChoice = 0;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -54,16 +56,17 @@ public class Boss2Logic : StateMachineBehaviour
         }
         if (Time.time > nextChoice)
         {
+            Debug.Log(Vector2.Distance(rb.position, player.position));
             
             randomChoice = Random.Range(0, 10);
-            if (Vector2.Distance(rb.position, player.position) > 3f)
+            if (Vector2.Distance(rb.position, player.position) > 6f)
             {
                 
                 Debug.Log(randomChoice);
                 if (randomChoice == 0 && animator.GetInteger("RushCounter") == 3)
                     animator.SetInteger("RushCounter", 0);
             }
-            else if ((Vector2.Distance(rb.position, player.position) < 1.3f) && (randomChoice < 6))
+            else if ((Vector2.Distance(rb.position, player.position) < 4f) && (randomChoice < 6))
             {
                 animator.SetTrigger("Spin");
             }
@@ -109,7 +112,7 @@ public class Boss2Logic : StateMachineBehaviour
 
 
         direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 velo = 1 * direction * 3; //* Time.deltaTime;
+        Vector2 velo = speed * direction * 3; //* Time.deltaTime;
 
         rb.velocity = velo;
 
