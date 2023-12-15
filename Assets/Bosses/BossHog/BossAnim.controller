@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5735b4f7608e30243bd3b26a91c5379b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 6
 --- !u!206 &-5925175884598064710
 BlendTree:
   m_ObjectHideFlags: 1
@@ -400,6 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypointDistance: 1
+  speed: 4
 --- !u!1101 &4000827557399870344
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
