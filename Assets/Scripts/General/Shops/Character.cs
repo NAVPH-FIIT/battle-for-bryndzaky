@@ -9,6 +9,7 @@ using System.Linq;
 using UnityEngine.UI;
 using TMPro;
 using System.Runtime.ConstrainedExecution;
+using Bryndzaky.General.Common;
 
 namespace Bryndzaky.Hub
 {
@@ -20,20 +21,21 @@ namespace Bryndzaky.Hub
         [SerializeField] private GameObject weaponContainer;
         private List<Button> statButtons = new();
         private List<TextMeshProUGUI> statTexts = new();
-        private List<string> activeWeapons;
-        private int skillpoints;
+        // private List<string> activeWeapons;
+        // private int skillpoints;
         private TextMeshProUGUI skillpointText;
   
 
         public void Start()
         {   
-            PlayerPrefs.SetInt("skillpoints", 1); // TODO: Remove
-            this.InitializeStats();
-            this.skillpoints = PlayerPrefs.GetInt("skillpoints", 0);
+            // PlayerPrefs.SetInt("skillpoints", 1); // TODO: Remove
+            
+            // this.InitializeStats();
+            // this.skillpoints = PlayerPrefs.GetInt("skillpoints", 0);
             this.skillpointText = transform.Find("SkillPointsText").GetComponent<TextMeshProUGUI>();
-            this.skillpointText.text = this.skillpointText.text.Split(":")[0] + ": " + this.skillpoints;
+            this.skillpointText.text = this.skillpointText.text.Split(":")[0] + ": " + StateManager.State.skillpoints;
 
-            this.activeWeapons = PlayerPrefs.GetString("ActiveWeapons", "").Split('|').ToList();
+            // this.activeWeapons = PlayerPrefs.GetString("ActiveWeapons", "").Split('|').ToList();
 
             foreach (var weapon in armory.allWeapons)
             {
@@ -55,7 +57,7 @@ namespace Bryndzaky.Hub
         public void Update()
         {
             foreach (Button button in this.statButtons)
-                button.gameObject.SetActive(this.skillpoints > 0);
+                button.gameObject.SetActive(StateManager.State.skillpoints > 0);
         }
 
         private Button SetupUpgrade(Transform statUpgrade)
@@ -106,9 +108,10 @@ namespace Bryndzaky.Hub
                 return;
 
             PlayerPrefs.SetInt(statId, (int) newValue);
-            PlayerPrefs.SetInt("skillpoints", --this.skillpoints);
+            // PlayerPrefs.SetInt("skillpoints", --this.skillpoints);
+            StateManager.State.skillpoints--;
             PlayerPrefs.Save();
-            this.skillpointText.text = this.skillpointText.text.Split(":")[0] + ": " + this.skillpoints;
+            this.skillpointText.text = this.skillpointText.text.Split(":")[0] + ": " + StateManager.State.skillpoints;
             this.SetupUpgrade(statUpgrade);
         }
 
@@ -124,7 +127,7 @@ namespace Bryndzaky.Hub
 
             weaponToggle.onValueChanged.AddListener(isOn => this.ToggleWeapon(weaponToggle, isOn));
 
-                if (this.activeWeapons.Contains(weapon.name))
+                if (StateManager.State.activeWeapons.Contains(weapon.name))
                     weaponToggle.isOn = true;
         }
 
@@ -135,7 +138,7 @@ namespace Bryndzaky.Hub
 
             if (isOn)
             {
-                if (this.activeWeapons.Count >= 4)
+                if (StateManager.State.activeWeapons.Count >= 4)
                 {
                     toggle.isOn = false;
                     return;
@@ -143,26 +146,26 @@ namespace Bryndzaky.Hub
 
                 toggle.GetComponent<Image>().color = Color.green;
                 
-                if (!this.activeWeapons.Contains(weaponName))
+                if (!StateManager.State.activeWeapons.Contains(weaponName))
                 {
-                    this.activeWeapons.Add(weaponName);
-                    PlayerPrefs.SetString("ActiveWeapons", string.Join("|", this.activeWeapons));
+                    StateManager.State.activeWeapons.Add(weaponName);
+                    // PlayerPrefs.SetString("ActiveWeapons", string.Join("|", this.activeWeapons));
                 }
 
                 return;
             }
 
             toggle.GetComponent<Image>().color = new Color(1, 170f/255f, 0);
-            this.activeWeapons.Remove(weaponName);
-            PlayerPrefs.SetString("ActiveWeapons", string.Join("|", this.activeWeapons));
+            StateManager.State.activeWeapons.Remove(weaponName);
+            // PlayerPrefs.SetString("ActiveWeapons", string.Join("|", this.activeWeapons));
         }
 
-        private void InitializeStats()
-        {
-            PlayerPrefs.SetInt("max_health", PlayerPrefs.GetInt("max_health", 100));
-            PlayerPrefs.SetInt("move_speed", PlayerPrefs.GetInt("move_speed", 10));
-            PlayerPrefs.SetInt("dash_speed", PlayerPrefs.GetInt("dash_speed", 10));
-            PlayerPrefs.Save();
-        }
+        // private void InitializeStats()
+        // {
+        //     PlayerPrefs.SetInt("max_health", PlayerPrefs.GetInt("max_health", 100));
+        //     PlayerPrefs.SetInt("move_speed", PlayerPrefs.GetInt("move_speed", 10));
+        //     PlayerPrefs.SetInt("dash_speed", PlayerPrefs.GetInt("dash_speed", 10));
+        //     PlayerPrefs.Save();
+        // }
     }
 }

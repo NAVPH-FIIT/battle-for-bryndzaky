@@ -6,6 +6,7 @@ using Bryndzaky.Combat.Weapons;
 using Bryndzaky.Combat.Spells;
 using System;
 using System.Linq;
+using Bryndzaky.General.Common;
 
 namespace Bryndzaky.Combat
 {
@@ -36,11 +37,11 @@ namespace Bryndzaky.Combat
         void Start() {
             Instance = this;
 
-            if (PlayerPrefs.GetString("ActiveWeapons") != "")
+            if (StateManager.State.activeWeapons.Any())
             {
-                var chosenWeapons = PlayerPrefs.GetString("ActiveWeapons").Split("|");
+                // var chosenWeapons = PlayerPrefs.GetString("ActiveWeapons").Split("|");
                 this.activeWeapons = this.armory.allWeapons
-                    .Where(entry => chosenWeapons.Contains(entry.name))
+                    .Where(entry => StateManager.State.activeWeapons.Contains(entry.name))
                     .Select(entry => new ActiveWeapon(
                         entry.name,
                         entry.prefab,

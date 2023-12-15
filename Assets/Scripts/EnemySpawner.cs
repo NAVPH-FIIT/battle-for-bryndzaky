@@ -2,12 +2,13 @@ using Bryndzaky.Combat.Weapons;
 using Bryndzaky.Units.Enemies;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawner : Spawner
 {
     [Serializable]
-    protected class EnemySpawn: EntitySpawn
+    public class EnemySpawn: EntitySpawn
     {
         public GameObject weaponPrefab;
         public WeaponUpgrade weaponUpgrade;
@@ -24,5 +25,8 @@ public class EnemySpawner : Spawner
         }
     }
 
-    [SerializeField] private List<EnemySpawn> enemies; 
+    [SerializeField] private List<EnemySpawn> enemies;
+    protected override List<IEntity> Entities { get{
+        return this.enemies.Select(e => (IEntity)e).ToList();
+    } }
 }
