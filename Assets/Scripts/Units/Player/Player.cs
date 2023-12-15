@@ -4,6 +4,7 @@ using Bryndzaky.General.Common;
 using Unity.VisualScripting;
 using UnityEngine;
 using Bryndzaky.Combat.Weapons;
+using System;
 
 namespace Bryndzaky.Units.Player {
     public class Player : Unit
@@ -23,6 +24,7 @@ namespace Bryndzaky.Units.Player {
         protected override void Start() {
             base.Start();
             Instance = this;
+            this.Initialize();
             // this.weapon = WeaponManager.Instance.GetSword();
         }
 
@@ -89,10 +91,45 @@ namespace Bryndzaky.Units.Player {
             gameObject.GetComponent<Collider2D>().enabled = true;
             moveSpeed = defaultSpeed;
         }
+        
+        private void Initialize()
+        {
+            foreach (var stat in StateManager.State.stats)
+                switch (stat.name)
+                {
+                    case "max_health":
+                    {
+                        this.maxHealth = stat.value;
+                        break;
+                    }
+                    case "move_speed":
+                    {
+                        this.moveSpeed = stat.value;
+                        break;
+                    }
+                    case "dash_speed":
+                    {
+                        this.dashSpeed = stat.value;
+                        break;
+                    }
+                    default:
+                    {
+                        break;
+                    }
+                }
+        }
 
         public void GrantReward(int xp, int gold)
         {
+            StateManager.State.gold += gold;
+            StateManager.State.xp += xp;
 
+            int next_level = (int) Math.Pow(100, StateManager.State.level);
+            if (StateManager.State.xp >= next_level)
+            {
+                StateManager.State.xp -= next_level;
+                StateManager.State.level++;
+            }
         }
 
         protected override void Die()
