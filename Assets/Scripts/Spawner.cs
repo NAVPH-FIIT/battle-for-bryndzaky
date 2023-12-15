@@ -3,55 +3,57 @@ using Bryndzaky.Units.Enemies;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public abstract class Spawner : MonoBehaviour
 {
+    public bool spawnerEnabled = true;
+    protected Collider2D spawnerCollider;
+
     [Serializable]
-    protected class Entity : MonoBehaviour
+    protected abstract class EntitySpawn : MonoBehaviour
     {
-        public GameObject prefab;
-        public new bool enabled = true;
+        public GameObject entityPrefab;
         public bool Active { get; protected set; } = true;
         [SerializeField] protected float respawnTime;
         protected float remaining = 0;
         protected GameObject entityObject;
-        protected new Collider2D collider;
+        protected Spawner spawner; 
 
         public void Start()
         {
+            this.spawner = GetComponent<Spawner>();
             this.Respawn();
-            this.remaining = respawnTime;
+            this.remaining = this.respawnTime / Time.fixedDeltaTime;
         }
 
         public void Update()
         {
-            if (this.enabled)
+            if (this.spawner.enabled)
                 this.Active = this.entityObject != null;
         }
         
         public void FixedUpdate()
         {
-            if (this.enabled)
+            if (this.spawner.enabled)
             {
                 if (this.Active)
                     return;
 
-                if (remaining <= 0)
+                if (--remaining <= 0)
                 {
                     this.Respawn();
-                    this.remaining = this.respawnTime;
+                    this.remaining = this.respawnTime / Time.fixedDeltaTime;
                 }
             }
         }
         public virtual void Respawn()
         {
-            var xSpawn = UnityEngine.Random.Range(collider.bounds.min.x, collider.bounds.max.x);
-            var ySpawn = UnityEngine.Random.Range(collider.bounds.min.y, collider.bounds.max.y);
-            this.entityObject = Instantiate(this.prefab, new Vector3(xSpawn, ySpawn, 0), transform.rotation);
+            var xSpawn = UnityEngine.Random.Range(this.spawner.spawnerCollider.bounds.min.x, this.spawner.spawnerCollider.bounds.max.x);
+            var ySpawn = UnityEngine.Random.Range(this.spawner.spawnerCollider.bounds.min.y, this.spawner.spawnerCollider.bounds.max.y);
+            this.entityObject = Instantiate(this.entityPrefab, new Vector3(xSpawn, ySpawn, 0), transform.rotation);
         }
     }
 
-    [SerializeField] private List<Entity> entities; 
+    // [SerializeField] private List<Entity> entities; 
 }

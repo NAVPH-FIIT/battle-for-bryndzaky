@@ -11,9 +11,11 @@ namespace Bryndzaky.Units.Enemies
 {
     public partial class Enemy : Unit
     {
+        public bool dead = false;
+        [SerializeField] private int reward_xp;
+        [SerializeField] private int reward_gold;
         private bool playerAware = false;
         private Vector2 playerDirection;
-        public bool dead = false;
 
         protected override void Start()
         {
@@ -48,6 +50,14 @@ namespace Bryndzaky.Units.Enemies
             this.weapon?.IssueAttack();
         }
 
+        public void initialize(EnemyStats stats)
+        {
+            this.maxHealth   = stats.maxHealth;
+            this.moveSpeed   = stats.moveSpeed;
+            this.reward_xp   = stats.reward_xp;
+            this.reward_gold = stats.reward_gold;
+        }
+
         protected override void Animate()
         {
             //Debug.Log("Velocity: " + (rb.velocity != Vector2.zero).ToString());
@@ -70,7 +80,7 @@ namespace Bryndzaky.Units.Enemies
 
         protected override void Die()
         {
-            Player.Player.Instance.GrantReward(0,0);
+            Player.Player.Instance.GrantReward(this.reward_xp, this.reward_gold);
             this.transform.GetComponentInChildren<Canvas>()?.gameObject.SetActive(false);
             
             foreach (IDeathrattle deathrattle in GetComponents<IDeathrattle>())
