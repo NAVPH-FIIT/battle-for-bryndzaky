@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using UnityEngine;
@@ -9,7 +10,19 @@ namespace Bryndzaky.General.Common
     {
         public class GameState
         {
+            public class Consumable
+            {
+                public string name;
+                public int count;
+            }
 
+            public int skillpoints = 0;
+            public int max_health = 100;
+            public int move_speed = 10;
+            public int dash_speed = 10;
+            public int gold = 0;
+            public List<string> activeWeapons = new();
+            public List<Consumable> consumables = new();
         }
 
 

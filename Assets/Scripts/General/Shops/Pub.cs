@@ -9,6 +9,7 @@ using System.Linq;
 using UnityEngine.UI;
 using TMPro;
 using System.Runtime.ConstrainedExecution;
+using Bryndzaky.General.Common;
 
 namespace Bryndzaky.Hub
 {
@@ -20,12 +21,7 @@ namespace Bryndzaky.Hub
   
 
         public void Start()
-        {
-            //gameObject.SetActive(false);
-            PlayerPrefs.SetInt("gold", PlayerPrefs.GetInt("gold", 100));
-            PlayerPrefs.SetInt("gold", 1000); // TODO: Remove
-
-            
+        {            
             foreach (Transform consumable in this.consumablesContainer.transform)
             {
                 string name = consumable.Find("ConsumableName").GetComponent<TextMeshProUGUI>().text;
@@ -43,9 +39,8 @@ namespace Bryndzaky.Hub
 
         public void Update()
         {
-            int playerGold = PlayerPrefs.GetInt("gold", 0);
             for (int i = 0; i < this.purchaseButtons.Count; i++)
-                if (int.Parse(this.priceTexts[i].text.Split(' ')[0]) > playerGold)
+                if (int.Parse(this.priceTexts[i].text.Split(' ')[0]) > StateManager.State.gold)
                 {
                     this.priceTexts[i].color = Color.red;
                     this.purchaseButtons[i].interactable = false;
@@ -59,9 +54,14 @@ namespace Bryndzaky.Hub
 
         private void PurchaseConsumable(string name, int price)
         {
-            PlayerPrefs.SetInt(name, PlayerPrefs.GetInt(name, 0) + 1);
-            PlayerPrefs.SetInt("gold", PlayerPrefs.GetInt("gold") - price);
-            PlayerPrefs.Save();
+            var consumable = StateManager.State.consumables.Find(c => c.name == name);
+            
+            if (consumable != null)
+                consumable.count++;
+            else
+                StateManager.State.consumables.Add(new StateManager.GameState.Consumable{name=name, count=1});
+           
+            StateManager.State.gold -= price;
         }
     }
 }
