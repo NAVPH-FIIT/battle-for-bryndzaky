@@ -26,7 +26,7 @@ namespace Bryndzaky.General.Common
         }
 
 
-        private static object saveLock;
+        private static object saveLock = new object();
         private static readonly string path = Application.persistentDataPath + "/gameState.json";
         private static GameState state;
         public static GameState State { 
@@ -63,7 +63,7 @@ namespace Bryndzaky.General.Common
                 {
                     lock (saveLock)
                         SaveState();
-                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    LastSaved = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     Thread.Sleep(10_000);
                 }
             }).Start();
