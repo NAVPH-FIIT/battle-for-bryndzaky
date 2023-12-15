@@ -45,7 +45,7 @@ namespace Bryndzaky.Combat
                     .Select(entry => new ActiveWeapon(
                         entry.name,
                         entry.prefab,
-                        entry.upgrades[PlayerPrefs.GetInt(entry.name, 0)]
+                        entry.upgrades[StateManager.State.GetWeaponGrade(entry.name)]
                     ))
                     .Take(4).ToList();
             }

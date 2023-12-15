@@ -39,9 +39,10 @@ namespace Bryndzaky.Hub
 
             foreach (var weapon in armory.allWeapons)
             {
-                int weaponGrade = PlayerPrefs.GetInt(weapon.name, -1);
+                int weaponGrade = StateManager.State.GetWeaponGrade(weapon.name);
                 if (weaponGrade == -1)
                     continue;
+                // int weaponGrade = PlayerPrefs.GetInt(weapon.name, -1);
 
                 GameObject weaponObject = Instantiate(weaponPrefab);
                 weaponObject.transform.SetParent(weaponContainer.transform);
@@ -65,9 +66,36 @@ namespace Bryndzaky.Hub
             var statText = statUpgrade.GetComponentInChildren<TextMeshProUGUI>();
             string prefix = statText.text.Split(":")[0];
             string statId = prefix.ToLower().Replace(' ', '_').Trim();
-            int value = PlayerPrefs.GetInt(statId, -1);
-            
-    	    statText.text = prefix + ": " + value;
+
+            var stat = StateManager.State.stats.Find(s => s.name == statId);
+            // int value = PlayerPrefs.GetInt(statId, -1);
+            // switch (statId)
+            // {
+            //     case "max_health":
+            //     {
+            //         value = StateManager.State.maxHealth;
+            //         // newValue = PlayerPrefs.GetInt(statId, 100) + 50;
+            //         break;
+            //     }
+            //     case "move_speed":
+            //     {
+            //         value = StateManager.State.moveSpeed;
+            //         // newValue = PlayerPrefs.GetInt(statId, 10) + 1;
+            //         break;
+            //     }
+            //     case "dash_speed":
+            //     {
+            //         value = StateManager.State.dashSpeed;
+            //         // newValue = PlayerPrefs.GetInt(statId, 10) + 1;
+            //         break;
+            //     }
+            //     default:
+            //     {
+            //         value = -1;
+            //         break;
+            //     }
+            // }
+    	    statText.text = prefix + ": " + (stat == null ? -1 : stat.value);
             
             var upgradeButton = statUpgrade.GetComponentInChildren<Button>();
             
@@ -79,38 +107,44 @@ namespace Bryndzaky.Hub
 
         private void upgradeStat(string statId, Transform statUpgrade)
         {
-            int? newValue;
-            switch (statId)
-            {
-                case "max_health":
-                {
-                    newValue = PlayerPrefs.GetInt(statId, 100) + 50;
-                    break;
-                }
-                case "move_speed":
-                {
-                    newValue = PlayerPrefs.GetInt(statId, 10) + 1;
-                    break;
-                }
-                case "dash_speed":
-                {
-                    newValue = PlayerPrefs.GetInt(statId, 10) + 1;
-                    break;
-                }
-                default:
-                {
-                    newValue = null;
-                    break;
-                }
-            }
-
-            if (newValue == null)
+            var stat = StateManager.State.stats.Find(s => s.name == statId);
+            if (stat == null)
                 return;
+            stat.value += stat.increment;
+            // int? newValue;
+            // switch (statId)
+            // {
+            //     case "max_health":
+            //     {
+            //         StateManager.State.maxHealth += 50;
+            //         // newValue = PlayerPrefs.GetInt(statId, 100) + 50;
+            //         break;
+            //     }
+            //     case "move_speed":
+            //     {
+            //         StateManager.State.moveSpeed += 1;
+            //         // newValue = PlayerPrefs.GetInt(statId, 10) + 1;
+            //         break;
+            //     }
+            //     case "dash_speed":
+            //     {
+            //         StateManager.State.dashSpeed += 1;
+            //         // newValue = PlayerPrefs.GetInt(statId, 10) + 1;
+            //         break;
+            //     }
+            //     default:
+            //     {
+            //         return;
+            //     }
+            // }
 
-            PlayerPrefs.SetInt(statId, (int) newValue);
+            // if (newValue == null)
+            //     return;
+
+            // PlayerPrefs.SetInt(statId, (int) newValue);
             // PlayerPrefs.SetInt("skillpoints", --this.skillpoints);
             StateManager.State.skillpoints--;
-            PlayerPrefs.Save();
+            // PlayerPrefs.Save();
             this.skillpointText.text = this.skillpointText.text.Split(":")[0] + ": " + StateManager.State.skillpoints;
             this.SetupUpgrade(statUpgrade);
         }
