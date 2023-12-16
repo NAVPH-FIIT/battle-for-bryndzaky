@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: Horar-1-startQuest
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 0
+    Sentence: Zzzzzz....zzzzz.....zzzzzz.....zzzzzzz
+  - IsHeroTalking: 1
+    Sentence: Hej ty stara opica zobud sa
+  - IsHeroTalking: 0
+    Sentence: Ehm ehm co co...dobre dobre hore som vsak uz
+  - IsHeroTalking: 1
+    Sentence: Poouj mojko zincicu potrebujem a vraj nejaky Baca by mal mat nejaku
+      nevies nieco
+  - IsHeroTalking: 0
+    Sentence: Prrrrrrr si na mna moc hrrrrrrrr
+  - IsHeroTalking: 0
+    Sentence: Jasne ze viem ale nieco za nieco
+  - IsHeroTalking: 0
+    Sentence: 'V tychto lesoch totiz zije legendarny lisiak piciak a uz dlho si chcem
+      vystavit jeho kozu '
+  - IsHeroTalking: 0
+    Sentence: Dam ti kluc od starej brany, ktora vedie to zakazaneho lesa, ak mi
+      donesies teno kozuch, poviem ti kde najdes bacu
+  - IsHeroTalking: 0
+    Sentence: No tento lisiak je velmi mazany, budes potrebovat najskor ziskat specialnu
+      lisciu vabicku...mala by byt taktiez v tom lese
+  - IsHeroTalking: 1
+    Sentence: Fuh no co s tebou mojko...mas ho mat
+  name: Horar quest
+  characterImage: {fileID: 21300000, guid: ef61637f34700a24390ed45b9e5f2a29, type: 3}

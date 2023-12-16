@@ -13,8 +13,10 @@ public class QuestFetch : MonoBehaviour, IDialogueAction
 
   public void ExecuteAction()
   {
-    fetch_item.SetActive(true);
-
+    if (fetch_item != null)
+    {
+        fetch_item.SetActive(true);
+    }
     if(waiting_dialogue != null) {
       waiting_dialogue.SetActive(true);
     }

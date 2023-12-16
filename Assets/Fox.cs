@@ -27,6 +27,8 @@ namespace Bryndzaky.Units
         protected UnityEngine.UI.Image healthbarImage;
         [SerializeField]
         protected GameObject blood;
+        public GameObject[] conditionalObjects;
+        protected bool frozen = false;
 
         protected Vector2 moveDirection;
         [SerializeField] protected Animator animator;
@@ -65,6 +67,8 @@ namespace Bryndzaky.Units
         public void Hit(int damage, Vector3 sourceDirection)
         {
             animator.SetTrigger("Hit");
+            if (!frozen)
+                this.KnockBack(sourceDirection);
             this.Health -= damage;
             Instantiate(blood, transform.position, transform.rotation);
             if (this.healthbarSlider != null)
@@ -225,7 +229,25 @@ namespace Bryndzaky.Units
                 currentWaypoint = 0;
             }
         }
+        public void Freeze(int freezeTime)
+        {
+            frozen = true;
+            canMove = false;
+            StopAllCoroutines();
+            rb.bodyType = RigidbodyType2D.Static;
+            animator.SetBool("Freeze", true);
+            StartCoroutine(FreezeCooldown(freezeTime));
 
+        }
+
+        private IEnumerator FreezeCooldown(int freezeTime)
+        {
+            yield return new WaitForSeconds(freezeTime);
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            animator.SetBool("Freeze", false);
+            canMove = true;
+            frozen = false;
+        }
         protected void AssignDirection()
         {
             if (playerPath == null)
@@ -273,6 +295,17 @@ namespace Bryndzaky.Units
             rb.velocity = Vector2.zero;
             rb.bodyType = RigidbodyType2D.Static;
             this.animator.SetTrigger("Dead");
+            if (conditionalObjects.Length > 0)
+            {
+                foreach (var obj in conditionalObjects)
+                {
+                    // Toggle the active state of each object in the list
+                    if (obj != null)
+                    {
+                        obj.SetActive(!obj.activeSelf);
+                    }
+                }
+            }
         }
     }
 }
