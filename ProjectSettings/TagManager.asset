@@ -14,6 +14,7 @@ TagManager:
   - Boss_1_Ground
   - Boss_1
   - Boss
+  - Special_Fox
   layers:
   - Default
   - TransparentFX

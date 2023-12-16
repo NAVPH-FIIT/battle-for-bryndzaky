@@ -1,4 +1,5 @@
 using Bryndzaky.Combat;
+using Bryndzaky.Units;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -39,6 +40,14 @@ namespace Bryndzaky.Combat.Collisions
             {
                 BossHealth health = other.GetComponent<BossHealth>();
                 health.Damage(damage);
+                this.PlayHitEffect();
+                return;
+            }
+            if (other.tag.StartsWith("Special_") && source == "Player")
+            {
+                Debug.LogWarning("FoxHit");
+                Fox fox = other.GetComponent<Fox>();
+                fox.Hit(damage, gameObject.transform.position);
                 this.PlayHitEffect();
                 return;
             }

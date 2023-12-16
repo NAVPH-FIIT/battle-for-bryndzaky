@@ -40,6 +40,12 @@ namespace Bryndzaky.Units
         private int currentWaypoint = 0;
         private float counter = 0;
         private bool flag = false;
+        private bool seenPlayer = false;
+        private Vector2 runDirection = Vector2.zero;
+        private Vector2 cycleRunDirection = Vector2.zero;
+        private float furthWall = 0;
+        [SerializeField]
+        private LayerMask targetLayer;
         protected virtual void Start()
         {
             this.Health = this.maxHealth;
@@ -99,25 +105,49 @@ namespace Bryndzaky.Units
 
         private void FixedUpdate()
         {
-            counter += Time.deltaTime;
+            if (seenPlayer) 
+                counter += Time.deltaTime;
             //Debug.LogWarning(Time.deltaTime);
-            //Debug.LogWarning(counter);
-            if (counter > 10 && counter < 15)
+            if (counter > 5 && counter < 7)
             {
                 if (!flag)
-                    moveDirection = new Vector2(UnityEngine.Random.Range(-100, 100), UnityEngine.Random.Range(-100, 100)).normalized;
+                {
+                    furthWall = 0;
+                    for (int i = 0; i < 7; i++)
+                    {
+                        cycleRunDirection = new Vector2(UnityEngine.Random.Range(-100, 100), UnityEngine.Random.Range(-100, 100)).normalized;
+                        RaycastHit2D hit = Physics2D.Raycast(transform.position, cycleRunDirection, 100, targetLayer);
+                        if (hit.collider != null)
+                        {
+                            //Debug.LogWarning(furthWall);
+                            //Debug.LogWarning(hit.distance);
+                            if (furthWall < hit.distance)
+                            {
+                                furthWall = hit.distance;
+                                runDirection = cycleRunDirection;
+                            }
+                        }
+                        else
+                        {
+                            runDirection = cycleRunDirection;
+                            break;
+                        }
+                    }
+                    //Debug.LogWarning("RunChange");
+                    //Debug.LogWarning(runDirection);
+                }
                 flag = true;
-                rb.velocity = moveSpeed * moveDirection;
-                //Debug.LogWarning(moveDirection);
+                rb.velocity = moveSpeed * runDirection;
             }
             else
                 if (canMove && !PauseManager.IsPaused)
                     Move();
 
-            if (counter>=15)
+            if (counter >= 7)
+            {
                 counter = 0;
                 flag = false;
-            
+            }
         }
 
         protected void Animate() {
@@ -218,7 +248,10 @@ namespace Bryndzaky.Units
         public void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.tag.Equals("Player"))
+            {
                 playerAware = true;
+                seenPlayer = true;
+            }
         }
 
         public void OnTriggerStay2D(Collider2D collider)

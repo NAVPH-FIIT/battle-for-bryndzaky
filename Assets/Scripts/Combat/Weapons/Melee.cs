@@ -1,3 +1,4 @@
+using Bryndzaky.Units;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -43,6 +44,12 @@ namespace Bryndzaky.Combat.Weapons
             {
                 BossHealth health = other.GetComponent<BossHealth>();
                 health.Damage(damage);
+                return;
+            }
+            if (other.tag.StartsWith("Special_") && this.GetHolder() == "Player")
+            {
+                Fox fox = other.GetComponent<Fox>();
+                fox.Hit(damage, gameObject.transform.position);
                 return;
             }
             string target = this.GetHolder() == "Player" ? "Enemy" : "Player";
