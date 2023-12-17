@@ -42,13 +42,14 @@ namespace Bryndzaky.General.Common
 
         void Update()
         {
+            this.weaponWheel.SetActive(Input.GetButton("WeaponWheel"));
+            this.UpdateWeaponWheel();
+            
             this.healthBar.value = (((float)Player.Instance.GetHealth()) / Player.Instance.GetmaxHealth()) * 100;
             this.xpBar.value = (((float)StateManager.State.xp) / StateManager.State.NextLevel) * 100;
             this.xpText.text = StateManager.State.xp + " / " + StateManager.State.NextLevel;
             this.goldText.text = StateManager.State.gold.ToString();
         
-            this.weaponWheel.SetActive(Input.GetButton("WeaponWheel"));
-            this.UpdateWeaponWheel();
         }
     }
 

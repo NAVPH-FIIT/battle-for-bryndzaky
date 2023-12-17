@@ -10,6 +10,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Runtime.ConstrainedExecution;
 using Bryndzaky.General.Common;
+using Bryndzaky.Units.Player;
 
 namespace Bryndzaky.Hub
 {
@@ -154,6 +155,7 @@ namespace Bryndzaky.Hub
             StateManager.State.skillpoints--;
             // PlayerPrefs.Save();
             this.skillpointText.text = this.skillpointText.text.Split(":")[0] + ": " + StateManager.State.skillpoints;
+            Player.Instance.Initialize();
             this.SetupUpgrade(statUpgrade);
         }
 
