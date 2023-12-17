@@ -25,9 +25,10 @@ namespace Bryndzaky.Hub
         // private int skillpoints;
         private TextMeshProUGUI skillpointText;
   
-
         public void Start()
         {   
+            gameObject.SetActive(false);
+            // StateManager.State.skillpoints++;
             // PlayerPrefs.SetInt("skillpoints", 1); // TODO: Remove
             
             // this.InitializeStats();
@@ -36,6 +37,15 @@ namespace Bryndzaky.Hub
             this.skillpointText.text = this.skillpointText.text.Split(":")[0] + ": " + StateManager.State.skillpoints;
 
             // this.activeWeapons = PlayerPrefs.GetString("ActiveWeapons", "").Split('|').ToList();
+
+            foreach (Transform statUpgrade in upgradeContainer.transform)
+                this.statButtons.Add(this.SetupUpgrade(statUpgrade));
+        }
+
+        public void OnEnable()
+        {
+            foreach (Transform currentWeapon in this.weaponContainer.transform)
+                Destroy(currentWeapon.gameObject);
 
             foreach (var weapon in armory.allWeapons)
             {
@@ -48,11 +58,6 @@ namespace Bryndzaky.Hub
                 weaponObject.transform.SetParent(weaponContainer.transform);
                 this.SetupWeapon(weapon, weaponObject, weaponGrade);
             }
-
-            foreach (Transform statUpgrade in upgradeContainer.transform)
-            {
-                this.statButtons.Add(this.SetupUpgrade(statUpgrade));
-            }
         }
 
         public void Update()
@@ -64,7 +69,7 @@ namespace Bryndzaky.Hub
         private Button SetupUpgrade(Transform statUpgrade)
         {
             var statText = statUpgrade.GetComponentInChildren<TextMeshProUGUI>();
-            string prefix = statText.text.Split(":")[0];
+            string prefix = statText.text.Split(":")[0].Trim();
             string statId = prefix.ToLower().Replace(' ', '_').Trim();
 
             var stat = StateManager.State.stats.Find(s => s.name == statId);
@@ -95,7 +100,7 @@ namespace Bryndzaky.Hub
             //         break;
             //     }
             // }
-    	    statText.text = prefix + ": " + (stat == null ? -1 : stat.value);
+    	    statText.text = prefix + " : " + (stat == null ? -1 : stat.value);
             
             var upgradeButton = statUpgrade.GetComponentInChildren<Button>();
             
@@ -156,13 +161,20 @@ namespace Bryndzaky.Hub
             
             TextMeshProUGUI weaponName  = weaponChoice.transform.Find("WeaponName").GetComponent<TextMeshProUGUI>();
             weaponName.text = weapon.name + ( weaponGrade > 0 ? " +" + weaponGrade : "");
-            
-            Toggle weaponToggle = weaponChoice.GetComponentInChildren<Toggle>();
 
+            Toggle weaponToggle = weaponChoice.GetComponent<Toggle>();
             weaponToggle.onValueChanged.AddListener(isOn => this.ToggleWeapon(weaponToggle, isOn));
 
-                if (StateManager.State.activeWeapons.Contains(weapon.name))
-                    weaponToggle.isOn = true;
+
+            #region Enable components
+            foreach (Image img in weaponChoice.GetComponentsInChildren<Image>())
+                img.enabled = true;
+            weaponToggle.enabled = true;
+            weaponName.enabled = true;
+            #endregion
+
+            if (StateManager.State.activeWeapons.Contains(weapon.name))
+                weaponToggle.isOn = true;
         }
 
         private void ToggleWeapon(Toggle toggle, bool isOn)
@@ -189,6 +201,11 @@ namespace Bryndzaky.Hub
                 return;
             }
 
+            if (StateManager.State.activeWeapons.Count == 1)
+            {
+                toggle.isOn = true;
+                return;
+            }
             toggle.GetComponent<Image>().color = new Color(1, 170f/255f, 0);
             StateManager.State.activeWeapons.Remove(weaponName);
             // PlayerPrefs.SetString("ActiveWeapons", string.Join("|", this.activeWeapons));
