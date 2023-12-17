@@ -24,6 +24,7 @@ public abstract class Spawner : MonoBehaviour
     {
         public GameObject entityPrefab;
         public bool Active { get; protected set; } = true;
+        [SerializeField] protected bool respawns = true;
         [SerializeField] protected float? respawnTime;
         protected float remaining = 0;
         protected GameObject entityObject;
@@ -33,7 +34,7 @@ public abstract class Spawner : MonoBehaviour
         {
             this.spawner = spawner;
             this.Respawn();
-            if (this.respawnTime != null)
+            if (this.respawns && this.respawnTime != null)
                 this.remaining = (float) this.respawnTime / Time.fixedDeltaTime;
         }
 
@@ -47,7 +48,7 @@ public abstract class Spawner : MonoBehaviour
         {
             if (this.spawner.enabled)
             {
-                if (this.Active || this.respawnTime == null)
+                if (this.Active || !this.respawns || this.respawnTime == null)
                     return;
 
                 if (--remaining <= 0)

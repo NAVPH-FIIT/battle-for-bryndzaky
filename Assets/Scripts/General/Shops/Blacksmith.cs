@@ -24,7 +24,9 @@ namespace Bryndzaky.Hub
 
         public void Start()
         {
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            foreach (Transform weapon in upgradeContainer.transform)
+                Destroy(weapon.gameObject);
             // PlayerPrefs.SetInt("gold", PlayerPrefs.GetInt("gold", 100));
             // PlayerPrefs.SetInt("gold", 1000); // TODO: Remove
 
@@ -67,8 +69,15 @@ namespace Bryndzaky.Hub
             Button button = upgrade.GetComponentInChildren<Button>();
             button.onClick.RemoveAllListeners();
             weaponIcon.sprite = weapon.prefab.GetComponentInChildren<SpriteRenderer>().sprite;
-            Toggle weaponToggle = upgrade.GetComponentInChildren<Toggle>();
-            weaponToggle.onValueChanged.RemoveAllListeners();
+            // Toggle weaponToggle = upgrade.GetComponentInChildren<Toggle>();
+            // weaponToggle.onValueChanged.RemoveAllListeners();
+
+            #region Enable components
+            foreach (Image img in upgrade.GetComponentsInChildren<Image>())
+                img.enabled = true;
+            // weaponToggle.enabled = true;
+            weaponName.enabled = true;
+            #endregion
 
             if (this.purchaseButtons.Count != this.armory.allWeapons.Count)
             {
@@ -83,7 +92,7 @@ namespace Bryndzaky.Hub
                 priceText.text = weapon.upgrades[0].price.ToString() + " G";
                 button.onClick.AddListener(() => this.PurchaseWeapon(weapon, upgrade, weapon.upgrades[0].price));
 
-                weaponToggle.enabled = false;
+                // weaponToggle.enabled = false;
             }
             else
             {
@@ -100,11 +109,11 @@ namespace Bryndzaky.Hub
 
                 button.onClick.AddListener(() => this.UpgradeWeapon(weapon, upgrade, weapon.upgrades[weaponGrade + 1].price));
 
-                weaponToggle.enabled = true;
-                weaponToggle.onValueChanged.AddListener(isOn => this.ToggleWeapon(weaponToggle, isOn));
+                // weaponToggle.enabled = true;
+                // weaponToggle.onValueChanged.AddListener(isOn => this.ToggleWeapon(weaponToggle, isOn));
 
-                if (StateManager.State.activeWeapons.Contains(weapon.name))
-                    weaponToggle.isOn = true;
+                // if (StateManager.State.activeWeapons.Contains(weapon.name))
+                //     weaponToggle.isOn = true;
             }
         }
 
@@ -128,35 +137,35 @@ namespace Bryndzaky.Hub
             this.SetupUpgrade(weapon, upgrade);
         }
 
-        private void ToggleWeapon(Toggle toggle, bool isOn)
-        {
-            Transform upgrade = toggle.transform.parent;
-            string weaponName = upgrade.transform.Find("WeaponName").GetComponent<TextMeshProUGUI>().text.Split('+')[0].Trim();
+        // private void ToggleWeapon(Toggle toggle, bool isOn)
+        // {
+        //     Transform upgrade = toggle.transform.parent;
+        //     string weaponName = upgrade.transform.Find("WeaponName").GetComponent<TextMeshProUGUI>().text.Split('+')[0].Trim();
 
-            if (isOn)
-            {
-                if (StateManager.State.activeWeapons.Count >= 4)
-                {
-                    toggle.isOn = false;
-                    return;
-                }
+        //     if (isOn)
+        //     {
+        //         if (StateManager.State.activeWeapons.Count >= 4)
+        //         {
+        //             toggle.isOn = false;
+        //             return;
+        //         }
 
-                upgrade.GetComponent<Image>().color = Color.green;
+        //         upgrade.GetComponent<Image>().color = Color.green;
                 
-                if (!StateManager.State.activeWeapons.Contains(weaponName))
-                {
-                    StateManager.State.activeWeapons.Add(weaponName);
-                    // PlayerPrefs.SetString("ActiveWeapons", string.Join("|", this.activeWeapons));
-                    // PlayerPrefs.Save();
-                }
+        //         if (!StateManager.State.activeWeapons.Contains(weaponName))
+        //         {
+        //             StateManager.State.activeWeapons.Add(weaponName);
+        //             // PlayerPrefs.SetString("ActiveWeapons", string.Join("|", this.activeWeapons));
+        //             // PlayerPrefs.Save();
+        //         }
 
-                return;
-            }
+        //         return;
+        //     }
 
-            upgrade.GetComponent<Image>().color = new Color(1, 170f/255f, 0);
-            StateManager.State.activeWeapons.Remove(weaponName);
-            // PlayerPrefs.SetString("ActiveWeapons", string.Join("|", this.activeWeapons));
-            // PlayerPrefs.Save();
-        }
+        //     upgrade.GetComponent<Image>().color = new Color(1, 170f/255f, 0);
+        //     StateManager.State.activeWeapons.Remove(weaponName);
+        //     // PlayerPrefs.SetString("ActiveWeapons", string.Join("|", this.activeWeapons));
+        //     // PlayerPrefs.Save();
+        // }
     }
 }

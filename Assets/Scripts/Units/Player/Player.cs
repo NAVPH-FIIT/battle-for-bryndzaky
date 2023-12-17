@@ -124,11 +124,11 @@ namespace Bryndzaky.Units.Player {
             StateManager.State.gold += gold;
             StateManager.State.xp += xp;
 
-            int next_level = (int) Math.Pow(100, StateManager.State.level);
-            if (StateManager.State.xp >= next_level)
+            if (StateManager.State.xp >= StateManager.State.NextLevel)
             {
-                StateManager.State.xp -= next_level;
+                StateManager.State.xp -= StateManager.State.NextLevel;
                 StateManager.State.level++;
+                StateManager.State.skillpoints++;
             }
         }
 

@@ -7,6 +7,7 @@ using Bryndzaky.Combat.Spells;
 using System;
 using System.Linq;
 using Bryndzaky.General.Common;
+using UnityEngine.SceneManagement;
 
 namespace Bryndzaky.Combat
 {
@@ -29,7 +30,14 @@ namespace Bryndzaky.Combat
         }
         
         [SerializeField] private Armory armory;
-        public List<ActiveWeapon> activeWeapons { get; private set; }
+        private List<ActiveWeapon> activeWeapons;
+        public List<ActiveWeapon> ActiveWeapons
+        { 
+            get
+            {
+                return SceneManager.GetActiveScene().name == "Hub" ? this.BuildActiveWeapons() : this.activeWeapons;
+            } 
+        }
 
         //[SerializeField]
         //sprivate List<GameObject> spells;
@@ -37,32 +45,28 @@ namespace Bryndzaky.Combat
         void Start() {
             Instance = this;
 
-            if (StateManager.State.activeWeapons.Any())
-            {
-                // var chosenWeapons = PlayerPrefs.GetString("ActiveWeapons").Split("|");
-                this.activeWeapons = this.armory.allWeapons
-                    .Where(entry => StateManager.State.activeWeapons.Contains(entry.name))
-                    .Select(entry => new ActiveWeapon(
-                        entry.name,
-                        entry.prefab,
-                        entry.upgrades[StateManager.State.GetWeaponGrade(entry.name)]
-                    ))
-                    .Take(4).ToList();
-            }
-            else
-                this.activeWeapons = this.armory.allWeapons
-                    .Select(entry => new ActiveWeapon(
-                        entry.name,
-                        entry.prefab,
-                        entry.upgrades[0]
-                    ))
-                    .Take(4).ToList();
+            this.activeWeapons = this.BuildActiveWeapons();
         }
 
-        // public GameObject[] GetWeapons()
-        // {
-        //     return this.weapons.ToArray();
-        // }
+        private List<ActiveWeapon> BuildActiveWeapons()
+        {
+            return StateManager.State.activeWeapons.Any()
+            ? this.armory.allWeapons
+                .Where(entry => StateManager.State.activeWeapons.Contains(entry.name))
+                .Select(entry => new ActiveWeapon(
+                    entry.name,
+                    entry.prefab,
+                    entry.upgrades[StateManager.State.GetWeaponGrade(entry.name)]
+                ))
+                .Take(4).ToList()
+            :  this.armory.allWeapons
+                .Select(entry => new ActiveWeapon(
+                    entry.name,
+                    entry.prefab,
+                    entry.upgrades[0]
+                ))
+                .Take(4).ToList();
+        }
 
         public ISpell[] GetSpells()
         {
