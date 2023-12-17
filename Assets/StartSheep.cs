@@ -11,7 +11,7 @@ public class StartSheep : MonoBehaviour, IDeathrattle
     private DoorUnlockScript door;
     public void GrantReward()
     {
-        sheep.enabled = true;
+        sheep.run = true;
         door.unlocked = true;
         Debug.Log("sheep started");
     }
