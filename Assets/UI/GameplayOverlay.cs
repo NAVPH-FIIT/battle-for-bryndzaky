@@ -17,13 +17,19 @@ namespace Bryndzaky.General.Common
     public partial class GameplayOverlay : MonoBehaviour
     {
         Slider healthBar;
+        Slider xpBar;
+        TextMeshProUGUI xpText;
+        TextMeshProUGUI goldText;
 
         void Start()
         {
             this.activeWeaponImage = transform.Find("ActiveWeaponSlot").Find("ActiveWeapon").GetComponent<Image>();
-            this.weaponText = GetComponentInChildren<TextMeshProUGUI>();
+            this.weaponText = transform.Find("WeaponWheel").GetComponentInChildren<TextMeshProUGUI>();
             this.weaponWheel = transform.Find("WeaponWheel").gameObject;
             this.healthBar = transform.Find("HealthBar").GetComponent<Slider>();
+            this.xpBar = transform.Find("XPBar").GetComponent<Slider>();
+            this.xpText = transform.Find("XPBar").Find("XPText").GetComponent<TextMeshProUGUI>();
+            this.goldText = transform.Find("GoldCounter").GetComponentInChildren<TextMeshProUGUI>();
 
             // var activeWeapons = CombatManager.Instance.activeWeapons;
             // for (int i = 0; i < activeWeapons.Count; i++)
@@ -36,7 +42,11 @@ namespace Bryndzaky.General.Common
 
         void Update()
         {
-            healthBar.value = Player.Instance.GetHealth();
+            this.healthBar.value = (((float)Player.Instance.GetHealth()) / Player.Instance.GetmaxHealth()) * 100;
+            this.xpBar.value = (((float)StateManager.State.xp) / StateManager.State.NextLevel) * 100;
+            this.xpText.text = StateManager.State.xp + " / " + StateManager.State.NextLevel;
+            this.goldText.text = StateManager.State.gold.ToString();
+        
             this.weaponWheel.SetActive(Input.GetButton("WeaponWheel"));
             this.UpdateWeaponWheel();
         }

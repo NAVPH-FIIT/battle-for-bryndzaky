@@ -51,8 +51,8 @@ namespace Bryndzaky.General.Common
 
             public int skillpoints = 0;
             public int level = 1;
-            public int NextLevel {get { return (int) Math.Pow(100, level); }}
-            public int gold = 10000;
+            public int NextLevel {get { return 100 * (int) Math.Pow(2, level -1); }}
+            public int gold = 100;
             public int xp = 0;
             public List<string> activeWeapons = new List<string> { "Sword" };
             public List<Consumable> consumables = new();

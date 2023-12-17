@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
+        StateManager.ClearSave();
+        StateManager.State.entryScene = "hub";
         SceneChanger.Instance.ChangeScene(StateManager.State.entryScene, StateManager.State.entryScene == "level_1" ? "Triezviem..." : "Loading...");
         // SceneManager.LoadScene();
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
