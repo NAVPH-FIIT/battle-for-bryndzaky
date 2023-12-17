@@ -69,7 +69,7 @@ namespace Bryndzaky.Hub
         private Button SetupUpgrade(Transform statUpgrade)
         {
             var statText = statUpgrade.GetComponentInChildren<TextMeshProUGUI>();
-            string prefix = statText.text.Split(":")[0];
+            string prefix = statText.text.Split(":")[0].Trim();
             string statId = prefix.ToLower().Replace(' ', '_').Trim();
 
             var stat = StateManager.State.stats.Find(s => s.name == statId);
@@ -100,7 +100,7 @@ namespace Bryndzaky.Hub
             //         break;
             //     }
             // }
-    	    statText.text = prefix + ": " + (stat == null ? -1 : stat.value);
+    	    statText.text = prefix + " : " + (stat == null ? -1 : stat.value);
             
             var upgradeButton = statUpgrade.GetComponentInChildren<Button>();
             

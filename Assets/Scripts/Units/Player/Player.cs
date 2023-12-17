@@ -94,6 +94,7 @@ namespace Bryndzaky.Units.Player {
         
         private void Initialize()
         {
+            // StateManager.ClearSave();
             foreach (var stat in StateManager.State.stats)
                 switch (stat.name)
                 {

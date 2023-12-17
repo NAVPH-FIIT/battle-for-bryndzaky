@@ -37,4 +37,4 @@ MonoBehaviour:
   - IsHeroTalking: 1
     Sentence: "Idem teda pre to. Je to zbojn\xEDk, \u010Do mi tak m\xF4\u017Ee da\u0165?"
   name: "Polospiaci str\xE1\u017Enik"
-  characterImage: {fileID: 21300000, guid: e45bd3445467a85458dbd7489d96a56e, type: 3}
+  characterImage: {fileID: 21300000, guid: d7a730d1fe6185341a3595cd97b32e0c, type: 3}

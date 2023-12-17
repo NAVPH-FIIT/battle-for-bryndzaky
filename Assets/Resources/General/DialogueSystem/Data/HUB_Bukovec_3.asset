@@ -24,4 +24,4 @@ MonoBehaviour:
   - IsHeroTalking: 1
     Sentence: "Porozm\xFD\u0161lame nad t\xFDm."
   name: Ivan Bukovec
-  characterImage: {fileID: 21300000, guid: 68b9a4a22842ac44f9ea4ad41c1d5005, type: 3}
+  characterImage: {fileID: 21300000, guid: c853b8abf337fbb468933fe84f469aa3, type: 3}

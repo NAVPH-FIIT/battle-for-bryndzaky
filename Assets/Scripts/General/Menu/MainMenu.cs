@@ -8,7 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene(StateManager.State.entryScene);
+        SceneChanger.Instance.ChangeScene(StateManager.State.entryScene, StateManager.State.entryScene == "level_1" ? "Triezviem..." : "Loading...");
+        // SceneManager.LoadScene();
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         // SceneManager.LoadScene("Hub");
     }

@@ -59,13 +59,14 @@ namespace Bryndzaky.General.Common
             public List<Stat> stats = new List<Stat> {
                 new Stat {name="max_health", value=100, increment=50},
                 new Stat {name="move_speed", value=10, increment=1},
-                new Stat {name="dash_speed", value=10, increment=1}
+                new Stat {name="dash_speed", value=15, increment=5}
             };
             public List<AvailableWeapon> availableWeapons = new List<AvailableWeapon> {
                 new AvailableWeapon {name="Sword", grade=0}
             };
             public List<Quest> quests = new();
-            public string entryScene = "Levels/Level_1/Level_1";
+            public string entryScene = "level_1";
+            // public int entryScene = 1;
 
             public int GetWeaponGrade(string name)
             {
@@ -137,9 +138,12 @@ namespace Bryndzaky.General.Common
 
         public static void ClearSave()
         {
-            if (File.Exists(path))
-                File.Delete(path);
-            state = null;
+            lock (saveLock)
+            {
+                if (File.Exists(path))
+                    File.Delete(path);
+                state = null;
+            }
         }
     }
 }
