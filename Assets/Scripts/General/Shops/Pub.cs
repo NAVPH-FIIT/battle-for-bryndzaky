@@ -21,7 +21,9 @@ namespace Bryndzaky.Hub
   
 
         public void Start()
-        {            
+        {
+            gameObject.SetActive(false);
+            // StateManager.State.gold = 100000;
             foreach (Transform consumable in this.consumablesContainer.transform)
             {
                 string name = consumable.Find("ConsumableName").GetComponent<TextMeshProUGUI>().text;

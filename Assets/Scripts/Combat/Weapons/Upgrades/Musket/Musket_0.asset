@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b88b2d33074e34bb09e39012be3527, type: 3}
   m_Name: Musket_0
   m_EditorClassIdentifier: 
-  price: 0
-  damage: 5
-  cooldown: 1
-  range: 10
+  price: 500
+  damage: 15
+  cooldown: 3
+  range: 20
   burst: 0
   burstCooldown: 0.1
-  burstSize: 5
+  burstSize: 1
