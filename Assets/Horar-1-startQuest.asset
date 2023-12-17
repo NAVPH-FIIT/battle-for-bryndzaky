@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: Horar-1-startQuest
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 0
+    Sentence: Zzzzzz....zzzzz.....zzzzzz.....zzzzzzz
+  - IsHeroTalking: 1
+    Sentence: "Hej ty star\xFD ospalec zobu\u010F sa!"
+  - IsHeroTalking: 0
+    Sentence: "Ehm ehm \u010Do \u010Do...pre\u010Do ma takto nehanebne bud\xED\u0161?!"
+  - IsHeroTalking: 1
+    Sentence: "Prep\xE1\u010D ale potrebujem sa nutne dosta\u0165 k miestnemu Ba\u010Dovi.
+      Potrebujem od neho nejak\xFA \u017Ein\u010Dicu."
+  - IsHeroTalking: 0
+    Sentence: "Prrrrrrr si na m\u0148a moc hrrrrrrrr"
+  - IsHeroTalking: 0
+    Sentence: "Jasn\xE9 \u017Ee viem, kde sa nach\xE1dza ale ako sa hovor\xED kto
+      druh\xE9mu jamu kope potrebuje lopatu."
+  - IsHeroTalking: 1
+    Sentence: "Uhm..\u010Do?"
+  - IsHeroTalking: 0
+    Sentence: "Teda nie nie zl\xE9 prirovnanie som zadrel. Zadarmo ani kura nehrabe."
+  - IsHeroTalking: 1
+    Sentence: "Och no dobre, \u010Do m\xE1m teda spravi\u0165 aby si mi pomohol."
+  - IsHeroTalking: 0
+    Sentence: "Takto sa mi to u\u017E p\xE1\u010Di viac ty pre\u0161porsk\xFD budzog\xE1\u0148. "
+  - IsHeroTalking: 0
+    Sentence: "Ne\u010Faleko odttia\u013Eto sa nach\xE1dza za\u010Darovan\xE1 l\xFAka
+      obkolepen\xE1 skalami ostr\xFDmi ako zuby draka. Na nej \u017Eije pref\xEDkan\xFD
+      k\xFAzeln\xFD li\u0161iak. "
+  - IsHeroTalking: 1
+    Sentence: "V \u010Dom je k\xFAzeln\xFD?"
+  - IsHeroTalking: 0
+    Sentence: "Joj ty nevzdelen\xE9 poleno. Predsa je \u010Dertovsky r\xFDchly a
+      ned\xE1 sa spomali\u0165!"
+  - IsHeroTalking: 1
+    Sentence: "To d\xE1va zmysel...hmm tak ja ti toho li\u0161iaka chyt\xEDm."
+  - IsHeroTalking: 0
+    Sentence: "Dobre ale nezabudni, \u017Ee na to aby si li\u0161iaka vyl\xE1kal,
+      mus\xED\u0161 n\xE1js\u0165 \u0161pecialnu li\u0161iacku n\xE1vnadu ukryt\xFA
+      niekde v bl\xEDzkosti za\u010Darovanej l\xFAky."
+  - IsHeroTalking: 1
+    Sentence: "D\xFAfam \u017Ee mi to za to n\xE1mahu bude st\xE1\u0165 ty \u0161pekulant."
+  name: "Hor\xE1r G\xE1bor"
+  characterImage: {fileID: 21300000, guid: ef61637f34700a24390ed45b9e5f2a29, type: 3}

@@ -23,9 +23,9 @@ namespace Bryndzaky.Units.Player {
         public float dashCoolDown = 1f;
         protected bool isDashing = false;
         protected override void Start() {
-            this.Initialize();
             base.Start();
             Instance = this;
+            this.Initialize();
             // this.weapon = WeaponManager.Instance.GetSword();
         }
 
@@ -93,7 +93,7 @@ namespace Bryndzaky.Units.Player {
             moveSpeed = defaultSpeed;
         }
         
-        private void Initialize()
+        public void Initialize()
         {
             // StateManager.ClearSave();
             // this.GrantReward(120, 5000);
@@ -121,6 +121,8 @@ namespace Bryndzaky.Units.Player {
                         break;
                     }
                 }
+            
+            this.Health = this.maxHealth;
         }
 
         public void GrantReward(int xp, int gold)

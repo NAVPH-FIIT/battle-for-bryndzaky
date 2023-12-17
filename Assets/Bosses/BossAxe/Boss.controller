@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypointDistance: 3
+  speed: 3
 --- !u!1102 &-6970072050029501624
 AnimatorState:
   serializedVersion: 6
@@ -322,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55330cc3ffadc24d8e6c775fc512b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rushspeed: 6
 --- !u!1101 &7104018942711836205
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

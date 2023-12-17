@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: Horar-3-reward
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 1
+    Sentence: "Tu m\xE1\u0161 teda tu hl\xFApu ko\u017Eu."
+  - IsHeroTalking: 0
+    Sentence: "Ty si ho naozaj lapil?! Popravde som ani ned\xFAfal \u017Ee by sa
+      to pre\u0161porsk\xE9mu z\xE1prdku mohlo podari\u0165."
+  - IsHeroTalking: 1
+    Sentence: "U\u0161etri ma u\u017E t\xFDchto hl\xFApych nar\xE1\u017Eok a povedz
+      mi kde n\xE1jdem ba\u010Du."
+  - IsHeroTalking: 0
+    Sentence: "Ba\u010Da sa nach\xE1dza u seba na sala\u0161i, no pred ned\xE1vnom
+      banda lapkov na \u010Dele s Arp\xE1dom Hrozn\xFDm napadla jeho chot\xE1r a
+      ukradli mu jeho ob\u013E\xFAben\xFA ovcu."
+  - IsHeroTalking: 1
+    Sentence: "Ty prehnanec! To sa teraz budem musie\u0165 teriga\u0165 za nejakou
+      ovcou?!"
+  - IsHeroTalking: 0
+    Sentence: "Presne tak. Ak chce\u0161 aby ti Ba\u010Da otvoril dvere na sala\u0161i,
+      bude\u0161 musie\u0165 n\xE1js\u0165 jeho ovcu niekde v chot\xE1ri."
+  - IsHeroTalking: 0
+    Sentence: "Za ten l\xED\u0161\u010Di ko\u017Euch ti v\u0161ak pom\xF4\u017Eem
+      aspo\u0148 takto. Tu m\xE1\u0161 k\u013E\xFA\u010D od Ba\u010Dovho chot\xE1ra,
+      vchod sa nach\xE1dza niekde na za\u010Darovanej l\xFAke, kde si u\u017E lovil
+      li\u0161iaka."
+  - IsHeroTalking: 0
+    Sentence: "Ber a u\u017E ma nechaj tak, m\xE1m tu nie\u010Do na pr\xE1ci."
+  name: "Hor\xE1r G\xE1bor"
+  characterImage: {fileID: 21300000, guid: ef61637f34700a24390ed45b9e5f2a29, type: 3}

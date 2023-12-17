@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: baca-greetings
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 1
+    Sentence: "P\xE1n Ba\u010Da vediem v\xE1m va\u0161u ove\u010Dku."
+  - IsHeroTalking: 0
+    Sentence: "Miladka si to ty?! \u010Eakujem ve\u013Emi pekne cudzinec, ako sa
+      ti len mo\u017Eem odv\u010Fa\u010Di\u0165. Vol\xE1m sa Baltaz\xE1r \u010Cajkovi\u010D
+      ale m\xF4\u017Ee\u0161 mi hovori\u0165 skr\xE1tene Ba\u010Da."
+  - IsHeroTalking: 1
+    Sentence: "Nem\xE1\u0161 absol\xFAtne za\u010D Ba\u010Da. Potreboval bysom na
+      opl\xE1tku len trocha \u017Ein\u010Dice."
+  - IsHeroTalking: 0
+    Sentence: "Ve\u013Emi r\xE1d by som ti nejk\xFA \u0161maril do vrecka, no v\u0161etku
+      mi ukradol najob\xE1vanej\u0161\xED zo v\u0161etk\xFDch zbojn\xEDkov. Ob\xE1van\xFD
+      El Bandito. Nikto v\u0161ak nevie \u010Do toto exotick\xE9 meno znamen\xE1."
+  - IsHeroTalking: 0
+    Sentence: "Ak sa ti ho v\u0161ak podar\xED rozp\xE1ra\u0165, naber si \u017Ein\u010Dice
+      ko\u013Eko len potrebuje\u0161! Moju Miladku by som aj zlatom vyv\xE1\u017Eil"
+  - IsHeroTalking: 1
+    Sentence: "Dobre teda, El Bandito idem si po teba! Aj ke\u010F vobec netu\u0161\xEDm
+      pre\u010Do sa tak naz\xFDva\u0161."
+  name: "BAltaz\xE1r \u010CAjkovi\u010D"
+  characterImage: {fileID: 21300000, guid: fbfaf14f99215e649a9ab80ddd8d7df2, type: 3}

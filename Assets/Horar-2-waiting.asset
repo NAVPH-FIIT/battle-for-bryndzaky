@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac23e97cb3a9c049a22822bc92fb1cf, type: 3}
+  m_Name: Horar-2-waiting
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - IsHeroTalking: 0
+    Sentence: "Pokia\u013E mi nenesie\u0161 li\u0161iakovu ko\u017Eu ani sa neob\u0165a\u017Euj
+      ma otravova\u0165."
+  name: "Hor\xE1r G\xE1bor"
+  characterImage: {fileID: 21300000, guid: ef61637f34700a24390ed45b9e5f2a29, type: 3}

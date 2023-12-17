@@ -68,6 +68,7 @@ public abstract class Spawner : MonoBehaviour
     }
     public void Start()
     {
+        this.spawnerCollider = GetComponent<Collider2D>();
         foreach (IEntity entity in this.Entities)
             entity.ManualStart(this);
     }

@@ -11,6 +11,8 @@ public class RushAttack : StateMachineBehaviour
     private CircleCollider2D rushAoe;
     private Vector2 playerPos;
     private float timeEnd;
+    [SerializeField]
+    private float rushspeed = 1f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -33,7 +35,7 @@ public class RushAttack : StateMachineBehaviour
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
         Vector2 direction = (playerPos - rb.position).normalized;
-        rb.velocity = direction * 8f;
+        rb.velocity = direction * 3f * rushspeed;
         if (Vector2.Distance(playerPos, rb.position) < 0.5 || Time.time > timeEnd) 
         {
             animator.SetBool("RushAttack", false);

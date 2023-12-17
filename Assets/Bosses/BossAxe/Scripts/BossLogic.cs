@@ -16,6 +16,8 @@ public class BossLogic : StateMachineBehaviour
     private Vector2 direction;
     [SerializeField]
     private float nextWaypointDistance = 3;
+    [SerializeField]
+    private float speed = 1f;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -50,17 +52,17 @@ public class BossLogic : StateMachineBehaviour
         }
         if (Time.time > nextChoice)
         {
-            if (Vector2.Distance(rb.position, player.position) > 5f)
+            if (Vector2.Distance(rb.position, player.position) > 12f)
             {
                 int randomChoice = Random.Range(0, 10);
                 Debug.Log(randomChoice);
                 if (randomChoice == 0)
                     animator.SetBool("RushAttack", true);
             }
-            if (Vector2.Distance(rb.position, player.position) < 2.5f)
+            if (Vector2.Distance(rb.position, player.position) < 10f)
             {
                 int randomChoice;
-                if (Vector2.Distance(rb.position, player.position) > 1f)
+                if (Vector2.Distance(rb.position, player.position) > 5f)
                 {
                     Debug.Log("far");
                     randomChoice = Random.Range(0, 2);   
@@ -127,7 +129,7 @@ public class BossLogic : StateMachineBehaviour
 
 
         direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 velo = 1 * direction * 3; //* Time.deltaTime;
+        Vector2 velo = speed * direction * 3; //* Time.deltaTime;
 
         rb.velocity = velo;
 
