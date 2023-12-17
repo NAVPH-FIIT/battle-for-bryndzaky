@@ -34,7 +34,8 @@ MonoBehaviour:
   - IsHeroTalking: 0
     Sentence: "Za ten l\xED\u0161\u010Di ko\u017Euch ti v\u0161ak pom\xF4\u017Eem
       aspo\u0148 takto. Tu m\xE1\u0161 k\u013E\xFA\u010D od Ba\u010Dovho chot\xE1ra,
-      vchod sa nach\xE1dza niekde v za\u010Darovanom lese kde si u\u017E lovil li\u0161iaka."
+      vchod sa nach\xE1dza niekde na za\u010Darovanej l\xFAke, kde si u\u017E lovil
+      li\u0161iaka."
   - IsHeroTalking: 0
     Sentence: "Ber a u\u017E ma nechaj tak, m\xE1m tu nie\u010Do na pr\xE1ci."
   name: "Hor\xE1r G\xE1bor"

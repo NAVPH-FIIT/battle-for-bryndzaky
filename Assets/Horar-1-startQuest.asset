@@ -36,8 +36,9 @@ MonoBehaviour:
   - IsHeroTalking: 0
     Sentence: "Takto sa mi to u\u017E p\xE1\u010Di viac ty pre\u0161porsk\xFD budzog\xE1\u0148. "
   - IsHeroTalking: 0
-    Sentence: "Ne\u010Faleko odttia\u013Eto sa nach\xE1dza za\u010Darovan\xFD les.
-      V \u0148om \u017Eije pref\xEDkan\xFD k\xFAzeln\xFD li\u0161iak. "
+    Sentence: "Ne\u010Faleko odttia\u013Eto sa nach\xE1dza za\u010Darovan\xE1 l\xFAka
+      obkolepen\xE1 skalami ostr\xFDmi ako zuby draka. Na nej \u017Eije pref\xEDkan\xFD
+      k\xFAzeln\xFD li\u0161iak. "
   - IsHeroTalking: 1
     Sentence: "V \u010Dom je k\xFAzeln\xFD?"
   - IsHeroTalking: 0
@@ -48,7 +49,7 @@ MonoBehaviour:
   - IsHeroTalking: 0
     Sentence: "Dobre ale nezabudni, \u017Ee na to aby si li\u0161iaka vyl\xE1kal,
       mus\xED\u0161 n\xE1js\u0165 \u0161pecialnu li\u0161iacku n\xE1vnadu ukryt\xFA
-      niekde v za\u010Darovanom lese."
+      niekde v bl\xEDzkosti za\u010Darovanej l\xFAky."
   - IsHeroTalking: 1
     Sentence: "D\xFAfam \u017Ee mi to za to n\xE1mahu bude st\xE1\u0165 ty \u0161pekulant."
   name: "Hor\xE1r G\xE1bor"
