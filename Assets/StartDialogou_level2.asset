@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueEntries:
   - IsHeroTalking: 1
-    Sentence: Musim najst toho horara
+    Sentence: "Hmm kde len tu n\xE1jdem toho Ba\u010Du. Mal by som sa tu tro\u0161ka
+      porozhliadn\xFA\u0165."
   name: 
   characterImage: {fileID: 0}
