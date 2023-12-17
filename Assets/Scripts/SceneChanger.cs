@@ -5,14 +5,15 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine.UI;
+using System.Threading;
 
 public class SceneChanger : MonoBehaviour
 {
   [HideInInspector] public static SceneChanger Instance { get; private set; }
   [SerializeField] private Animator transition;
   [SerializeField] private float transitionTime = 1f;
-  Image transitionImage;
-  TextMeshProUGUI transitionText;
+  private Image transitionImage;
+  private TextMeshProUGUI transitionText;
   private readonly Dictionary<string, int> sceneTranslation = new Dictionary<string, int> 
   {
     { "hub", 2 },
@@ -24,6 +25,7 @@ public class SceneChanger : MonoBehaviour
   {
     this.transitionText = GetComponentInChildren<TextMeshProUGUI>();
     this.transitionImage = GetComponentInChildren<Image>();
+    this.transitionImage.raycastTarget = false;
   }
   private void Awake()
   {
@@ -38,46 +40,31 @@ public class SceneChanger : MonoBehaviour
       }
   }
 
-  public void ChangeScene(string scene, string transitionText)
+  public void ChangeScene(string scene, string transitionText, bool red = false)
   {
     this.transitionText.text = transitionText;
-    StartCoroutine(LoadLevel(this.sceneTranslation[scene]));
-    // LoadLevel(sceneIndex);
+    StartCoroutine(LoadLevel(this.sceneTranslation[scene.ToLower()], red));
+    // LoadLevel(this.sceneTranslation[scene.ToLower()], red);
   }
 
-  private IEnumerator LoadLevel(int sceneIndex)
-  // private void LoadLevel(int sceneIndex)
+  private IEnumerator LoadLevel(int sceneIndex, bool red)
+  // private void LoadLevel(int sceneIndex, bool red)
   {
-    this.transitionImage.enabled = true;
-    transition.SetTrigger("Start");
+    this.transitionImage.raycastTarget = true;
+    this.transitionImage.color = red ? Color.red : Color.black;
+    GetComponentInChildren<CanvasGroup>().alpha = 1;
 
-    yield return new WaitForSeconds(this.transitionTime);
-    // transition.
-    SceneManager.LoadScene(sceneIndex);
-    // transition.SetTrigger("End");
+    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneIndex);
+
+    while (!asyncLoad.isDone)
+    {
+        float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);
+        Debug.Log("Loading progress: " + (progress * 100) + "%");
+
+        yield return null;
+    }
+
+    GetComponentInChildren<CanvasGroup>().alpha = 0;
+    this.transitionImage.raycastTarget = false;
   }
-  // public string sceneName;
-  // public Animator transition;
-  // public float transitionTime = 1f;
-  // public void OnTriggerEnter2D(Collider2D other)
-  // {
-  //   if (other.CompareTag("Player"))
-  //   {
-  //     ChangeScene();
-  //   }
-  // }
-
-  // public void ChangeScene()
-  // {
-  //   StartCoroutine(LoadLevel(sceneName));
-  // }
-
-  // private IEnumerator LoadLevel(string levelName)
-  // {
-  //   transition.SetTrigger("Start");
-
-  //   yield return new WaitForSeconds(transitionTime);
-
-  //   SceneManager.LoadScene(sceneName);
-  // }
 }

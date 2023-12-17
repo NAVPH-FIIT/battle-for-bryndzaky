@@ -23,7 +23,7 @@ namespace Bryndzaky.Hub
         private List<TextMeshProUGUI> statTexts = new();
         // private List<string> activeWeapons;
         // private int skillpoints;
-        private TextMeshProUGUI skillpointText;
+        private TextMeshProUGUI skillpointText = null;
   
         public void Start()
         {   
@@ -33,8 +33,8 @@ namespace Bryndzaky.Hub
             
             // this.InitializeStats();
             // this.skillpoints = PlayerPrefs.GetInt("skillpoints", 0);
-            this.skillpointText = transform.Find("SkillPointsText").GetComponent<TextMeshProUGUI>();
-            this.skillpointText.text = this.skillpointText.text.Split(":")[0] + ": " + StateManager.State.skillpoints;
+            // this.skillpointText = transform.Find("SkillPointsText").GetComponent<TextMeshProUGUI>();
+            
 
             // this.activeWeapons = PlayerPrefs.GetString("ActiveWeapons", "").Split('|').ToList();
 
@@ -44,6 +44,9 @@ namespace Bryndzaky.Hub
 
         public void OnEnable()
         {
+            this.skillpointText = this.skillpointText == null ? transform.Find("SkillPointsText").GetComponent<TextMeshProUGUI>() : this.skillpointText;
+            this.skillpointText.text = this.skillpointText.text.Split(":")[0] + ": " + StateManager.State.skillpoints;
+
             foreach (Transform currentWeapon in this.weaponContainer.transform)
                 Destroy(currentWeapon.gameObject);
 

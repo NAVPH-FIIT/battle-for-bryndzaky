@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Bryndzaky.Combat.Weapons;
 using System;
+using UnityEngine.SceneManagement;
 
 namespace Bryndzaky.Units.Player {
     public class Player : Unit
@@ -22,9 +23,9 @@ namespace Bryndzaky.Units.Player {
         public float dashCoolDown = 1f;
         protected bool isDashing = false;
         protected override void Start() {
+            this.Initialize();
             base.Start();
             Instance = this;
-            this.Initialize();
             // this.weapon = WeaponManager.Instance.GetSword();
         }
 
@@ -95,6 +96,8 @@ namespace Bryndzaky.Units.Player {
         private void Initialize()
         {
             // StateManager.ClearSave();
+            // this.GrantReward(120, 5000);
+            // this.GrantReward(5000, 6000);
             foreach (var stat in StateManager.State.stats)
                 switch (stat.name)
                 {
@@ -125,7 +128,7 @@ namespace Bryndzaky.Units.Player {
             StateManager.State.gold += gold;
             StateManager.State.xp += xp;
 
-            if (StateManager.State.xp >= StateManager.State.NextLevel)
+            while (StateManager.State.xp >= StateManager.State.NextLevel)
             {
                 StateManager.State.xp -= StateManager.State.NextLevel;
                 StateManager.State.level++;
@@ -135,7 +138,17 @@ namespace Bryndzaky.Units.Player {
 
         protected override void Die()
         {
-            Destroy(gameObject);
+            string[] choices = { 
+                "Skapal si", 
+                "Zdochol si", 
+                "Zahynul si", 
+                "Mater ťa bude oplakávať",
+                "Zbíjať budeš v nebi" 
+            };
+
+            string deathQuote = choices[new System.Random().Next(0, choices.Length)];
+
+            SceneChanger.Instance.ChangeScene(SceneManager.GetActiveScene().name, deathQuote, true);
         }
     }
 }
