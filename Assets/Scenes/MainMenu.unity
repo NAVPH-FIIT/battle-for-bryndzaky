@@ -1494,6 +1494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChangeScene
       objectReference: {fileID: 0}
+    - target: {fileID: 136284588507821423, guid: f80abb776b0341d408879562d82b5345, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1997326425141905730, guid: f80abb776b0341d408879562d82b5345, type: 3}
       propertyPath: m_Enabled
       value: 0

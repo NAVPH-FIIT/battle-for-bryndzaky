@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6612315916165362176}
   - component: {fileID: 7189040157527556347}
   - component: {fileID: 7432539611582112563}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PointyStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,14 +26,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7046429393740028253}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.059231512, w: 0.9982443}
+  m_LocalRotation: {x: 0, y: 0, z: 0.05922796, w: 0.99824446}
   m_LocalPosition: {x: 0.3, y: -1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 0.8163265, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 415875083043963167}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.791}
 --- !u!70 &7189040157527556347
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 415875083043963167}
   - component: {fileID: 2685978125949772500}
   - component: {fileID: 5313858374622524248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1209587631
-  m_SortingLayer: 6
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9759332284ab4494c9689c8e94edba57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

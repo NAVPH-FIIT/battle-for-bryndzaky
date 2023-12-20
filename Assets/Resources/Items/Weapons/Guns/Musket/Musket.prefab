@@ -274,4 +274,4 @@ MonoBehaviour:
   burstCooldown: 0.1
   burst: 0
   burstSize: 5
-  projectile: {fileID: 6214855902625219792, guid: c8de8c733703d034eb330a14ecac539b, type: 3}
+  projectile: {fileID: 3739521831439600932, guid: 7382ad1512d685e47a5516c494699b74, type: 3}

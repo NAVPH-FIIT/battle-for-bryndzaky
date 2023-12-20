@@ -26,6 +26,7 @@ public class SceneChanger : MonoBehaviour
     this.transitionText = GetComponentInChildren<TextMeshProUGUI>();
     this.transitionImage = GetComponentInChildren<Image>();
     this.transitionImage.raycastTarget = false;
+    this.transitionText.enabled = false;
   }
   private void Awake()
   {
@@ -50,6 +51,7 @@ public class SceneChanger : MonoBehaviour
   private IEnumerator LoadLevel(int sceneIndex, bool red)
   // private void LoadLevel(int sceneIndex, bool red)
   {
+    this.transitionText.enabled = true;
     this.transitionImage.raycastTarget = true;
     this.transitionImage.color = red ? Color.red : Color.black;
     GetComponentInChildren<CanvasGroup>().alpha = 1;
@@ -66,5 +68,6 @@ public class SceneChanger : MonoBehaviour
 
     GetComponentInChildren<CanvasGroup>().alpha = 0;
     this.transitionImage.raycastTarget = false;
+    this.transitionText.enabled = false;
   }
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Stick_1
   m_EditorClassIdentifier: 
   price: 600
-  damage: 15
+  damage: 30
   cooldown: 1
   AttackTime: 0.25
