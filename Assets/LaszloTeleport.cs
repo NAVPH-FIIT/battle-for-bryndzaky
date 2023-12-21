@@ -5,12 +5,13 @@ using Bryndzaky.Units.Player;
 
 public class LaszloTeleport : MonoBehaviour
 {
+    [SerializeField] private GameObject spawnpoint;
     public void OnTriggerStay2D(Collider2D collider)
     {
-        Player.Instance.gameObject.transform.position = new Vector2(17.1f, 9.9f);
+        Player.Instance.gameObject.transform.position = spawnpoint.transform.position;
     }
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        Player.Instance.gameObject.transform.position = new Vector2(17.1f, 9.9f);
+        Player.Instance.gameObject.transform.position = spawnpoint.transform.position;
     }
 }

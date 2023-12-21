@@ -20,14 +20,14 @@ MonoBehaviour:
       ti len mo\u017Eem odv\u010Fa\u010Di\u0165. Vol\xE1m sa Baltaz\xE1r \u010Cajkovi\u010D
       ale m\xF4\u017Ee\u0161 mi hovori\u0165 skr\xE1tene Ba\u010Da."
   - IsHeroTalking: 1
-    Sentence: "Nem\xE1\u0161 absol\xFAtne za\u010D Ba\u010Da. Potreboval bysom na
-      opl\xE1tku len trocha \u017Ein\u010Dice."
+    Sentence: "Nem\xE1\u0161 absol\xFAtne za\u010D Ba\u010Da. Potreboval by som na
+      opl\xE1tku len trocha bryndze."
   - IsHeroTalking: 0
     Sentence: "Ve\u013Emi r\xE1d by som ti nejk\xFA \u0161maril do vrecka, no v\u0161etku
       mi ukradol najob\xE1vanej\u0161\xED zo v\u0161etk\xFDch zbojn\xEDkov. Ob\xE1van\xFD
       El Bandito. Nikto v\u0161ak nevie \u010Do toto exotick\xE9 meno znamen\xE1."
   - IsHeroTalking: 0
-    Sentence: "Ak sa ti ho v\u0161ak podar\xED rozp\xE1ra\u0165, naber si \u017Ein\u010Dice
+    Sentence: "Ak sa ti ho v\u0161ak podar\xED rozp\xE1ra\u0165, naber si bryndze
       ko\u013Eko len potrebuje\u0161! Moju Miladku by som aj zlatom vyv\xE1\u017Eil"
   - IsHeroTalking: 1
     Sentence: "Dobre teda, El Bandito idem si po teba! Aj ke\u010F vobec netu\u0161\xEDm

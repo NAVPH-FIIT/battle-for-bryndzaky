@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f7f09d2bed3ff4785835471aacba84, type: 3}
   m_Name: Sword_0
   m_EditorClassIdentifier: 
-  price: 50
-  damage: 15
-  cooldown: 1.5
+  price: 0
+  damage: 30
+  cooldown: 2
   AttackTime: 0.25

@@ -77,7 +77,7 @@ namespace Bryndzaky.General.Common
 
 
         private static object saveLock = new();
-        private static readonly string path = Application.persistentDataPath + "/gameState.json";
+        private static readonly string path = Application.persistentDataPath + "/gameState_V2.json";
         private static GameState state;
         private static Thread autosaveThread;
         public static GameState State { 

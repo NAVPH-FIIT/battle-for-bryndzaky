@@ -16,21 +16,21 @@ MonoBehaviour:
   - name: Sword
     prefab: {fileID: 5210169348946084297, guid: cade61aea14fd5d46a430965c701d087, type: 3}
     upgrades:
-    - {fileID: 11400000, guid: c524523a4ea08d24599f43b398892824, type: 2}
-    - {fileID: 11400000, guid: 64a206abbb57b624eb6e821aad64a6ca, type: 2}
-    - {fileID: 11400000, guid: 28321fb48ccb6ba4b816c0d8f60e6cf5, type: 2}
-    - {fileID: 11400000, guid: 50b5281e7a9a082409d7a42697f1e57b, type: 2}
-    - {fileID: 11400000, guid: 3c20ce91089024443b40ba924168d44e, type: 2}
-    - {fileID: 11400000, guid: 01eb86a38be19074dabf9c3dacf766c2, type: 2}
-  - name: Stick
-    prefab: {fileID: 7046429393740028253, guid: 47f5d39519df4bd49bcff56f36d79582, type: 3}
-    upgrades:
     - {fileID: 11400000, guid: 3cc8b2d838206034b986147be775f49b, type: 2}
     - {fileID: 11400000, guid: 4526f4f825af48d42819aa0c00ee7d3d, type: 2}
     - {fileID: 11400000, guid: 5e44be0a4b9f0774e94211fdc752ff29, type: 2}
     - {fileID: 11400000, guid: 5c5c901bd9bac7e48bc960624512d7fb, type: 2}
     - {fileID: 11400000, guid: 40e95601eb90ba54589a624aca4e86b0, type: 2}
     - {fileID: 11400000, guid: b2072aa7ee6400240b9bf9042714900c, type: 2}
+  - name: Stick
+    prefab: {fileID: 7046429393740028253, guid: 47f5d39519df4bd49bcff56f36d79582, type: 3}
+    upgrades:
+    - {fileID: 11400000, guid: c524523a4ea08d24599f43b398892824, type: 2}
+    - {fileID: 11400000, guid: 64a206abbb57b624eb6e821aad64a6ca, type: 2}
+    - {fileID: 11400000, guid: 28321fb48ccb6ba4b816c0d8f60e6cf5, type: 2}
+    - {fileID: 11400000, guid: 50b5281e7a9a082409d7a42697f1e57b, type: 2}
+    - {fileID: 11400000, guid: 3c20ce91089024443b40ba924168d44e, type: 2}
+    - {fileID: 11400000, guid: 01eb86a38be19074dabf9c3dacf766c2, type: 2}
   - name: Musket
     prefab: {fileID: 7558092891764487464, guid: 34abd9cc80f5bdd4ebaf42d7d460ce73, type: 3}
     upgrades:

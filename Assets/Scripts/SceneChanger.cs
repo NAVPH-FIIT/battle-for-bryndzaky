@@ -16,6 +16,7 @@ public class SceneChanger : MonoBehaviour
   private TextMeshProUGUI transitionText;
   private readonly Dictionary<string, int> sceneTranslation = new Dictionary<string, int> 
   {
+    { "menu", 0},
     { "hub", 2 },
     { "level_1", 1 },
     { "level_2", 3 }
